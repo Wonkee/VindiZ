@@ -1,0 +1,31 @@
+VindiZ Overview
+
+Features
+1. Guns
+2. Huge Explorable City
+3. Global Inventory
+4. PVP
+5. Missions
+6. Cars
+7. 
+
+Gameplay
+
+Players enter the zombie apocalypse in an overrun laboratory. This laboratory will act as a tutorial mission for new players to learn the essential parts of the server.
+
+Once players finish the tutorial laboratory, they will find themselves in an underground vault. This vault is the last safe place in the city of Greenfield. In the vault, players can manage their credits and their global inventory. Credits are the currency of VindiZ and the global inventory is your private storage for items.
+
+The vault also has a number of shops where players can stock up on supplies like bandages, medkits, armor, guns and ammo.
+
+Many of the NPCs in the vault will ask players for help completing missions through out the city of Greenfield. These missions vary wildly in type and reward players with faction reputation, money and other items.
+
+To venture out into the zombie-infested city of Greenfield, you may spawn in a random location with a starter kit by using the /start command. This command will REPLACE your inventory with the kit, so do not use this command if you have items in your character's inventory. You can choose where you wish to spawn in the city by right-clicking the appropriate warp sign- this option will not affect your inventory.
+
+The only way to return to the vault is by using a SafeZone warp sign. There are many SafeZone warp signs around Greenfield. You can find them all on the dynmap or just look for a beacon as each warp sign in Greenfield is marked by a beacon.
+
+Once in the city of Greenfield, you can scavenge for loot chests, kill zombies and players, complete missions or search for special bosses to battle. The city is very large and very detailed. The vast majority of buildings in the city can be entered and explored. There are even secret areas around the city, like vaults, sewers, subways, tunnels and more.
+
+
+Making Money
+
+Zombies will drop "coins" when killed (rotten flesh re-textured). These coins can be collected and exchanged for credits in the vault bank. Credits are safe and not lost when you die.
