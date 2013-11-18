@@ -1,0 +1,17 @@
+'Scan':
+  type: world
+  events:  
+    on walked over Scan:
+    - if <player.flag[cooldown]> queue clear
+      else if !<player.flag[cooldown]> {
+      - flag cooldown duration:10
+      - narrate "<&2>.... ... Scan Sequence intialized"
+      - random 6
+      - narrate "<&d>Unable to scan as subject has left the area."
+      - narrate "<&c><player.name.display> <&6>was scanned for infections."
+      - narrate "<&c><player.name.display> <&6>Needs to take a shower."
+      - narrate "<&c><player.name.display><&6> has <player.health> health remaining."
+      - narrate "<&c><player.name.display><&6> has a balance of <player.money.asint>."
+      - narrate "<&6><util.random.int[1].to[1000000000]>."
+      - narrate "<&2>Scan results completed."   
+      }

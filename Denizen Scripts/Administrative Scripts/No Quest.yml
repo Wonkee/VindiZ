@@ -1,0 +1,17 @@
+'No Quests':
+    type: interact
+    Requirements:
+     Mode: none
+     List:
+    steps:
+        '1':
+            click trigger:
+                script:
+                - chat "I currently have no quests for you at this time, please check back later."
+                - wait 1
+                - random 4
+                - chat "Welcome <&b><flag.p:current_rank || Peasant> <player.name><&e>, How may I be of service?"
+                - chat "We need more adventurers like yourself <&b><player.name><&e>."
+                - chat "Glad to see you're still alive <&b><player.name><&e>."
+                - chat "Welcome back <&b><flag.p:current_rank || Peastant> <player.name><&e>. I hope your quest went well."
+                - cooldown duration:10

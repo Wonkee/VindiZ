@@ -1,0 +1,233 @@
+#make sure you convert to UTF-8 Without BOM or « will not work#
+
+#Custom Items
+"Tasty Cake":
+  type: item 
+  material: 354
+  display name: "<&b>Tasty Cake"
+  lore:
+  - mmmm Cake!
+  
+#Ammo
+
+"22 Ammo":
+  type: item 
+  material: 402
+  display name: "<&7>.22 Ammo"
+  lore:
+  - .22 Ammo
+
+#Guns
+"Airazz Pistol":
+  type: item 
+  material: 290
+  display name: "<&e>P22<&e> «10»"
+  lore:
+  - Airazz's .22 Pistol
+
+
+#Weapon Script
+  
+"Example Weapon Script":
+  type: item 
+  material: 293
+  display name: "<Playername>'s Staff"
+  lore:
+  - 1200 Tokens
+  enchantments:
+  - DAMAGE_ALL:5 
+  
+#Armor Scripts
+
+"Colored Leather":
+  type: item 
+  material: 298
+  color: 0:0:0
+  display name: "Ninja Hat"
+  
+
+"Armor Example2":
+  type: item 
+  material: 293
+  display name: "<Playername>'s BrilliantArmor"
+  lore:
+  - 1200 Tokens
+  enchantments:
+  - DAMAGE_ALL:5
+
+#Pirate Island Treasure Hunt  
+"PirateHat":
+  type: item 
+  material: 298
+  color: 0:0:0
+  display name: "Pirate Hat"  
+  lore:
+  - Set
+  enchantments:
+  - PROTECTION_EXPLOSIONS:2
+  
+"PirateShirt":
+  type: item 
+  material: 299
+  color: 170:0:170
+  display name: "Pirate Shirt"
+  lore:
+  - Set
+  enchantments:
+  - PROTECTION_FIRE:2
+  
+"PirateLeggins":
+  type: item 
+  material: 300
+  color: 255:255:255
+  display name: "Pirate Leggins"
+  lore:
+  - Set
+  enchantments:
+  - PROTECTION_PROJECTILE:2
+  
+"Pirateboots":
+  type: item 
+  material: 301
+  color: 0:0:0
+  display name: "Pirate Boots"
+  lore:
+  - Set
+  enchantments:
+  - PROTECTION_FALL:1
+  
+"PirateSword":
+  type: item 
+  material: 267
+  display name: "Pirate Sword"
+  lore:
+  - Set
+  enchantments:
+  - DAMAGE_ALL:2
+  
+"PirateSkull":
+  type: item 
+  material: 397:0
+  display name: "Pirate's Skull"
+  lore:
+  - Skull of a dead Pirate
+  enchantments:
+  - PROTECTION_EXPLOSIONS:1
+  - PROTECTION_PROJECTILE:1
+  
+"MoldyBread":
+  type: item 
+  material: 297
+  display name: "Moldy Bread"
+  lore:
+  - The smell will knock back the most powerful or foes, and its edible.
+  enchantments:
+  - KNOCKBACK:2
+  
+"PirateBow":
+  type: item 
+  material: 261
+  display name: "Ancient Bow"
+  lore:
+  - Relic
+  enchantments:
+  - ARROW_DAMAGE:2
+  
+"PirateHoe":
+  type: item 
+  material: 293
+  display name: "Ancient Hoe"
+  lore:
+  - Relic
+  enchantments:
+  - LOOT_BONUS_MOBS:2
+  
+"PirateWand":
+  type: item 
+  material: 369
+  display name: "Ancient Wand"
+  lore:
+  - Relic
+  enchantments:
+  - LOOT_BONUS_MOBS:2
+  - FIRE_ASPECT:2
+  - DAMAGE_ALL:2
+  
+  
+"PirateArmor1":
+  type: item 
+  material: 302
+  display name: "Ancient Armor"
+  lore:
+  - Relic
+  - Set
+  enchantments:
+  - PROTECTION_PROJECTILE:1
+  
+"PirateArmor2":
+  type: item 
+  material: 303
+  display name: "Ancient Armor"
+  lore:
+  - Relic
+  - Set
+  enchantments:
+  - PROTECTION_PROJECTILE:1
+  
+"PirateArmor3":
+  type: item 
+  material: 302
+  display name: "Ancient Armor"
+  lore:
+  - Relic
+  - Set
+  enchantments:
+  - PROTECTION_PROJECTILE:1
+  
+"PirateArmor4":
+  type: item 
+  material: 302
+  display name: "Ancient Armor"
+  lore:
+  - Relic
+  - Set
+  enchantments:
+  - PROTECTION_PROJECTILE:1
+  
+  
+#Welcome Quest Items  
+"LeatherHelmet":
+  type: item 
+  material: 298
+  color: 0:0:0
+  display name: "Ninja Hat"
+  
+"LeatherChest":
+  type: item 
+  material: 299
+  color: 0:0:0
+  display name: "Ninja Shirt"
+  
+"LeatherLeggins":
+  type: item 
+  material: 300
+  color: 0:0:0
+  display name: "Ninja Leggins"
+  
+"Leatherboots":
+  type: item 
+  material: 301
+  color: 0:0:0
+  display name: "Ninja Boots"
+  
+  
+"First Weapon":
+  type: item 
+  material: 272
+  display name: "<flag.g:Temporary Player Holder>'s Sword"
+  lore:
+  - Sharp
+  enchantments:
+  - DAMAGE_ALL:1
+
+  

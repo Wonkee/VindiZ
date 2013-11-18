@@ -1,0 +1,18 @@
+OnZombieKill: 
+  type: world 
+  events:   
+    on player kills zombie: 
+    - define pl <context.damager> 
+    - flag %pl% ZombieKillStreak:++ duration:10s 
+    - if <%pl%.flag[ZombieKillStreak]> == 5 && <%pl%.flag[ZombieKillStreakReward1]> != true { 
+      - narrate target:%pl% "<&b>You feel the rush!" 
+      - cast regeneration duration:5s power:1 %pl% 
+      } 
+      else if <%pl%.flag[ZombieKillStreak]> == 10 && <%pl%.flag[ZombieKillStreakReward2]> != true { 
+      - narrate target:%pl% "<&b>You can't be stopped!" 
+      - cast regeneration duration:5s power:2 %pl% 
+      } 
+      else if <%pl%.flag[ZombieKillStreak]> == 15 && <%pl%.flag[ZombieKillStreakReward3]> != true { 
+      - announce "<&b><%pl%.name> is unbeatable!" 
+      - cast regeneration duration:15s power:2 %pl% 
+      } 

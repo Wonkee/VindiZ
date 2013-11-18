@@ -1,0 +1,244 @@
+'Lab Mission':
+  type: world
+  events:
+    on walked over Start:
+    - if <player.flag[LabatoryQuest].aslist> contains 'Start' || <player.flag[LabatoryQuest].aslist> contains 'LabFinish' {
+      - queue clear
+      }
+      else if <player.flag[LabatoryQuest].aslist> !contains 'Start' {
+      - flag LabatoryQuest:->:Start 
+      - playsound location:<player.location> sound:GHAST_SCREAM volume:1 pitch:1
+      - narrate "<&7><&l>   OMG WTF WAS THAT    !!!"
+      - narrate "<&8>I must find my way out    <&4><&l>NOW!"
+      - narrate "FORMAT:Quest Given" "Escaping the Lab"
+      }
+    on walked over RoomExit:
+    - if <player.flag[LabatoryQuest].aslist> contains 'RoomExit' || <player.flag[LabatoryQuest].aslist> contains 'LabFinish' {
+      - queue clear
+      }
+      else if <player.flag[LabatoryQuest].aslist> !contains 'RoomExit' {
+      - flag LabatoryQuest:->:RoomExit
+      - narrate "<&7>The Hall is blocked off that way, only one way to go."
+      }
+    on walked over StartHallway1:
+    - if <player.flag[LabatoryQuest].aslist> contains 'StartHallway' || <player.flag[LabatoryQuest].aslist> contains 'LabFinish' {
+      - queue clear
+      }
+      else if <player.flag[LabatoryQuest].aslist> !contains 'StartHallway' {      
+      - flag LabatoryQuest:->:StartHallway
+      - narrate "<&8>Something has gone terribly wrong,"
+      - narrate "<&7>I am ready to face my <&4><&l>NiGhTmArEs..."
+      }
+    on walked over StartHallway2:
+    - if <player.flag[LabatoryQuest].aslist> contains 'StartHallway' || <player.flag[LabatoryQuest].aslist> contains 'LabFinish' {
+      - queue clear
+      }
+      else if <player.flag[LabatoryQuest].aslist> !contains 'StartHallway' {      
+      - flag LabatoryQuest:->:StartHallway
+      - narrate "<&8>Something has gone terribly wrong,"
+      - narrate "<&7>I am ready to face my <&4><&l>NiGhTmArEs..."
+      }
+    on walked over StartHallway3:
+    - if <player.flag[LabatoryQuest].aslist> contains 'StartHallway' || <player.flag[LabatoryQuest].aslist> contains 'LabFinish' {
+      - queue clear
+      }
+      else if <player.flag[LabatoryQuest].aslist> !contains 'StartHallway' {      
+      - flag LabatoryQuest:->:StartHallway
+      - narrate "<&8>Something has gone terribly wrong,"
+      - narrate "<&7>I am ready to face my <&4><&l>NiGhTmArEs..."
+      }
+    on walked over StartHallway4:
+    - if <player.flag[LabatoryQuest].aslist> contains 'StartHallway1' || <player.flag[LabatoryQuest].aslist> contains 'LabFinish' {
+      - queue clear
+      }
+      else if <player.flag[LabatoryQuest].aslist> !contains 'StartHallway1' {  
+      - flag LabatoryQuest:->:StartHallway1
+      - narrate "<&8>What has happened here?"
+      - narrate "<&7>I need to find a way to the <&4><&l>elevators<&7> and fast!"      
+      }
+    on walked over StartHallway5:
+    - if <player.flag[LabatoryQuest].aslist> contains 'StartHallway1' || <player.flag[LabatoryQuest].aslist> contains 'LabFinish' {
+      - queue clear
+      }
+      else if <player.flag[LabatoryQuest].aslist> !contains 'StartHallway1' {  
+      - flag LabatoryQuest:->:StartHallway1
+      - narrate "<&8>What has happened here?"
+      - narrate "<&7>I need to find a way to the <&4><&l>elevators<&7> and fast!"      
+      }
+    on walked over StartHallway6:
+    - if <player.flag[LabatoryQuest].aslist> contains 'StartHallway1' || <player.flag[LabatoryQuest].aslist> contains 'LabFinish' {
+      - queue clear
+      }
+      else if <player.flag[LabatoryQuest].aslist> !contains 'StartHallway1' {  
+      - flag LabatoryQuest:->:StartHallway1
+      - narrate "<&8>What has happened here?"
+      - narrate "<&7>I need to find a way to the <&4><&l>elevators<&7> and fast!"      
+      }
+    on walked over EndHallway1:
+    - if <player.flag[LabatoryQuest].aslist> contains 'EndHallway' || <player.flag[LabatoryQuest].aslist> contains 'LabFinish' {
+      - queue clear
+      }
+      else if <player.flag[LabatoryQuest].aslist> !contains 'EndHallway' { 
+      - flag LabatoryQuest:->:EndHallway
+      - narrate "<&8>This way appears to be <&l>blocked."
+      - narrate "<&7>I need to find a way around the rubble"
+      }
+    on walked over EndHallway2:
+    - if <player.flag[LabatoryQuest].aslist> contains 'EndHallway' || <player.flag[LabatoryQuest].aslist> contains 'LabFinish' {
+      - queue clear
+      }
+      else if <player.flag[LabatoryQuest].aslist> !contains 'EndHallway' { 
+      - flag LabatoryQuest:->:EndHallway
+      - narrate "<&8>This way appears to be <&l>blocked."
+      - narrate "<&7>I need to find a way around the rubble"
+      }
+    on walked over EndHallway3:
+    - if <player.flag[LabatoryQuest].aslist> contains 'EndHallway' || <player.flag[LabatoryQuest].aslist> contains 'LabFinish' {
+      - queue clear
+      }
+      else if <player.flag[LabatoryQuest].aslist> !contains 'EndHallway' { 
+      - flag LabatoryQuest:->:EndHallway
+      - narrate "<&8>This way appears to be <&l>blocked."
+      - narrate "<&7>I need to find a way around the rubble"
+      }
+    on walked over LCP1:
+    - if <player.flag[LabatoryQuest].aslist> contains 'LCP1' || <player.flag[LabatoryQuest].aslist> contains 'LabFinish' {
+      - queue clear
+      }
+      else if <player.flag[LabatoryQuest].aslist> !contains 'LCP1' { 
+      - flag LabatoryQuest:->:LCP1
+      - narrate "<&8>CHECKPOINT 1!"
+      - narrate "<&7>Something odd about that <&l>painting<&7>, Perhaps I should check it out."
+      }
+    on walked over LCP1Exit:
+    - if <player.flag[LabatoryQuest].aslist> contains 'LCP1Exit' || <player.flag[LabatoryQuest].aslist> contains 'LabFinish' {
+      - queue clear
+      }
+      else if <player.flag[LabatoryQuest].aslist> !contains 'LCP1Exit' {
+      - flag LabatoryQuest:->:LCP1Exit
+      - cast blindness duration:10 power:1
+      - playsound location:<player.location> sound:ZOMBIE_WOODBREAK volume:1 pitch:1
+      - playsound location:<player.location> sound:ZOMBIE_WOODBREAK volume:1 pitch:1
+      - playsound location:<player.location> sound:ZOMBIE_WOODBREAK volume:1 pitch:3
+      }
+    on walked over LCP1End:
+    - if <player.flag[LabatoryQuest].aslist> contains 'LCP1End' || <player.flag[LabatoryQuest].aslist> contains 'LabFinish' {
+      - queue clear
+      }
+      else if <player.flag[LabatoryQuest].aslist> !contains 'LCP1End' {
+      - flag LabatoryQuest:->:LCP1End
+     - narrate "<&7>Follow the signs to the exit"
+      - wait 1s
+      - narrate "<&8>These halls are filled with <&4>zombies<&8>, be careful"
+      }
+    on walked over LCP1End2:
+    - if <player.flag[LabatoryQuest].aslist> contains 'LCP1End' || <player.flag[LabatoryQuest].aslist> contains 'LabFinish' {
+      - queue clear
+      }
+      else if <player.flag[LabatoryQuest].aslist> !contains 'LCP1End' {
+      - flag LabatoryQuest:->:LCP1End
+     - narrate "<&7>Follow the signs to the exit"
+      - wait 1s
+      - narrate "<&8>These halls are filled with <&4>zombies<&8>, be careful"
+      }
+    on walked over LCP1End3:
+    - if <player.flag[LabatoryQuest].aslist> contains 'LCP1End' || <player.flag[LabatoryQuest].aslist> contains 'LabFinish' {
+      - queue clear
+      }
+      else if <player.flag[LabatoryQuest].aslist> !contains 'LCP1End' {
+      - flag LabatoryQuest:->:LCP1End
+     - narrate "<&7>Follow the signs to the exit"
+      - wait 1s
+      - narrate "<&8>These halls are filled with <&4>zombies<&8>, be careful"
+      }
+    on walked over LCP2:
+    - if <player.flag[LabatoryQuest].aslist> contains 'LCP2' || <player.flag[LabatoryQuest].aslist> contains 'LabFinish' {
+      - queue clear
+      }
+      else if <player.flag[LabatoryQuest].aslist> !contains 'LCP2' {
+      - flag LabatoryQuest:->:LCP2
+      - narrate "<&7><&l>Checkpoint 2!"
+      - narrate "<&8>Checkpoint 3 is close by"
+      - narrate "<&7>I think I can squeese through that <&4>vent!"
+      }
+    on walked over LCP3:
+    - if <player.flag[LabatoryQuest].aslist> contains 'LCP3' || <player.flag[LabatoryQuest].aslist> contains 'LabFinish' {
+      - queue clear
+      }
+      else if <player.flag[LabatoryQuest].aslist> !contains 'LCP3' {
+      - flag LabatoryQuest:->:LCP3
+     - narrate "<&7><&l>Checkpoint 3!"
+      - narrate "<&8>Your way out is near"
+      - wait 1s
+      - narrate "<&7>I think I can run to the <&4>elevators <&7>from here!"
+      }
+    on walked over LabFinish:
+    - if <player.flag[LabatoryQuest].aslist> contains 'LabFinish' || <player.flag[LabatoryQuest].aslist> contains 'LabFinish' {
+      - queue clear
+      }
+      else if <player.flag[LabatoryQuest].aslist> !contains 'LabFinish' {
+      - narrate "<&7><&l>I made it to the Elevators, Let's hope they still work!"
+      - ^narrate "FORMAT:Quest Success" "Lab Escape"
+      - flag LabatoryQuest:->:LabFinish
+      - flag LabatoryQuest:<-:LCP3
+      - flag LabatoryQuest:<-:LCP2
+      - flag LabatoryQuest:<-:LCP1
+      - flag LabatoryQuest:<-:LCP1End
+      - flag LabatoryQuest:<-:LCP1Exit
+      - flag LabatoryQuest:<-:EndHallway
+      - flag LabatoryQuest:<-:Start
+      - flag LabatoryQuest:<-:RoomExit
+      - flag LabatoryQuest:<-:StartHallway
+      - flag LabatoryQuest:<-:StartHallway1
+      - flag LabatoryQuest:<-:EndHallway
+      }
+'VentAction':
+  type: world
+  events:  
+    on walked over Vent1:
+    - if <player.flag[cooldown]> queue clear
+      else if !<player.flag[cooldown]> {
+      - narrate "<&4>You Squeeze through the vent"
+      - teleport location:-537,9,348,Interiors
+      - flag cooldown duration:10
+      }
+    on walked over Vent1Back:
+    - if <player.flag[cooldown]> queue clear
+      else if !<player.flag[cooldown]> {
+      - narrate "<&4>You Squeeze through the vent"
+      - teleport location:-542,9,348,Interiors
+      - flag cooldown duration:10
+      }
+'LabScream':
+  type: world
+  events:
+    on walked over LABSCREAM1:
+    - if <player.flag[cooldown]> queue clear
+      else if !<player.flag[cooldown]> {
+      - cast blindness duration:15 power:1
+      - playsound location:<player.location> sound:ZOMBIE_WOODBREAK volume:1 pitch:1
+      - playsound location:<player.location> sound:ZOMBIE_WOODBREAK volume:1 pitch:1
+      - playsound location:<player.location> sound:ZOMBIE_WOODBREAK volume:1 pitch:2
+      - playsound location:<player.location> sound:ZOMBIE_WOODBREAK volume:1 pitch:1
+      - flag cooldown duration:10
+      }
+    on walked over LABSCREAM2:
+    - if <player.flag[cooldown]> queue clear
+      else if !<player.flag[cooldown]> {
+      - cast blindness duration:15 power:1
+      - playsound location:<player.location> sound:ZOMBIE_WOODBREAK volume:1 pitch:1
+      - playsound location:<player.location> sound:ZOMBIE_WOODBREAK volume:1 pitch:1
+      - playsound location:<player.location> sound:ZOMBIE_WOODBREAK volume:1 pitch:2
+      - playsound location:<player.location> sound:ZOMBIE_WOODBREAK volume:1 pitch:1
+      - flag cooldown duration:10
+      }
+    on walked over LABSCREAM3:
+    - if <player.flag[cooldown]> queue clear
+      else if !<player.flag[cooldown]> {
+      - cast blindness duration:15 power:1
+      - playsound location:<player.location> sound:ZOMBIE_WOODBREAK volume:1 pitch:1
+      - playsound location:<player.location> sound:ZOMBIE_WOODBREAK volume:1 pitch:1
+      - playsound location:<player.location> sound:ZOMBIE_WOODBREAK volume:1 pitch:2
+      - playsound location:<player.location> sound:ZOMBIE_WOODBREAK volume:1 pitch:1
+      - flag cooldown duration:10
+      }

@@ -1,0 +1,46 @@
+'LevelMeUp':
+    type: interact
+    steps:
+        '1':
+            click trigger:              
+                script:
+                - chat "Hello <player.name> How can I help you?"
+                - narrate "<&6>[<&4>HINT<&6>]<&d> You can say <&e><&n>perks <&r><&e><&d>or <&e><&n>TBA<&r><&e>."
+            chat trigger:
+                '1':
+                    trigger: "I want to spend my /perks/!"
+                    script:
+                    - engage
+                    - chat "Very well then, you have the following perks to spend."
+                    - narrate "<&b><player.flag[Perk].aslist.formatted>"
+                    - wait 1
+                    - chat "Just tell me which Perk you want to spend."
+                    - zap 2
+                    - disengage
+        '2':
+            chat trigger:
+                '1':
+                    trigger: "I want to spend my /Utility/ perks!"
+                    script:
+                    - engage
+                    - run "Utility Perk Check"
+                    - disengage
+                '2':
+                    trigger: "I want to spend my /Major/ perks!"
+                    script:
+                    - engage
+                    - disengage
+                '3':
+                    trigger: "I want to spend my /Skill/ perks!"
+                    script:
+                    - engage
+                    - disengage
+                    
+
+'Utility Perk Check':
+    type: task
+    script:
+    - if <player.flag[Utility].aslist> contains '3' narrate "<&b>You currently Own all 3 Utility Perks"
+      else if <player.flag[level].aslist> contains '2' run "Level 1 Reward
+      else if <player.flag[level].aslist> contains '1' run "Level 1 Reward
+      else run

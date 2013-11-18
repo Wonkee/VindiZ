@@ -1,0 +1,17 @@
+'Quest Status':
+    type: interact
+ 
+    steps:
+        '1':
+            click trigger:
+                script:
+                - chat "Hello <&c><flag.p:current_rank || Recruit> <player.name><&e> I see you're currently working on the following missions<&co> <flag.p:current_quests.ascslist || <&b>No missions currently><&e>."
+                - wait 3
+                - chat "Tell me the name of the mission you're currently on for more information about that mission."
+            chat trigger:
+                '1':
+                    trigger: /REGEX:.+/!
+                    script:
+                    - if "<player.script[<player.chat_history>].finished>" == false chat "You haven't finished <player.chat_history>! <cons:<player.chat_history> Information>"
+                      else if "<player.script[<player.chat_history>].finished>" == true chat "You've already completed <player.chat_history>."
+                      else chat "There is no such mission."

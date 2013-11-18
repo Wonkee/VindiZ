@@ -1,0 +1,112 @@
+"Duck":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:chat toggle:true
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true
+
+    interact scripts:
+    - 4 WhoAmI
+    - 3 Cafeteria
+    - 2 Welcome
+    - 1 Welcome Committee
+    
+"Elety":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:chat toggle:true
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true
+
+    interact scripts:
+    - 4 Found
+    
+"Mission":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:chat toggle:true
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true
+
+    interact scripts:
+    - 4 Mission4
+    - 3 Mission3
+    - 2 Mission2
+    - 1 Mission1
+
+"GunShop":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:chat toggle:true
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true
+
+    interact scripts:
+    - 1 Armory
+    
+"BodyArmor":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:chat toggle:true
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true
+
+    interact scripts:
+    - 1 Body Armor Shop
+"HealthPotion":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:chat toggle:true
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true
+
+    interact scripts:
+    - 1 Pharmacy
+    
+"LevelUp":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:chat toggle:true
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true
+
+    interact scripts:
+    - 1 LevelMeUp
+    
+   
+"LabSideQuests":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:chat toggle:true
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true
+
+    interact scripts:
+    - 1 LabSideQuest1
+        
+"Quest Constants":
+    type: assignment
+ 
+    interact scripts:
+    - 1 Quest Status
+ 
+    default constants:
+      Welcome Committee Information: "Talk to <&2>Duck<&e> to see the next step."
+      Meical Supplies Information: "Medical Supply Kit can be found at 1188,81,-188 in Greenfield."
+      Lost and Found Information: "Talk to <&2>TimJab for information on what to do."

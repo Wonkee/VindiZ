@@ -1,0 +1,113 @@
+'Tracking':
+  type: world
+  events:  
+    on Track command:
+    - ^if <context.raw_args> != 'hospital' 
+       && <context.raw_args> != 'pharmacy'
+       && <context.raw_args> != 'bankhq'
+       && <context.raw_args> != 'concerthall'
+       && <context.raw_args> != 'corpbuilding'
+       && <context.raw_args> != 'funpark'
+       && <context.raw_args> != 'gasplant'
+       && <context.raw_args> != 'greenfieldcenter'
+       && <context.raw_args> != 'greenfieldmall'
+       && <context.raw_args> != 'mcdonalds'
+       && <context.raw_args> != 'rosewood'
+       && <context.raw_args> != 'stadium'
+       && <context.raw_args> != 'trainstation'
+       && <context.raw_args> != 'university'
+       run TrackLocationCommand
+       else if <context.raw_args> == 'hospital' run TrackHospital
+       else if <context.raw_args> == 'pharmacy' run TrackPharmacy
+       else if <context.raw_args> == 'bankhq' run TrackBankHQ
+       else if <context.raw_args> == 'concerthall' run TrackConcertHall
+       else if <context.raw_args> == 'corpbuilding' run TrackCorpBuilding
+       else if <context.raw_args> == 'funpark' run TrackFunPark
+       else if <context.raw_args> == 'gasplant' run TrackGasPlant
+       else if <context.raw_args> == 'greenfieldcenter' run TrackGreenfieldCenter
+       else if <context.raw_args> == 'greenfieldmall' run TrackGreenfieldMall
+       else if <context.raw_args> == 'mcdonalds' run TrackMcDonalds
+       else if <context.raw_args> == 'rosewood' run TrackRosewood
+       else if <context.raw_args> == 'stadium' run TrackStadium
+       else if <context.raw_args> == 'trainstation' run TrackTrainStation
+       else if <context.raw_args> == 'university' run TrackUniversity
+       else run TrackNoLocationCommand
+    - determine passively fulfilled
+'TrackLocationCommand':
+    type: task
+    script:
+    - narrate "<&e>You can currently track the Hospital and Pharmacy"
+'TrackNoLocationCommand':
+    type: task
+    script:
+    - narrate "<&e>You need to select a location in order to adjust your compass"
+'TrackHospital':
+    type: task
+    script:
+    - compass location:1153,65,-131,greenfield
+    - narrate "<&e>Your compass is now pointing to the <&6>Hospital"
+'TrackPharmacy':
+    type: task
+    script:
+    - compass location:10,65,674,greenfield
+    - narrate "<&e>Your compass is now pointing to the <&6>Pharmacy"
+'TrackBankHQ':
+    type: task
+    script:
+    - compass location:113,65,-532,greenfield
+    - narrate "<&e>Your compass is now pointing to the <&6>Bank HQ"
+'TrackConcertHall':
+    type: task
+    script:
+    - compass location:114,65,434,greenfield
+    - narrate "<&e>Your compass is now pointing to the <&6>Concert Hall"
+'TrackCorpBuilding':
+    type: task
+    script:
+    - compass location:155,114,-500,greenfield
+    - narrate "<&e>Your compass is now pointing to the <&6>Corporate Building"
+'TrackFunPark':
+    type: task
+    script:
+    - compass location:-190,65,764,greenfield
+    - narrate "<&e>Your compass is now pointing to the <&6>Fun Park"
+'TrackGasPlant':
+    type: task
+    script:
+    - compass location:-318,65,234,greenfield
+    - narrate "<&e>Your compass is now pointing to the <&6>Gas Plant"
+'TrackGreenfieldCenter':
+    type: task
+    script:
+    - compass location:110,65,2,greenfield
+    - narrate "<&e>Your compass is now pointing to the <&6>Greenfield Center"
+'TrackGreenfieldMall':
+    type: task
+    script:
+    - compass location:508,65,-570,greenfield
+    - narrate "<&e>Your compass is now pointing to the <&6>Greenfield Mall"
+'TrackMcDonalds':
+    type: task
+    script:
+    - compass location:94,65,325,greenfield
+    - narrate "<&e>Your compass is now pointing to the <&6>McDonalds"
+'TrackRosewood':
+    type: task
+    script:
+    - compass location:1238,65,356,greenfield
+    - narrate "<&e>Your compass is now pointing to the <&6>Rosewood"
+'TrackStadium':
+    type: task
+    script:
+    - compass location:400,65,230,greenfield
+    - narrate "<&e>Your compass is now pointing to the <&6>Stadium"
+'TrackTrainStation':
+    type: task
+    script:
+    - compass location:223,65,-262,greenfield
+    - narrate "<&e>Your compass is now pointing to the <&6>Train Station"
+'TrackUniversity':
+    type: task
+    script:
+    - compass location:-536,65,-422,greenfield
+    - narrate "<&e>Your compass is now pointing to the <&6>University"

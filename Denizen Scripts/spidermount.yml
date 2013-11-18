@@ -1,0 +1,158 @@
+
+"spidermount":
+  type: world
+  events:
+    on player quits:
+    - if <player.is_inside_vehicle> {
+      - despawn <player.flag[mount]>
+      - despawn <player.flag[myspiders].as_list>
+      }
+    on player joins: 
+    - if <player.flag[mount].as_list.size> >= 1 {
+      - spawn n@<player.flag[mount]>
+      - execute as_op "npc mount"
+      - spawn n@<player.flag[myspiders].as_list>
+      }
+    on player chats:
+    - if <context.message.contains[summon_spider]> == true && <player.flag[spidermount]> == true {
+      - execute as_op "npc create Spider --type spider --trait controllable"
+      - execute as_op "npc mount"
+      - execute as_op "npc assign --set mount_despawn"
+      - if <player.flag[spidermaster]> == true {
+        - give i@spiderstaff
+        }
+      }
+    on player right clicks with i@spiderstaff:
+    - if <player.flag[spidermaster]> && <player.is_inside_vehicle> && <player.flag[myspiders].as_list.size||0> < 3 && <player.get_vehicle.entity_type> == spider {
+      - create cave_spider minispider <player.location> trait:<health> save:myspider
+      - follow npc:<entry[myspider].created_npc> target:<player.selected_npc>
+      - flag <entry[myspider].created_npc> npcowner:->:<player>
+      - assignment npc:<entry[myspider].created_npc>  script:minispider
+      - flag player myspiders:->:<entry[myspider].created_npc>
+      }
+    on player left clicks with i@spiderstaff:
+    - if <player.flag[spidermaster]> && <player.is_inside_vehicle> && <player.get_vehicle.entity_type> == spider {
+      - define mytarget <player.location.cursor_on.find.living_entities.within[20].exclude[<player>].exclude[<player.flag[myspiders].as_list>].exclude[<player.selected_npc>]>
+      - if <%mytarget%.size> == 0 determine cancelled
+      - attack <player.flag[myspiders].as_list> target:<%mytarget%.get[1]>
+      - determine cancelled
+      }
+"minispider":
+  type: assignment
+  interact scripts:
+  - 1 minispider1
+  actions:
+    on assignment:
+    - vulnerable
+    - trait health
+    - health 10
+    - trigger name:click state:true 
+    - trigger name:chat state:true
+    - trigger name:proximity state:true radius:12
+    on attack:
+    - cast poison power:5
+    on death:
+    - run myspiders_death delay:11s
+"minispider1":
+  type: interact
+  steps:
+      1:
+        proximity trigger:
+          exit:
+            script:
+            - if <player.is_inside_vehicle> && <player.get_vehicle.entity_type> == spider {
+              - teleport <npc> <player.location>
+              - follow <player>
+              }
+              else burn <player.flag[myspiders].as_list> duration:20s 
+"myspiders_death":
+  type: task
+  script:
+  - flag <npc.flag[npcowner]> myspiders:<-:<npc>
+  - wait 0.5s
+  - remove <npc>
+"dragonmount":
+  type: world
+  events:
+    on player chats:
+    - if <context.message.contains[summon_dragon]> == true && <player.flag[dragonmount]> == true {
+      - execute as_op "npc create drake --type enderdragon --trait controllable --at '<player.location.add[3,30,125].formatted.citizens>'"
+      - run dragonentry delay:1s
+      - execute as_op "npc assign --set mount_despawn"
+      - give player i@dragonstaff
+      - if <player.flag[dragonmaster]> == true { give player i@dragonfirestaff
+      }
+    on player right clicks with i@dragonstaff:
+    - determine passively cancelled:false
+    - if <player> == <player.selected_npc.owner> && !<player.is_inside_vehicle> && <player.location.distance[<player.selected_npc.location>]> < 15 {
+      - execute as_op "npc mount"
+      }
+    on player right clicks with i@dragonfirestaff:
+    - if <player.flag[dragonmaster]> && <player.is_inside_vehicle> && <player.get_vehicle.entity_type> == ender_dragon {
+      - define vec <player.selected_npc.location.direction.vector>
+      - push fireball origin:<player.selected_npc.location.sub[0,4,0].sub[<player.selected_npc.location.direction.vector.mul[10]>]> destination:<player.location.cursor_on[200]> speed:2 duration:1m
+      - determine cancelled
+      }
+        
+
+"mount_despawn":
+  type: assignment
+  interact scripts:
+  - 1 despawn
+  actions:
+    on assignment:
+    - flag player mount:->:<npc.id>
+    - trigger name:click state:true 
+    - trigger name:chat state:true
+    - trigger name:proximity state:true 
+
+"despawn":
+  type: interact
+  steps:
+    "1":
+      proximity trigger:
+        exit:
+          script:
+          - ^if <player> == <npc.owner> { 
+            - ^take i@spiderstaff
+            - ^take i@dragonstaff
+            - ^take i@dragonfirestaff
+            - ^flag player mount:<-:<npc.id>
+            - ^flag myspider:<-:<player.flag[myspiders].as_list>
+            - fly <npc> origin:<player.location> destination:<player.location.add[3,10,150]> speed:1.0
+            - wait 10
+            - remove <npc>
+            }
+          
+"dragonfirestaff":
+  type: item
+  material: 369
+  display name: <red>"Dragon fire staff"
+  lore:
+  - Right Clicking with with staff
+  - will shoot fireballs when dragon
+  - is mounted
+"dragonstaff":
+  type: item
+  material: 280
+  display name: <red>"Dragon staff"
+  lore:
+  - Right Clicking with with this staff
+  - will cause you to mount the dragon
+  - and will cause your dragon to
+  - descend while riding it
+"spiderstaff":
+  type: item
+  material: 280
+  display name: <red>"venom stick"
+  lore:
+  - Right Clicking with with this staff
+  - will cause cause your spider 
+  - to make a baby spider
+  - left clicking with this staff
+  - will cause the baby spider to 
+  - attack your target
+"dragonentry":
+  type: task
+  script:
+  - fly <player.selected_npc> origin:<player.selected_npc.location> destination:<player.location.add[3,10,45]> speed:1.0   

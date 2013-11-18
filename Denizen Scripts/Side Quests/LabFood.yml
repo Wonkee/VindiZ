@@ -1,0 +1,80 @@
+'LabSideQuest1':
+    type: interact
+    Requirements:
+     Mode: All
+     List:
+     - -script finished 'script:LabSideQuest1'
+
+    steps:
+        '1':
+            proximity trigger:
+              entry:
+                script:
+                - engage
+                - chat "You're alive???"
+                - chat "What is your name?"
+                - disengage
+            chat trigger:
+                'a':
+                    trigger: "I am known as /REGEX:.+/!"
+                    script:
+                    - engage
+                    - narrate "FORMAT:Quest Given" "Tasty Cake"
+                    - flag 'current_quests:->:Tasty Cake'
+                    - flag TastyCake:Current
+                    - chat "Great to see someone else alive."
+                    - chat "I'll make you a <&b>sweet<&e> deal!"
+                    - wait 1
+                    - chat "Bring me back a <&b>cake<&e> from the fridge in the cafeteria and I will give my pistol!"
+                    - flag LabatoryQuest:->:LabTastyCake
+                    - zap 2
+                    - disengage
+        '2':
+            click trigger:
+                script:
+                - engage
+                - if "<player.inventory.contains[i@tasty cake]>"  
+                  && "<flag.p:TastyCakeFridge>" run 'script:LabSideQuestComplete'
+                  else run "script:LabSideQuestNoItems"
+                - disengage
+        '3':
+            click trigger:
+                script:
+                - engage
+                - chat "Thank you for the Tasty Cake from before."
+                - disengage
+'TastyCakeLab':
+  type: world
+  events:
+    on walked over LABTASTYCAKE:
+    - ^if <flag.p:LabatoryQuest.aslist>
+      contains 'LabTastyCake' run LabTastyCake
+      else queue clear
+'LabTastyCake':
+    type: task
+    script:
+    - engage
+    - give "item:Tasty Cake" qty:1
+    - ^flag LabatoryQuest:<-:LabTastyCake
+    - flag 'TastyCakeFridge'
+    - narrate "<&7>Sweet you found the <&b>Tasty Cake!"
+    - disengage
+'LabSideQuestNoItems':
+    type: task
+    script:
+    - chat "Please bring me back a <&b>Tasty Cake<&e> from the fridge in the Cafeteria if you want a pistol."
+'LabSideQuestComplete':
+    type: task
+    script:
+    - engage
+    - ^take "item:Tasty Cake" qty:1
+    - ^narrate "FORMAT:Quest Success" "Tasty Cake"
+    - ^finish 'script:LabSideQuest1'
+    - flag TastyCake:Finished
+    - ^flag !TastyCakeFridge
+    - ^flag 'current_quests:<-:Tasty Cake'
+    - chat "Thank you for the Tasty Cake"
+    - ^give "item:Airazz Pistol" qty:1
+    - ^give "item:22 Ammo" qty:60
+    - ^zap step:3 'script:LabSideQuest1'
+    - disengage

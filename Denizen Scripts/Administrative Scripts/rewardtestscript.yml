@@ -1,0 +1,74 @@
+'LevelMeUp':
+    type: interact
+    steps:
+        '1':
+            click trigger:              
+                script:
+                - chat "How much exp do you want?"
+                - chat "Tip say 1,2,3,4,5,6, or 7."
+            chat trigger:
+                '1':
+                    trigger: "/1/!"
+                    script:
+                    - engage
+                    - flag Experience:++:1
+                    - narrate "you now have <player.flag[Experience]> Experience."
+                    - zap 2
+                    - disengage
+                '10':
+                    trigger: "/2/!"
+                    script:
+                    - engage
+                    - flag Experience:++:10
+                    - narrate "you now have <player.flag[Experience]> Experience."
+                    - zap 2
+                    - disengage
+                '100':
+                    trigger: "/3/!"
+                    script:
+                    - engage
+                    - flag Experience:++:100
+                    - narrate "you now have <player.flag[Experience]> Experience."
+                    - zap 2
+                    - disengage
+                '1000':
+                    trigger: "/4/!"
+                    script:
+                    - engage
+                    - flag Experience:++:1000
+                    - narrate "you now have <player.flag[Experience]> Experience."
+                    - zap 2
+                    - disengage
+                '10000':
+                    trigger: "/5/!"
+                    script:
+                    - engage
+                    - flag Experience:++:10000
+                    - narrate "you now have <player.flag[Experience]> Experience."
+                    - zap 2
+                    - disengage
+                '100000':
+                    trigger: "/6/!"
+                    script:
+                    - engage
+                    - flag Experience:++:100000
+                    - narrate "you now have <player.flag[Experience]> Experience."
+                    - zap 2
+                    - disengage
+                '100000':
+                    trigger: "/7/!"
+                    script:
+                    - engage
+                    - flag Experience:++:1000000
+                    - narrate "you now have <player.flag[Experience]> Experience."
+                    - zap 2
+                    - disengage
+        '2':
+            click trigger:
+                script:
+                - engage
+                - chat "hello"
+                - run "Exp Checker"
+                - run "Mission Reward"
+                - Zap 1
+                - disengage

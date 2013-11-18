@@ -1,0 +1,28 @@
+Quest Given:
+  type: format
+  format: "<&c><&l>Mission Accepted<&co> <&e><&l><text><&c><&l>!"
+
+Quest Success:
+  type: format
+  format: "<&c><&l>You successfully completed the <&e><&l><text><&c><&l> mission!"
+
+Quest Fail:
+  type: format
+  format: "<&c><&l>You failed at completing the <&e><&l><text><&c><&l> mission!"
+
+Format test:
+  type: assignment
+
+  interact scripts:
+  - 10 Narrate format test
+
+Narrate format test:
+  Type: Interact
+  Steps:
+    Default:
+      Click Trigger:
+        Script:
+        - NARRATE "This is a default narrate text"
+        - NARRATE "FORMAT:Quest Given" "Catch me if you can"
+        - NARRATE "FORMAT:Quest Success" "Just another easy quest"
+        - NARRATE "FORMAT:Quest Fail" "This is meant to be failing"

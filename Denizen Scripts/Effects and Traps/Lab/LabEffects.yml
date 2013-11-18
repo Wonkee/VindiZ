@@ -1,0 +1,168 @@
+'Blind':
+  type: world
+  events:  
+    on walked over Blind:
+    - if !<flag.p:cooldown> runtask BlindAction queue
+      else queue clear
+'BlindAction':
+    type: task
+    script:
+    - ^if <flag.p:cooldown> queue clear
+    - flag cooldown duration:30
+    - cast blindness duration:15 power:1
+    - playsound location:<player.location> sound:BREATH volume:1 pitch:1
+    - narrate "<&4>You have become very afraid.."
+    
+'Panic':
+  type: world
+  events:  
+    on walked over Panic:
+    - if !<flag.p:cooldown> runtask PanicAction queue
+      else queue clear
+'PanicAction':
+    type: task
+    script:
+    - ^if <flag.p:cooldown> queue clear
+    - flag cooldown duration:30
+    - cast slow duration:10 power:1
+    - playsound location:<player.location> sound:ZOMBIE_WOODBREAK volume:1 pitch:1
+    - wait 1
+    - playsound location:<player.location> sound:ZOMBIE_INFECT volume:1 pitch:1
+    - playsound location:<player.location> sound:ZOMBIE_WOODBREAK volume:1 pitch:1
+    - wait 1
+    - playsound location:<player.location> sound:ZOMBIE_INFECT volume:1 pitch:1
+    - narrate "<&4>The horde has found you."
+    
+'Panic2':
+  type: world
+  events:  
+    on walked over Panic2:
+    - if !<flag.p:cooldown> runtask Panic2Action queue
+      else queue clear
+'Panic2Action':
+    type: task
+    script:
+    - ^if <flag.p:cooldown> queue clear
+    - flag cooldown duration:30
+    - cast slow duration:10 power:1
+    - cast blind duration:10 power:1
+    - playsound location:<player.location> sound:ZOMBIE_IDLE volume:1 pitch:1
+    - wait 1
+    - playsound location:<player.location> sound:ZOMBIE_INFECT volume:1 pitch:1
+    - playsound location:<player.location> sound:ZOMBIE_HURT volume:1 pitch:1
+    - wait 1
+    - playsound location:<player.location> sound:ZOMBIE_DEATH volume:1 pitch:1
+    - narrate "<&4>....What is that...."
+    
+'Panic3':
+  type: world
+  events:  
+    on walked over Panic3:
+    - if !<flag.p:cooldown> runtask Panic3Action queue
+      else queue clear
+'Panic3Action':
+    type: task
+    script:
+    - ^if <flag.p:cooldown> queue clear
+    - flag cooldown duration:30
+    - cast slow duration:3 power:1
+    - cast blind duration:5 power:1
+    - playsound location:<player.location> sound:ENDERDRAGON_GROWL volume:1 pitch:1
+    - wait 1
+    - playsound location:<player.location> sound:ITEM_BREAK volume:1 pitch:1
+    - narrate "<&4>....What was that...."
+    
+'Glass':
+  type: world
+  events:  
+    on walked over Glass:
+    - if !<flag.p:cooldown> runtask GlassAction queue
+      else queue clear
+'GlassAction':
+    type: task
+    script:
+    - ^if <flag.p:cooldown> queue clear
+    - flag cooldown duration:30
+    - cast slow duration:3 power:1
+    - cast harm duration:1 power:1
+    - playsound location:<player.location> sound:GLASS  volume:1 pitch:1
+    - narrate "<&4>You stepped on broken Glass."
+    
+'Chemical':
+  type: world
+  events:  
+    on walked over Chemical:
+    - if !<flag.p:cooldown> runtask ChemicalAction queue
+      else queue clear
+'ChemicalAction':
+    type: task
+    script:
+    - ^if <flag.p:cooldown> queue clear
+    - flag cooldown duration:30
+    - cast slow duration:3 power:1
+    - cast posion duration:10 power:1
+    - playsound location:<player.location> sound:LAVA  volume:1 pitch:1
+    - narrate "<&4>You have come in contact with hydrochloric acid."
+    
+'Puke':
+  type: world
+  events:  
+    on walked over Breath:
+    - if !<flag.p:cooldown> runtask PukeAction queue
+      else queue clear
+'PukeAction':
+    type: task
+    script:
+    - ^if <flag.p:cooldown> queue clear
+    - flag cooldown duration:30
+    - cast confusion duration:10 power:1    
+    - cast blindness duration:2 power:1
+    - cast hunger duration:3 power:2
+    - playsound location:<player.location> sound:BURP volume:1 pitch:1
+    - narrate "<&4>You have lost your stomache."
+    
+'Scream':
+  type: world  
+  events:
+    on walked over Scream:
+    - if !<flag.p:cooldown> runtask ScreamAction queue
+      else queue clear
+'ScreamAction':
+    type: task
+    script:
+    - ^if <flag.p:cooldown> queue clear
+    - flag cooldown duration:30
+    - narrate "<&4>Don't look behind you."
+    - cast blindness duration:5 power:1
+    - playsound location:<player.location> sound:Enderman_Scream volume:2 pitch:1
+    
+'Vent1':
+  type: world
+  events:  
+    on walked over Vent1:
+    - if !<flag.p:cooldown> runtask Vent1Action queue
+      else queue clear
+    - runtask Vent1Action
+'Vent1Action':
+    type: task
+    script:
+    - ^if <flag.p:cooldown> queue clear
+    - flag cooldown duration:10
+    - narrate "<&4>You Squeeze through the vent"
+    - teleport location:-537,9,348,Interiors
+    
+'Vent1Back':
+  type: world
+  events:  
+    on walked over Vent1Back:
+    - if !<flag.p:cooldown> runtask Vent1BackAction queue
+      else queue clear
+    - runtask Vent1BackAction
+'Vent1BackAction':
+    type: task
+    script:
+    - ^if <flag.p:cooldown> queue clear
+    - flag cooldown duration:10
+    - narrate "<&4>You Squeeze through the vent"
+    - teleport location:-540,9,348,Interiors
+    

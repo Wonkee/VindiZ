@@ -1,0 +1,394 @@
+'Exp Checker':
+    type: task
+    script:
+    - if <player.flag[Experience]> >= 5748324874 run "Lvl 21 Check"
+      else if <player.flag[Experience]> >= 2874162437 run "Lvl 20 Check"
+      else if <player.flag[Experience]> >= 1067747263 run "Lvl 19 Check"
+      else if <player.flag[Experience]> >= 396666602 run "Lvl 18 Check"
+      else if <player.flag[Experience]> >= 147361092 run "Lvl 17 Check"
+      else if <player.flag[Experience]> >= 54744448 run 'Lvl 16 Check'
+      else if <player.flag[Experience]> >= 20337495 run 'Lvl 15 Check'
+      else if <player.flag[Experience]> >= 7555359 run 'Lvl 14 Check'
+      else if <player.flag[Experience]> >= 2806812 run 'Lvl 13 Check'
+      else if <player.flag[Experience]> >= 1042731 run 'Lvl 12 Check'
+      else if <player.flag[Experience]> >= 387376 run 'Lvl 11 Check'
+      else if <player.flag[Experience]> >= 143911 run 'Lvl 10 Check'
+      else if <player.flag[Experience]> >= 53463 run 'Lvl 9 Check'
+      else if <player.flag[Experience]> >= 19860 run 'Lvl 8 Check'
+      else if <player.flag[Experience]> >= 7376 run 'Lvl 7 Check'
+      else if <player.flag[Experience]> >= 2737 run 'Lvl 6 Check'
+      else if <player.flag[Experience]> >= 1013 run 'Lvl 5 Check'
+      else if <player.flag[Experience]> >= 372 run 'Lvl 4 Check'
+      else if <player.flag[Experience]> >= 133 run 'Lvl 3 Check'
+      else if <player.flag[Experience]> >= 44 run 'Lvl 2 Check'
+      else if <player.flag[Experience]> >= 11 run 'Lvl 1 Check'
+      else narrate "<red>You currently have 0 Experience"
+
+'Lvl 1 Check':
+    type: task
+    script:
+    - if <player.flag[level].aslist> contains '1' queue clear
+      else run "Level1"
+'Lvl 2 Check':
+    type: task
+    script:
+    - if <player.flag[level].aslist> contains '2' queue clear
+      else run "Level2"
+'Lvl 3 Check':
+    type: task
+    script:
+    - if <player.flag[level].aslist> contains '3' queue clear
+      else run "Level3"
+'Lvl 4 Check':
+    type: task
+    script:
+    - if <player.flag[level].aslist> contains '4' queue clear
+      else run "Level4"
+'Lvl 5 Check':
+    type: task
+    script:
+    - if <player.flag[level].aslist> contains '5' queue clear
+      else run "Level5"
+'Lvl 6 Check':
+    type: task
+    script:
+    - if <player.flag[level].aslist> contains '6' queue clear
+      else run "Level6"
+'Lvl 7 Check':
+    type: task
+    script:
+    - if <player.flag[level].aslist> contains '7' queue clear
+      else run "Level7"
+'Lvl 8 Check':
+    type: task
+    script:
+    - if <player.flag[level].aslist> contains '8' queue clear
+      else run "Level8"
+'Lvl 9 Check':
+    type: task
+    script:
+    - if <player.flag[level].aslist> contains '9' queue clear
+      else run "Level9"
+'Lvl 10 Check':
+    type: task
+    script:
+    - if <player.flag[level].aslist> contains '10' queue clear
+      else run "Level10"
+'Lvl 11 Check':
+    type: task
+    script:
+    - if <player.flag[level].aslist> contains '11' queue clear
+      else run "Level11"
+'Lvl 12 Check':
+    type: task
+    script:
+    - if <player.flag[level].aslist> contains '12' queue clear
+      else run "Level12"
+'Lvl 13 Check':
+    type: task
+    script:
+    - if <player.flag[level].aslist> contains '13' queue clear
+      else run "Level13"
+'Lvl 14 Check':
+    type: task
+    script:
+    - if <player.flag[level].aslist> contains '14' queue clear
+      else run "Level14"
+'Lvl 15 Check':
+    type: task
+    script:
+    - if <player.flag[level].aslist> contains '15' queue clear
+      else run "Level15"
+'Lvl 16 Check':
+    type: task
+    script:
+    - if <player.flag[level].aslist> contains '16' queue clear
+      else run "Level16"
+'Lvl 17 Check':
+    type: task
+    script:
+    - if <player.flag[level].aslist> contains '17' queue clear
+      else run "Level17"
+'Lvl 18 Check':
+    type: task
+    script:
+    - if <player.flag[level].aslist> contains '18' queue clear
+      else run "Level18"
+'Lvl 19 Check':
+    type: task
+    script:
+    - if <player.flag[level].aslist> contains '19' queue clear
+      else run "Level19"
+'Lvl 20 Check':
+    type: task
+    script:
+    - if <player.flag[level].aslist> contains '20' queue clear
+      else run "Level20"
+'Lvl 21 Check':
+    type: task
+    script:
+    - if <player.flag[level].aslist> contains '21' queue clear
+      else run "Level21"
+
+'Level1':
+    type: task
+    script:
+    - flag level:->:1
+    - narrate "Congrats on level 1"
+    - flag Perk:->:Utility1
+    - flag Perk:->:Major1
+    - flag Perk:->:Skill1
+    
+'Level2':
+    type: task
+    script:
+    - flag level:->:2
+    - narrate "Congrats on level 2"
+'Level3':
+    type: task
+    script:
+    - flag level:->:3
+    - narrate "Congrats on level 3"
+'Level4':
+    type: task
+    script:
+    - flag level:->:4
+    - narrate "Congrats on level 4"
+'Level5':
+    type: task
+    script:
+    - flag level:->:5
+    - narrate "Congrats on level 5"
+'Level6':
+    type: task
+    script:
+    - flag level:->:6
+    - narrate "Congrats on level 6"
+'Level7':
+    type: task
+    script:
+    - flag level:->:7
+    - narrate "Congrats on level 7"
+'Level8':
+    type: task
+    script:
+    - flag level:->:8
+    - narrate "Congrats on level 8"
+'Level9':
+    type: task
+    script:
+    - flag level:->:9
+    - narrate "Congrats on level 9"
+'Leve110':
+    type: task
+    script:
+    - flag level:->:10
+    - narrate "Congrats on level 10"
+'Level11':
+    type: task
+    script:
+    - flag level:->:11
+    - narrate "Congrats on level 11"
+'Level12':
+    type: task
+    script:
+    - flag level:->:12
+    - narrate "Congrats on level 12"
+'Level13':
+    type: task
+    script:
+    - flag level:->:13
+    - narrate "Congrats on level 13"
+'Level14':
+    type: task
+    script:
+    - flag level:->:14
+    - narrate "Congrats on level 14"
+'Level15':
+    type: task
+    script:
+    - flag level:->:15
+    - narrate "Congrats on level 15"
+'Level16':
+    type: task
+    script:
+    - flag level:->:16
+    - narrate "Congrats on level 16"
+'Level17':
+    type: task
+    script:
+    - flag level:->:17
+    - narrate "Congrats on level 17"
+'Level18':
+    type: task
+    script:
+    - flag level:->:18
+    - narrate "Congrats on level 18"
+'Level19':
+    type: task
+    script:
+    - flag level:->:19
+    - narrate "Congrats on level 19"
+'Level20':
+    type: task
+    script:
+    - flag level:->:20
+    - narrate "Congrats on level 20"
+'Level21':
+    type: task
+    script:
+    - flag level:->:21
+    - narrate "Congrats on level 21"
+    
+#static reward script
+'Mission Reward':
+    type: task
+    script:
+    - if <player.flag[level].aslist> contains '21' run "Level 21 Reward"
+      else if <player.flag[level].aslist> contains '20' run "Level 20 Reward"
+      else if <player.flag[level].aslist> contains '19' run "Level 19 Reward"
+      else if <player.flag[level].aslist> contains '18' run "Level 18 Reward"
+      else if <player.flag[level].aslist> contains '17' run "Level 17 Reward"
+      else if <player.flag[level].aslist> contains '16' run "Level 16 Reward"
+      else if <player.flag[level].aslist> contains '15' run "Level 15 Reward"
+      else if <player.flag[level].aslist> contains '14' run "Level 14 Reward"
+      else if <player.flag[level].aslist> contains '13' run "Level 13 Reward"
+      else if <player.flag[level].aslist> contains '12' run "Level 12 Reward"
+      else if <player.flag[level].aslist> contains '11' run "Level 11 Reward"
+      else if <player.flag[level].aslist> contains '10' run "Level 10 Reward"
+      else if <player.flag[level].aslist> contains '9' run "Level 9 Reward"
+      else if <player.flag[level].aslist> contains '8' run "Level 8 Reward"
+      else if <player.flag[level].aslist> contains '7' run "Level 7 Reward"
+      else if <player.flag[level].aslist> contains '6' run "Level 6 Reward"
+      else if <player.flag[level].aslist> contains '5' run "Level 5 Reward"
+      else if <player.flag[level].aslist> contains '4' run "Level 4 Reward"
+      else if <player.flag[level].aslist> contains '3' run "Level 3 Reward"
+      else if <player.flag[level].aslist> contains '2' run "Level 2 Reward"
+      else if <player.flag[level].aslist> contains '1' run "Level 1 Reward"
+      
+#Static Rewards based on current level
+'Level 1 Reward':
+    type: task
+    script:
+    - narrate "static reward 1"
+'Level 2 Reward':
+    type: task
+    script:
+    - narrate "static reward 2"
+'Level 3 Reward':
+    type: task
+    script:
+    - narrate "static reward 3"
+'Level 4 Reward':
+    type: task
+    script:
+    - narrate "static reward 4"
+'Level 5 Reward':
+    type: task
+    script:
+    - narrate "static reward 5"
+'Level 6 Reward':
+    type: task
+    script:
+    - narrate "static reward 6"
+'Level 7 Reward':
+    type: task
+    script:
+    - narrate "static reward 7"
+'Level 8 Reward':
+    type: task
+    script:
+    - narrate "static reward 8"
+'Level 9 Reward':
+    type: task
+    script:
+    - narrate "static reward 9"
+'Level 10 Reward':
+    type: task
+    script:
+    - narrate "static reward 10"
+'Level 11 Reward':
+    type: task
+    script:
+    - narrate "static reward 11"
+'Level 12 Reward':
+    type: task
+    script:
+    - narrate "static reward 12"
+'Level 13 Reward':
+    type: task
+    script:
+    - narrate "static reward 13"
+'Level 14 Reward':
+    type: task
+    script:
+    - narrate "static reward 14"
+'Level 15 Reward':
+    type: task
+    script:
+    - narrate "static reward 15"
+'Level 16 Reward':
+    type: task
+    script:
+    - narrate "static reward 16"
+'Level 17 Reward':
+    type: task
+    script:
+    - narrate "static reward 17"
+'Level 18 Reward':
+    type: task
+    script:
+    - narrate "static reward 18"
+'Level 19 Reward':
+    type: task
+    script:
+    - narrate "static reward 19"
+'Level 20 Reward':
+    type: task
+    script:
+    - narrate "static reward 20"
+'Level 21 Reward':
+    type: task
+    script:
+    - narrate "static reward 21"
+        
+#Level Command
+'Level Check':
+  type: world
+  events:  
+    on level command:
+    - run 'Experience per Level'
+    - determine passively fulfilled
+ 
+'LVL Check':
+  type: world
+  events:  
+    on lvl command:
+    - run 'Experience per Level'
+    - determine passively fulfilled    
+    
+"Experience per Level":
+    type: task
+    script:
+    - if <player.flag[Experience]> <= 11 narrate "<green>Level 0 <red><el@val[11].sub[<player.flag[Experience]>]><green>Exp till next level."
+      else if <player.flag[Experience]> <= 44 narrate "<green>Level 1 <red><el@val[44].sub[<player.flag[Experience]>]><green>Exp till next level."
+      else if <player.flag[Experience]> <= 133 narrate "<green>Level 2 <red><el@val[133].sub[<player.flag[Experience]>]><green>Exp till next level."
+      else if <player.flag[Experience]> <= 372 narrate "<green>Level 3 <red><<el@val[372].sub[<player.flag[Experience]>]><green>Exp till next level."
+      else if <player.flag[Experience]> <= 1013 narrate "<green>Level 4 <red><el@val[1013].sub[<player.flag[Experience]>]><green>Exp till next level."
+      else if <player.flag[Experience]> <= 2737 narrate "<green>Level 5 <red><el@val[2737].sub[<player.flag[Experience]>]><green>Exp till next level."
+      else if <player.flag[Experience]> <= 7376 narrate "<green>Level 6 <red><el@val[7376].sub[<player.flag[Experience]>]><green>Exp till next level."
+      else if <player.flag[Experience]> <= 19860 narrate "<green>Level 7 <red><el@val[19860].sub[<player.flag[Experience]>]><green>Exp till next level."
+      else if <player.flag[Experience]> <= 53463 narrate "<green>Level 8 <red><el@val[53463].sub[<player.flag[Experience]>]><green>Exp till next level."
+      else if <player.flag[Experience]> <= 143911 narrate "<green>Level 9 <red><el@val[143911].sub[<player.flag[Experience]>]><green>Exp till next level."
+      else if <player.flag[Experience]> <= 387376 narrate "<green>Level 10 <red><el@val[387376].sub[<player.flag[Experience]>]><green>Exp till next level."
+      else if <player.flag[Experience]> <= 1042731 narrate "<green>Level 11 <red><el@val[1042731].sub[<player.flag[Experience]>]><green>Exp till next level."
+      else if <player.flag[Experience]> <= 2806812 narrate "<green>Level 12 <red><el@val[2806812].sub[<player.flag[Experience]>]><green>Exp till next level."
+      else if <player.flag[Experience]> <= 7555359 narrate "<green>Level 13 <red><el@val[7555359].sub[<player.flag[Experience]>]><green>Exp till next level."
+      else if <player.flag[Experience]> <= 20337495 narrate "<green>Level 14 <red><el@val[20337495].sub[<player.flag[Experience]>]><green>Exp till next level."
+      else if <player.flag[Experience]> <= 54744448 narrate "<green>Level 15 <red><el@val[54744448].sub[<player.flag[Experience]>]><green>Exp till next level."
+      else if <player.flag[Experience]> <= 147361092 narrate "<green>Level 16 <red><el@val[147361092].sub[<player.flag[Experience]>]><green>Exp till next level."
+      else if <player.flag[Experience]> <= 396666602 narrate "<green>Level 17 <red><el@val[396666602].sub[<player.flag[Experience]>]><green>Exp till next level."
+      else if <player.flag[Experience]> <= 1067747263 narrate "<green>Level 18 <red><el@val[1067747263].sub[<player.flag[Experience]>]><green>Exp till next level."
+      else if <player.flag[Experience]> <= 2874162437 narrate "<green>Level 19 <red><el@val[2874162437].sub[<player.flag[Experience]>]><green>Exp till next level."
+      else if <player.flag[Experience]> <= 5748324874 narrate "<green>Level 20 <red><el@val[5748324874].sub[<player.flag[Experience]>]><green>Exp till next level."
+      else if <player.flag[Experience]> >= 5748324874 narrate "<green>Holy Shit you're awesome!"
