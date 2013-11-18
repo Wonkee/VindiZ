@@ -1,5 +1,0 @@
-'Start':
-  type: world
-  events:  
-    on walked over Start:
-    - midi file:name <server.list_online_players> 
