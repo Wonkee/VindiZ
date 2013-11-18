@@ -1,5 +1,0 @@
-'NoEnchant':
-  type: world
-  events:
-    on item enchanted:
-    - determine CANCELLED
