@@ -1,0 +1,62 @@
+on leftclick with a clock:
+    make player execute "/menu open warps"
+    
+on leftclick with a compass:
+    make player execute "/menu open tracking"
+    
+on click on enchantment table:
+    cancel the event
+    make player execute "/stats"
+    
+#Hunger4Sprint
+options:
+    decrease-amt: 0.5
+    decrease-int: 1 second
+    increase-amt: 0.5
+    increase-int: 3 second
+on join:
+    while player is online:
+        while player is sprinting:
+            set player's hunger bar to player's hunger bar - {@decrease-amt}
+            wait {@decrease-int}
+        while player is not sprinting:
+            set player's hunger bar to player's hunger bar + {@increase-amt}
+            wait {@increase-int}
+    
+on leftclick with a diamond sword:
+    execute console command "/playsound portal.trigger %player%"
+    
+on rightclick with a diamond sword:
+    execute console command "/playsound portal.portal %player%"
+    
+on level change:
+    if player's level is equal to 7:
+        send "&b&oMy throat is getting parched." to player
+    if player's level is equal to 5:
+        send "&b&oI should find some water." to player
+    if player's level is equal to 3:
+        send "&b&oI'm so thirsty!" to player
+    if player's level is less than or equal to 1:
+        send "&b&oI'm going to die of thirst!" to player
+    
+on join:
+    wait 10 seconds
+    loop 4 times:
+        send "&e&oThis server is best played with our custom resource pack."
+        send "&bhttp://host.vindicraft.com/files/VindiZ1.6.4.zip"
+        wait 60 seconds
+    
+on click with a rotten flesh:
+    cancel the event
+    send message "&eYou have &a%player's money% &ecredits with the Vault bank." to the player
+        
+on rightclick on a player holding a chest:
+    cancel the event
+    kick player due to "Do not use backpacks to open shops."
+        
+on rightclick on a player holding a saddle:
+    cancel the event
+    kick player due to "Do not use backpacks to open shops."
+    
+on zombie break door:
+    cancel event

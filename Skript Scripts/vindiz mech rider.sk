@@ -1,0 +1,19 @@
+#Iron Golem Mech Rider
+
+on right click on iron golem with lever:
+    if player is riding iron golem:
+        stop
+    else:
+        send message "&8[Mech Initialized]"
+        wait 10 ticks
+        send message "&8[Manual Controls Engaged]"
+        make the player ride target
+        
+on drop of lever:
+    player is riding an iron golem
+    player has 1 nether star
+    push all iron golems in radius 1 around player horizontally forward at speed 0.5
+    cancel the event
+    chance of 25%:
+        remove 1 nether star from player
+        

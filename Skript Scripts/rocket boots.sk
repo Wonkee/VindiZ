@@ -1,0 +1,37 @@
+# Rocket Boots Script
+
+options:
+    # Velocity change upwards and in the player's direction
+    upwards: 1.3
+    directional: 0.8
+    
+    # Semi-proper sound names from the enum
+    sound: irongolem throw
+    
+on flight toggle:
+    if player's gamemode is not creative:
+        cancel event
+        disallow player to fly
+        boots of player is not boots:
+            stop
+        {%player%.class.choosedate} is set:
+            difference between {%player%.class.choosedate} and now is less than 3 seconds:
+                message "&8[Rocket Boots are re-charging]"
+                stop
+        player has 1 nether star
+        play "{@sound}" at player
+        execute console command "/playsound mob.blaze.breathe %player%"
+        execute console command "/particle cloud 5 2 0 0 0 %player%"
+        execute console command "/particle largesmoke 3 1 0 0 0 %player%"
+        execute console command "/particle flame 1 1 0 0 0 %player%"
+        push player upwards at speed {@upwards}
+        push player in direction of player at speed {@directional}
+        remove 1 nether star from player
+        set {%player%.class.choosedate} to now
+        
+on join:
+    if player has permission "perk.util.rocketboots":
+        while player is online:
+            if block below player is not air:
+                allow player to fly
+            wait 1 tick

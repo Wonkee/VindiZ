@@ -1,0 +1,67 @@
+#VindiZ Sign Effects
+
+on click on sign:
+    line 2 of the clicked block is "&a[Heal]":
+        remove regeneration from player
+        apply regeneration 5 to the player for 5 seconds
+        set line 3 to "Last healed:"
+        set line 4 to "&4%player%"
+        cancel event
+    
+on rightclick on sign:
+    line 2 of the clicked block is "&a[Heal]":
+        remove regeneration from player
+        apply regeneration 5 to the player for 5 seconds
+        set line 3 to "Last healed:"
+        set line 4 to "&4%player%"
+        cancel event
+        
+on click on sign:
+    line 1 of the clicked block is "&1Player Market":
+        execute console command "/sudo %player% market listings"
+        cancel event
+        
+on click on sign with rotten flesh:
+    cancel event
+    line 1 of the clicked block is "[Coin Deposit]":
+        if player has permission "premium.bonus":
+            execute console command "/eco give %player% 2"
+            remove 1 rotten flesh from the player
+            set line 3 to "&81010001010100"
+            set line 4 to "0101000101010"
+            wait 5 ticks
+            set line 3 to "0010101001001"
+            set line 4 to "&80101001011001"
+            wait 5 ticks
+            set line 3 to "&81010001010100"
+            set line 4 to "0101000101010"
+            wait 5 ticks
+            set line 3 to "0110110010110"
+            set line 4 to "&81101100101101"
+            wait 5 ticks
+            set line 3 to "&1+2 Credits"
+            set line 4 to "Balance: %player's money%"
+        else:
+            execute console command "/eco give %player% 1"
+            remove 1 rotten flesh from the player
+            set line 3 to "&81010001010100"
+            set line 4 to "0101000101010"
+            wait 5 ticks
+            set line 3 to "0010101001001"
+            set line 4 to "&80101001011001"
+            wait 5 ticks
+            set line 3 to "&81010001010100"
+            set line 4 to "0101000101010"
+            wait 5 ticks
+            set line 3 to "0110110010110"
+            set line 4 to "&81101100101101"
+            wait 5 ticks
+            set line 3 to "&1+1 Credits"
+            set line 4 to "Balance: %player's money%"
+            
+on click on sign:
+    cancel event
+    line 2 of the clicked block is "&1[Balance]":
+        send message "&eYou have &a%player's money% &ecredits with the Vault bank." to the player
+        set line 3 to "%player%:"
+        set line 4 to "%player's money%"

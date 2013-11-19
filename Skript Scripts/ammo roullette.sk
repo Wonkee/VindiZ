@@ -1,0 +1,144 @@
+on right click on sign:
+    if line 1 of block is "&4Ammo":
+        line 3 of block is "&a-Ready-"
+        if player's balance is less than 20:
+            message "&eYou need 20 credits to play."
+            stop
+        execute console command "/eco take %player% 20"
+        set line 3 of block to "&e-Playing-"
+        loop 50 times:
+            set {_ammo1} to a random integer between 1 and 10
+            if {_ammo1} is 1:
+                set {_ammo1} to "&a.22 Ammo"
+            if {_ammo1} is 2:
+                set {_ammo1} to "&29mm Ammo"
+            if {_ammo1} is 3:
+                set {_ammo1} to "&110mm Ammo"
+            if {_ammo1} is 4:
+                set {_ammo1} to "&512ga Slugs"
+            if {_ammo1} is 5:
+                set {_ammo1} to "&4.44 Ammo"
+            if {_ammo1} is 6:
+                set {_ammo1} to "&65.56mm Ammo"
+            if {_ammo1} is 7:
+                set {_ammo1} to "&e7.62mm Ammo"
+            if {_ammo1} is 8:
+                set {_ammo1} to "&a.300 Ammo"
+            if {_ammo1} is 9:
+                set {_ammo1} to "&b.50 BMG Ammo"
+            if {_ammo1} is 10:
+                set {_ammo1} to "&4You suck!"
+            set line 4 of block to "%{_ammo1}%"
+            wait 2 ticks
+        set line 3 of block to "&a-Ready-"
+        if {_ammo1} is "&a.22 Ammo":
+            loop 35 times:
+                set block 2 blocks below event-block to glowstone
+                drop firework star named "%{_ammo1}%" at event-location
+                execute console command "/playsound random.successful_hit %player%"
+                wait 3 ticks
+                set block 2 blocks below event-block to wool
+                wait 4 ticks
+                chance of 5%:
+                    stop
+            message "&eYou won %{_ammo1}%"
+            stop
+        if {_ammo1} is "&29mm Ammo":
+            loop 25 times:
+                set block 2 blocks below event-block to glowstone
+                drop ghast tears named "%{_ammo1}%" at event-location
+                execute console command "/playsound random.successful_hit %player%"
+                wait 3 ticks
+                set block 2 blocks below event-block to wool
+                wait 4 ticks
+                chance of 5%:
+                    stop
+            message "&eYou won %{_ammo1}%"
+            stop
+        if {_ammo1} is "&110mm Ammo":
+            loop 25 times:
+                set block 2 blocks below event-block to glowstone
+                drop flower pots named "%{_ammo1}%" at event-location
+                execute console command "/playsound random.successful_hit %player%"
+                wait 3 ticks
+                set block 2 blocks below event-block to wool
+                wait 4 ticks
+                chance of 5%:
+                    stop
+            message "&eYou won %{_ammo1}%"
+            stop
+        if {_ammo1} is "&512ga Slugs":
+            loop 10 times:
+                set block 2 blocks below event-block to glowstone
+                drop gunpowder named "%{_ammo1}%" at event-location
+                execute console command "/playsound random.successful_hit %player%"
+                wait 3 ticks
+                set block 2 blocks below event-block to wool
+                wait 4 ticks
+                chance of 5%:
+                    stop
+            message "&eYou won %{_ammo1}%"
+            stop
+        if {_ammo1} is "&4.44 Ammo":
+            loop 15 times:
+                set block 2 blocks below event-block to glowstone
+                drop diamond named "%{_ammo1}%" at event-location
+                execute console command "/playsound random.successful_hit %player%"
+                wait 3 ticks
+                set block 2 blocks below event-block to wool
+                wait 4 ticks
+                chance of 5%:
+                    stop
+            message "&eYou won %{_ammo1}%"
+            stop
+        if {_ammo1} is "&65.56mm Ammo":
+            loop 25 times:
+                set block 2 blocks below event-block to glowstone
+                drop quartz named "%{_ammo1}%" at event-location
+                execute console command "/playsound random.successful_hit %player%"
+                wait 3 ticks
+                set block 2 blocks below event-block to wool
+                wait 4 ticks
+                chance of 5%:
+                    stop
+            message "&eYou won %{_ammo1}%"
+            stop
+        if {_ammo1} is "&e7.62mm Ammo":
+            loop 25 times:
+                set block 2 blocks below event-block to glowstone
+                drop iron ingot named "%{_ammo1}%" at event-location
+                execute console command "/playsound random.successful_hit %player%"
+                wait 3 ticks
+                set block 2 blocks below event-block to wool
+                wait 4 ticks
+                chance of 5%:
+                    stop
+            message "&eYou won %{_ammo1}%"
+            stop
+        if {_ammo1} is "&a.300 Ammo":
+            loop 10 times:
+                set block 2 blocks below event-block to glowstone
+                drop gold ingot named "%{_ammo1}%" at event-location
+                execute console command "/playsound random.successful_hit %player%"
+                wait 3 ticks
+                set block 2 blocks below event-block to wool
+                wait 4 ticks
+                chance of 20%:
+                    stop
+            message "&eYou won %{_ammo1}%"
+            stop
+        if {_ammo1} is "&b.50 BMG Ammo":
+            loop 10 times:
+                set block 2 blocks below event-block to glowstone
+                drop string named "%{_ammo1}%" at event-location
+                execute console command "/playsound random.successful_hit %player%"
+                wait 3 ticks
+                set block 2 blocks below event-block to wool
+                wait 4 ticks
+                chance of 20%:
+                    stop
+            message "&eYou won %{_ammo1}%"
+            stop
+        if {_ammo1} is "&4You Suck!":
+            message "&eSorry, &4You Suck!"
+            stop

@@ -1,0 +1,187 @@
+#VindiZ Mobs and Mob Drop Scripts
+
+on picking up of rotten flesh:
+    execute console command "/playsound random.successful_hit %player%"
+    execute console command "/playsound random.orb %player%"
+
+on death of a zombie or a zombie pigman:
+    clear drops
+    if attacker has permission "premium.bonus":
+        execute console command "/eco give %attacker% 2"
+        drop 2 rotten flesh named "&eCoin" at victim
+        chance of 4%:
+            drop wood hoe named "&eP22&e «×»"
+        chance of 4%:
+            drop stone hoe named "&eBeretta 92FS&e «×»"
+        chance of 2%:
+            drop wood spade named "&eMossberg 500&e «×»"
+        chance of 2%:
+            drop iron spade named "&eMossberg 930&e «×»"
+        chance of 15%:
+            drop wood sword named "&8Spiked Bat"
+        chance of 8%:
+            drop stone sword named "&fHammer"
+        chance of 20%:
+            loop 10 times:
+                drop ghast tear named "&f9mm Ammo"
+                chance of 5%:
+                    stop
+        chance of 20%:
+            loop 10 times:
+                drop gunpowder named "&f12ga Slug"
+                chance of 5%:
+                    stop
+        chance of 20%:
+            loop 20 times:
+                drop firework star named "&f.22 Ammo"
+                chance of 5%:
+                    stop
+    else:
+        execute console command "/eco give %attacker% 1"
+        drop 1 rotten flesh named "&eCoin" at victim
+        chance of 2%:
+            drop wood hoe named "&eP22&e «×»"
+        chance of 2%:
+            drop stone hoe named "&eBeretta 92FS&e «×»"
+        chance of 1%:
+            drop wood spade named "&eMossberg 500&e «×»"
+        chance of 1%:
+            drop iron spade named "&eMossberg 930&e «×»"
+        chance of 10%:
+            drop wood sword named "&8Spiked Bat"
+        chance of 5%:
+            drop stone sword named "&fHammer"
+        chance of 10%:
+            loop 10 times:
+                drop ghast tear named "&f9mm Ammo"
+                chance of 10%:
+                    stop
+        chance of 10%:
+            loop 10 times:
+                drop gunpowder named "&f12ga Slug"
+                chance of 10%:
+                    stop
+        chance of 10%:
+            loop 20 times:
+                drop firework star named "&f.22 Ammo"
+                chance of 10%:
+                    stop
+    
+on death of a giant:
+    clear drops
+    if attacker has permission "premium.bonus":
+        execute console command "/eco give %attacker% 20"
+        drop 2 rotten flesh named "&eCoin" at victim
+        chance of 2%:
+            drop iron axe named "&eAK-47&e «×»"
+        chance of 2%:
+            drop diamond pickaxe named "&eM16&e «×»"
+        chance of 2%:
+            drop gold pickaxe named "&eUZI&e «×»"
+        chance of 2%:
+            drop iron pickaxe named "&eMAC10&e «×»"
+        chance of 2%:
+            drop flint named "&eScout&e «×»"
+        chance of 2%:
+            drop leather named "&eDragunov&e «×»"
+        chance of 10%:
+            loop 20 times:
+                drop ghast tear named "&f9mm Ammo"
+        chance of 10%:
+            loop 10 times:
+                drop gunpowder named "&f12ga Slug"
+        chance of 10%:
+            loop 20 times:
+                drop firework star named "&f.22 Ammo"
+        chance of 10%:
+            loop 20 times:
+                drop quartz named "&f5.56mm Ammo"
+        chance of 10%:
+            loop 20 times:
+                drop iron ingot named "&f7.62mm Ammo"
+        chance of 10%:
+            loop 20 times:
+                drop flower pots named "&f10mm Ammo"
+    else:
+        execute console command "/eco give %attacker% 10"
+        drop 1 rotten flesh named "&eCoin" at victim
+        chance of 1%:
+            drop iron axe named "&eAK-47&e «×»"
+        chance of 1%:
+            drop diamond pickaxe named "&eM16&e «×»"
+        chance of 1%:
+            drop gold pickaxe named "&eUZI&e «×»"
+        chance of 1%:
+            drop iron pickaxe named "&eMAC10&e «×»"
+        chance of 1%:
+            drop flint named "&eScout&e «×»"
+        chance of 1%:
+            drop leather named "&eDragunov&e «×»"
+        chance of 10%:
+            loop 20 times:
+                drop ghast tear named "&f9mm Ammo"
+        chance of 5%:
+            loop 10 times:
+                drop gunpowder named "&f12ga Slug"
+        chance of 15%:
+            loop 20 times:
+                drop firework star named "&f.22 Ammo"
+        chance of 5%:
+            loop 20 times:
+                drop quartz named "&f5.56mm Ammo"
+        chance of 5%:
+            loop 20 times:
+                drop iron ingot named "&f7.62mm Ammo"
+        chance of 5%:
+            loop 20 times:
+                drop flower pots named "&f10mm Ammo"
+    
+    
+on spawn of a zombie:
+    set {_zlvl} to a random integer between 1 and 10
+    if {_zlvl} is 1:
+        set name of last spawned entity to "&8[Level 1]"
+        set the last spawned entity's max health to 10
+    if {_zlvl} is 2:
+        set name of last spawned entity to "&f[Level 2]"
+        set the last spawned entity's max health to 15
+    if {_zlvl} is 3:
+        set name of last spawned entity to "&1[Level 3]"
+        set the last spawned entity's max health to 20
+    if {_zlvl} is 4:
+        set name of last spawned entity to "&2[Level 4]"
+        set the last spawned entity's max health to 23
+    if {_zlvl} is 5:
+        set name of last spawned entity to "&a[Level 5]"
+        set the last spawned entity's max health to 25
+    if {_zlvl} is 6:
+        set name of last spawned entity to "&e[Level 6]"
+        set the last spawned entity's max health to 27
+    if {_zlvl} is 7:
+        set name of last spawned entity to "&6[Level 7]"
+        set the last spawned entity's max health to 30
+    if {_zlvl} is 8:
+        set name of last spawned entity to "&c[Level 8]"
+        set the last spawned entity's max health to 33
+    if {_zlvl} is 9:
+        set name of last spawned entity to "&4[Level 9]"
+        set the last spawned entity's max health to 36
+    if {_zlvl} is 10:
+        set name of last spawned entity to "&5[Level 10]"
+        set the last spawned entity's max health to 40
+    chance of 50%:
+        apply swiftness 1 to the event-entity for 45 seconds
+    chance of 10%:
+        spawn a zombie at the event-entity
+    chance of 10%:
+        spawn a zombie pigman at the event-entity
+        set the last spawned entity's max health to 30
+        apply swiftness 1 to the event-entity for 30 seconds
+    chance of 1%:
+        spawn a giant at the event-entity
+        set the last spawned entity's max health to 200
+        
+on spawn of a skeleton:
+    cancel event
+    spawn a zombie
+    

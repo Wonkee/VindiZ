@@ -1,0 +1,509 @@
+#VindiZ Vending Machine Potions
+
+on right click on sign:
+    if line 1 of block is "&6Dragonkist":
+        line 3 of block is "&a-Ready-"
+        if player's balance is less than 20:
+            message "&e20 Credits Required"
+            stop
+        execute console command "/eco take %player% 20"
+        set line 3 of block to "&e-Vending-"
+        loop 3 times:
+            set line 4 of block to "&4Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&6Enjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&eEnjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&aEnjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&2Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&1Enjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&5Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+        set line 4 of block to "&4Thank You!"
+        execute console command "/playsound random.successful_hit %player%"
+        set block 2 blocks below event-block to light gray hard clay
+        drop a potion of:8195 named "&6Dragonkist" below the event-location
+        set line 3 of block to "&a-Ready-"
+        
+on right click on sign:
+    if line 1 of block is "&6Bottled Water":
+        line 3 of block is "&a-Ready-"
+        if player's balance is less than 10:
+            message "&e10 Credits Required"
+            stop
+        execute console command "/eco take %player% 10"
+        set line 3 of block to "&e-Vending-"
+        loop 3 times:
+            set line 4 of block to "&4Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&6Enjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&eEnjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&aEnjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&2Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&1Enjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&5Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+        set line 4 of block to "&4Thank You!"
+        execute console command "/playsound random.successful_hit %player%"
+        set block 2 blocks below event-block to light gray hard clay
+        drop a potion of:0 named "&6Bottled Water" below the event-location
+        set line 3 of block to "&a-Ready-"
+
+on right click on sign:
+    if line 1 of block is "&4Strength Cola":
+        line 3 of block is "&a-Ready-"
+        if player's balance is less than 20:
+            message "&e20 Credits Required"
+            stop
+        execute console command "/eco take %player% 20"
+        set line 3 of block to "&e-Vending-"
+        loop 3 times:
+            set line 4 of block to "&4Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&6Enjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&eEnjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&aEnjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&2Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&1Enjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&5Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+        set line 4 of block to "&4Thank You!"
+        execute console command "/playsound random.successful_hit %player%"
+        set block 2 blocks below event-block to light gray hard clay
+        drop a potion of:8201 named "&4Strength Cola" below the event-location
+        set line 3 of block to "&a-Ready-"
+
+on right click on sign:
+    if line 1 of block is "&5Grape Soda":
+        line 3 of block is "&a-Ready-"
+        if player's balance is less than 20:
+            message "&e20 Credits Required"
+            stop
+        execute console command "/eco take %player% 20"
+        set line 3 of block to "&e-Vending-"
+        loop 3 times:
+            set line 4 of block to "&4Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&6Enjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&eEnjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&aEnjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&2Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&1Enjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&5Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+        set line 4 of block to "&4Thank You!"
+        execute console command "/playsound random.successful_hit %player%"
+        set block 2 blocks below event-block to light gray hard clay
+        drop a potion of:8225 named "&5Grape Soda" below the event-location
+        set line 3 of block to "&a-Ready-"
+
+on right click on sign:
+    if line 1 of block is "&1Cat-Eye Cola":
+        line 3 of block is "&a-Ready-"
+        if player's balance is less than 20:
+            message "&e20 Credits Required"
+            stop
+        execute console command "/eco take %player% 20"
+        set line 3 of block to "&e-Vending-"
+        loop 3 times:
+            set line 4 of block to "&4Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&6Enjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&eEnjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&aEnjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&2Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&1Enjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&5Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+        set line 4 of block to "&4Thank You!"
+        execute console command "/playsound random.successful_hit %player%"
+        set block 2 blocks below event-block to light gray hard clay
+        drop a potion of:8230 named "&1Cat-Eye Cola" below the event-location
+        set line 3 of block to "&a-Ready-"
+
+on right click on sign:
+    if line 1 of block is "&2Hemloch":
+        line 3 of block is "&a-Ready-"
+        if player's balance is less than 10:
+            message "&e10 Credits Required"
+            stop
+        execute console command "/eco take %player% 10"
+        set line 3 of block to "&e-Vending-"
+        loop 3 times:
+            set line 4 of block to "&4Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&6Enjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&eEnjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&aEnjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&2Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&1Enjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&5Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+        set line 4 of block to "&4Thank You!"
+        execute console command "/playsound random.successful_hit %player%"
+        set block 2 blocks below event-block to light gray hard clay
+        drop a potion of:8228 named "&2Hemloch" below the event-location
+        set line 3 of block to "&a-Ready-"
+        
+#Medical Supplies
+
+on right click on sign:
+    if line 1 of block is "&fBandage":
+        line 3 of block is "&a-Ready-"
+        if player's balance is less than 10:
+            message "&e10 Credits Required"
+            stop
+        execute console command "/eco take %player% 10"
+        set line 3 of block to "&e-Vending-"
+        loop 3 times:
+            set line 4 of block to "&4Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&6Enjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&eEnjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&aEnjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&2Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&1Enjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&5Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+        set line 4 of block to "&4Thank You!"
+        execute console command "/playsound random.successful_hit %player%"
+        set block 2 blocks below event-block to light gray hard clay
+        drop paper below the event-location
+        set line 3 of block to "&a-Ready-"
+        
+on right click on sign:
+    if line 1 of block is "&4Ointment":
+        line 3 of block is "&a-Ready-"
+        if player's balance is less than 10:
+            message "&e10 Credits Required"
+            stop
+        execute console command "/eco take %player% 10"
+        set line 3 of block to "&e-Vending-"
+        loop 3 times:
+            set line 4 of block to "&4Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&6Enjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&eEnjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&aEnjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&2Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&1Enjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&5Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+        set line 4 of block to "&4Thank You!"
+        execute console command "/playsound random.successful_hit %player%"
+        set block 2 blocks below event-block to light gray hard clay
+        drop red dye named "&4Ointment" below the event-location
+        set line 3 of block to "&a-Ready-"
+        
+on right click on sign:
+    if line 1 of block is "&aAntiseptic":
+        line 3 of block is "&a-Ready-"
+        if player's balance is less than 10:
+            message "&e10 Credits Required"
+            stop
+        execute console command "/eco take %player% 10"
+        set line 3 of block to "&e-Vending-"
+        loop 3 times:
+            set line 4 of block to "&4Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&6Enjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&eEnjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&aEnjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&2Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&1Enjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&5Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+        set line 4 of block to "&4Thank You!"
+        execute console command "/playsound random.successful_hit %player%"
+        set block 2 blocks below event-block to light gray hard clay
+        drop light green dye named "&aAntiseptic" below the event-location
+        set line 3 of block to "&a-Ready-"
+        
+on right click on sign:
+    if line 1 of block is "&1Syringe":
+        line 3 of block is "&a-Ready-"
+        if player's balance is less than 10:
+            message "&e10 Credits Required"
+            stop
+        execute console command "/eco take %player% 10"
+        set line 3 of block to "&e-Vending-"
+        loop 3 times:
+            set line 4 of block to "&4Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&6Enjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&eEnjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&aEnjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&2Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&1Enjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&5Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+        set line 4 of block to "&4Thank You!"
+        execute console command "/playsound random.successful_hit %player%"
+        set block 2 blocks below event-block to light gray hard clay
+        drop brick named "&1Syringe" below the event-location
+        set line 3 of block to "&a-Ready-"
+        
+on right click on sign:
+    if line 1 of block is "&1Glass Bottle":
+        line 3 of block is "&a-Ready-"
+        if player's balance is less than 10:
+            message "&e10 Credits Required"
+            stop
+        execute console command "/eco take %player% 10"
+        set line 3 of block to "&e-Vending-"
+        loop 3 times:
+            set line 4 of block to "&4Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&6Enjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&eEnjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&aEnjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&2Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&1Enjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&5Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+        set line 4 of block to "&4Thank You!"
+        execute console command "/playsound random.successful_hit %player%"
+        set block 2 blocks below event-block to light gray hard clay
+        drop glass bottle named "&1Glass Bottle" below the event-location
+        set line 3 of block to "&a-Ready-"
+        
+#Gadget Machines
+        
+on right click on sign:
+    if line 1 of block is "&e&lClock":
+        line 3 of block is "&a-Ready-"
+        if player's balance is less than 10:
+            message "&e10 Credits Required"
+            stop
+        execute console command "/eco take %player% 10"
+        set line 3 of block to "&e-Vending-"
+        loop 3 times:
+            set line 4 of block to "&4Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&6Enjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&eEnjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&aEnjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&2Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&1Enjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&5Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+        set line 4 of block to "&4Thank You!"
+        execute console command "/playsound random.successful_hit %player%"
+        set block 2 blocks below event-block to light gray hard clay
+        drop clock named "&e&lClock" below the event-location
+        set line 3 of block to "&a-Ready-"
+        
+on right click on sign:
+    if line 1 of block is "&lCompass":
+        line 3 of block is "&a-Ready-"
+        if player's balance is less than 10:
+            message "&e10 Credits Required"
+            stop
+        execute console command "/eco take %player% 10"
+        set line 3 of block to "&e-Vending-"
+        loop 3 times:
+            set line 4 of block to "&4Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&6Enjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&eEnjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&aEnjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&2Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&1Enjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&5Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+        set line 4 of block to "&4Thank You!"
+        execute console command "/playsound random.successful_hit %player%"
+        set block 2 blocks below event-block to light gray hard clay
+        drop compass named "&lCompass" below the event-location
+        set line 3 of block to "&a-Ready-"
+        
+on right click on sign:
+    if line 1 of block is "&5&lHoming Bot":
+        line 3 of block is "&a-Ready-"
+        if player's balance is less than 10:
+            message "&e10 Credits Required"
+            stop
+        execute console command "/eco take %player% 10"
+        set line 3 of block to "&e-Vending-"
+        loop 3 times:
+            set line 4 of block to "&4Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&6Enjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&eEnjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&aEnjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&2Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+            set line 4 of block to "&1Enjoy!"
+            set block 2 blocks below event-block to light gray hard clay
+            wait 2 tick
+            set line 4 of block to "&5Enjoy!"
+            set block 2 blocks below event-block to glowstone
+            wait 2 tick
+        set line 4 of block to "&4Thank You!"
+        execute console command "/playsound random.successful_hit %player%"
+        set block 2 blocks below event-block to light gray hard clay
+        drop eye of ender named "&5&lHoming Bot" below the event-location
+        set line 3 of block to "&a-Ready-"
