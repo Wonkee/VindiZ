@@ -44,13 +44,13 @@
                     trigger: "I choose /1/ the 5% damage increase."
                     script:
                     - engage
-                    - if <player.flag[damageincrease]> != true && <player.flag[MajorPerk] >= '1' {
+                    - if <player.flag[damageincrease]> != true && <player.flag[MajorPerk]> >= '1' {
                       - Zap 1
                       - flag damageincrease
                       - flag MajorPerk:--
                       - Narrate "<&e>You have been trained to be stronger in battle"
                       }
-                      else if <player.flag[MajorPerk] < '1' {
+                      else if <player.flag[MajorPerk]> < '1' {
                       - narrate "<&e>You do not have enough credits"
                       }
                       else {
@@ -61,13 +61,13 @@
                     trigger: "I choose /2/ the damage reduction in full armor."
                     script:
                     - engage
-                    - if <player.flag[damagereduction]> != true && <player.flag[MajorPerk] >= '1' {
+                    - if <player.flag[damagereduction]> != true && <player.flag[MajorPerk]> >= '1' {
                       - Zap 1
                       - flag damagereduction
                       - flag MajorPerk:--
                       - Narrate "<&e>You have been trained to make better use of your armor."
                       }
-                      else if <player.flag[MajorPerk] < '1' {
+                      else if <player.flag[MajorPerk]> < '1' {
                       - narrate "<&e>You do not have enough credits"
                       }
                       else {
@@ -78,13 +78,13 @@
                     trigger: "I choose /3/, Dodge increase."
                     script:
                     - engage
-                    - if <player.flag[dodgeincrease]> != true && <player.flag[MajorPerk] >= '1' {
+                    - if <player.flag[dodgeincrease]> != true && <player.flag[MajorPerk]> >= '1' {
                       - Zap 1
                       - flag dodgeincrease
                       - flag MajorPerk:--
                       - Narrate "<&e>You have been trained to use Night Vision Goggles!"
                       }
-                      else if <player.flag[MajorPerk] < '1' {
+                      else if <player.flag[MajorPerk]> < '1' {
                       - narrate "<&e>You do not have enough credits"
                       }
                       else {
@@ -95,13 +95,13 @@
                     trigger: "I choose /4/ the Crtical strike increase."
                     script:
                     - engage
-                    - if <player.flag[critdamage]> != true && <player.flag[MajorPerk] >= '1' {
+                    - if <player.flag[critdamage]> != true && <player.flag[MajorPerk]> >= '1' {
                       - Zap 1
                       - flag critdamage
                       - flag MajorPerk:--
                       - Narrate "<&e>You now have a higher chance on critical strikes."
                       }
-                      else if <player.flag[MajorPerk] < '1' {
+                      else if <player.flag[MajorPerk]> < '1' {
                       - narrate "<&e>You do not have enough credits"
                       }
                       else {
@@ -112,13 +112,13 @@
                     trigger: "I choose /5/, I wish to be faster."
                     script:
                     - engage
-                    - if <player.flag[speedincrease]> != true && <player.flag[MajorPerk] >= '1' {
+                    - if <player.flag[speedincrease]> != true && <player.flag[MajorPerk]> >= '1' {
                       - Zap 1
                       - flag speedincrease
                       - flag MajorPerk:--
                       - Narrate "<&e>You have been trained to use Night Vision Goggles!"
                       }
-                      else if <player.flag[MajorPerk] < '1' {
+                      else if <player.flag[MajorPerk]> < '1' {
                       - narrate "<&e>You do not have enough credits"
                       }
                       else {
@@ -130,28 +130,28 @@
                     script:
                     - engage
                     - NARRATE "<&d>[HINT] <&e>Type in the number to the reward you would like to obtain."
-                    - NARRATE "<&6>7.<&e> Night Vision Goggles"
-                    - NARRATE "<&6>8.<&e> Fly High Rocket Boots"
-                    - NARRATE "<&6>9.<&e> Battery Shop Discount"
-                    - NARRATE "<&6>10.<&e> Active Camo Clock"
-                    - NARRATE "<&6>11.<&e> Next Page"
-                    - NARRATE "<&6>12.<&e> Next Page"
+                    - NARRATE "<&6>7.<&e> Pistol Specialization"
+                    - NARRATE "<&6>8.<&e> Shotgun Specialization"
+                    - NARRATE "<&6>9.<&e> SMG Specialization"
+                    - NARRATE "<&6>10.<&e> Assault Rifle Specialization"
+                    - NARRATE "<&6>11.<&e> Sniper Specialization"
+                    - NARRATE "<&6>12.<&e> Explosive Specialization"
                     - NARRATE "<&6>13.<&e> First Page"
                     - zap 4
                     - disengage
         '4':
             chat trigger:
                 '1':
-                    trigger: "I choose /7/ the Night Vision Goggles."
+                    trigger: "I choose /7/ the Pistol Specialization."
                     script:
                     - engage
-                    - if <player.flag[NightVisionGoggles]> != true && <player.flag[MajorPerk] >= '1' {
+                    - if <player.flag[pistolspecial]> != true && <player.flag[MajorPerk]> >= '1' {
                       - Zap 1
-                      - flag NightVisionGoggles
+                      - flag pistolspecial
                       - flag MajorPerk:--
-                      - Narrate "<&e>You have been trained to use Night Vision Goggles!"
+                      - Narrate "<&e>You are now a better with pistols"
                       }
-                      else if <player.flag[MajorPerk] < '1' {
+                      else if <player.flag[MajorPerk]> < '1' {
                       - narrate "<&e>You do not have enough credits"
                       }
                       else {
@@ -159,16 +159,16 @@
                       }
                     - disengage
                 '2':
-                    trigger: "I choose /8/ the Night Vision Goggles."
+                    trigger: "I choose /8/ the Shotgun Specialization."
                     script:
                     - engage
-                    - if <player.flag[NightVisionGoggles]> != true && <player.flag[MajorPerk] >= '1' {
+                    - if <player.flag[shotgunspecial]> != true && <player.flag[MajorPerk]> >= '1' {
                       - Zap 1
-                      - flag NightVisionGoggles
+                      - flag shotgunspecial
                       - flag MajorPerk:--
-                      - Narrate "<&e>You have been trained to use Night Vision Goggles!"
+                      - Narrate "<&e>You have been trained to use shotguns!"
                       }
-                      else if <player.flag[MajorPerk] < '1' {
+                      else if <player.flag[MajorPerk]> < '1' {
                       - narrate "<&e>You do not have enough credits"
                       }
                       else {
@@ -176,16 +176,16 @@
                       }
                     - disengage
                 '3':
-                    trigger: "I choose /9/ the Night Vision Goggles."
+                    trigger: "I choose /9/ the SMG Specialization."
                     script:
                     - engage
-                    - if <player.flag[NightVisionGoggles]> != true && <player.flag[MajorPerk] >= '1' {
+                    - if <player.flag[smgspecial]> != true && <player.flag[MajorPerk]> >= '1' {
                       - Zap 1
-                      - flag NightVisionGoggles
+                      - flag smgspecial
                       - flag MajorPerk:--
-                      - Narrate "<&e>You have been trained to use Night Vision Goggles!"
+                      - Narrate "<&e>You have been trained to use SMGs"
                       }
-                      else if <player.flag[MajorPerk] < '1' {
+                      else if <player.flag[MajorPerk]> < '1' {
                       - narrate "<&e>You do not have enough credits"
                       }
                       else {
@@ -193,16 +193,16 @@
                       }
                     - disengage
                 '4':
-                    trigger: "I choose /10/ the Night Vision Goggles."
+                    trigger: "I choose /10/ the Assault Rifle Specialization."
                     script:
                     - engage
-                    - if <player.flag[NightVisionGoggles]> != true && <player.flag[MajorPerk] >= '1' {
+                    - if <player.flag[arspecial]> != true && <player.flag[MajorPerk]> >= '1' {
                       - Zap 1
-                      - flag NightVisionGoggles
+                      - flag arspecial
                       - flag MajorPerk:--
-                      - Narrate "<&e>You have been trained to use Night Vision Goggles!"
+                      - Narrate "<&e>You have been trained to use Assault rifles!"
                       }
-                      else if <player.flag[MajorPerk] < '1' {
+                      else if <player.flag[MajorPerk]> < '1' {
                       - narrate "<&e>You do not have enough credits"
                       }
                       else {
@@ -210,16 +210,16 @@
                       }
                     - disengage
                 '5':
-                    trigger: "I choose /11/ the Night Vision Goggles."
+                    trigger: "I choose /11/ the Sniper Rifle Specialization."
                     script:
                     - engage
-                    - if <player.flag[NightVisionGoggles]> != true && <player.flag[MajorPerk] >= '1' {
+                    - if <player.flag[sniperspecial]> != true && <player.flag[MajorPerk]> >= '1' {
                       - Zap 1
-                      - flag NightVisionGoggles
+                      - flag sniperspecial
                       - flag MajorPerk:--
-                      - Narrate "<&e>You have been trained to use Night Vision Goggles!"
+                      - Narrate "<&e>You have been trained to use the sniper rifle"
                       }
-                      else if <player.flag[MajorPerk] < '1' {
+                      else if <player.flag[MajorPerk]> < '1' {
                       - narrate "<&e>You do not have enough credits"
                       }
                       else {
@@ -227,16 +227,16 @@
                       }
                     - disengage
                 '6':
-                    trigger: "I choose /12/ the Night Vision Goggles."
+                    trigger: "I choose /12/ the Explosive Specialization"
                     script:
                     - engage
-                    - if <player.flag[NightVisionGoggles]> != true && <player.flag[MajorPerk] >= '1' {
+                    - if <player.flag[explodespecial]> != true && <player.flag[MajorPerk]> >= '1' {
                       - Zap 1
-                      - flag NightVisionGoggles
+                      - flag explodespecial
                       - flag MajorPerk:--
-                      - Narrate "<&e>You have been trained to use Night Vision Goggles!"
+                      - Narrate "<&e>You have been trained to use explosives!"
                       }
-                      else if <player.flag[MajorPerk] < '1' {
+                      else if <player.flag[MajorPerk]> < '1' {
                       - narrate "<&e>You do not have enough credits"
                       }
                       else {
@@ -244,7 +244,7 @@
                       }
                     - disengage
                 '7':
-                    trigger: "I choose /13/ the Night Vision Goggles."
+                    trigger: "I choose /13/ First Page"
                     script:
                     - engage
                     - NARRATE "<&d>[HINT] <&e>Type in the number to the reward you would like to obtain."
@@ -261,13 +261,13 @@
                     trigger: "I choose /1/ the Night Vision Goggles."
                     script:
                     - engage
-                    - if <player.flag[NightVisionGoggles]> != true && <player.flag[UtilityPerk] >= '1' {
+                    - if <player.flag[NightVisionGoggles]> != true && <player.flag[UtilityPerk]> >= '1' {
                       - Zap 1
                       - flag NightVisionGoggles
                       - flag UtilityPerk:--
                       - Narrate "<&e>You have been trained to use Night Vision Goggles!"
                       }
-                      else if <player.flag[UtilityPerk] < '1' {
+                      else if <player.flag[UtilityPerk]> < '1' {
                       - narrate "<&e>You do not have enough credits"
                       }
                       else {
@@ -278,13 +278,13 @@
                     trigger: "I choose /2/ the Fly High Rocket Boots."
                     script:
                     - engage
-                    - ^if <player.flag[FHRocketBoots]> != true && <player.flag[UtilityPerk] >= '1' {
+                    - ^if <player.flag[FHRocketBoots]> != true && <player.flag[UtilityPerk]> >= '1' {
                       - Zap 1
                       - flag FHRocketBoots
                       - flag UtilityPerk:--
                       - Narrate "<&e>You have been trained to use Rocket Boots!"
                       }
-                      else if <player.flag[UtilityPerk] < '1' {
+                      else if <player.flag[UtilityPerk]> < '1' {
                       - narrate "<&e>You do not have enough credits"
                       }
                       else {
@@ -295,13 +295,13 @@
                     trigger: "I choose /3/ the Battery Shop Discount."
                     script:
                     - engage
-                    - ^if <player.flag[BatteryShopDC]> != true && <player.flag[UtilityPerk] >= '1' {
+                    - ^if <player.flag[BatteryShopDC]> != true && <player.flag[UtilityPerk]> >= '1' {
                       - Zap 1
                       - flag BatteryShopDC
                       - flag UtilityPerk:--
                       - Narrate "<&e>You will now recieve a discount on Batteries!"
                       }
-                      else if <player.flag[UtilityPerk] < '1' {
+                      else if <player.flag[UtilityPerk]> < '1' {
                       - narrate "<&e>You do not have enough credits"
                       }
                       else {
@@ -312,13 +312,13 @@
                     trigger: "I choose /4/ the Active Camo Clock."
                     script:
                     - engage
-                    - ^if <player.flag[CamClock]> != true && <player.flag[UtilityPerk] >= '1' {
+                    - ^if <player.flag[CamClock]> != true && <player.flag[UtilityPerk]> >= '1' {
                       - Zap 1
                       - flag CamClock
                       - flag UtilityPerk:--
                       - Narrate "<&e>You have been trained to use Night Vision Goggles!"
                       }
-                      else if <player.flag[UtilityPerk] < '1' {
+                      else if <player.flag[UtilityPerk]> < '1' {
                       - narrate "<&e>You do not have enough credits"
                       }
                       else {
