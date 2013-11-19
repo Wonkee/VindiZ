@@ -1,0 +1,27 @@
+# Active Camo Clock
+
+on right click with clock:
+    if player does not have permission "perk.util.camo":
+        stop
+    {%player%.class.choosedate} is set:
+        difference between {%player%.class.choosedate} and now is less than 10 seconds:
+            message "&8[Active Camo is re-charging]"
+            stop
+    if player has 1 nether star:
+        remove 1 nether star from player
+        remove invisibility from player
+        set {%player%.class.choosedate} to now
+        apply invisibility to player for 10 seconds
+        execute console command "/particle portal 5 2 0 1 0 %player%"
+        execute console command "/playsound portal.trigger %player%"
+        execute console command "/particle portal 5 1 0 2 0 %player%"
+        loop 4 times:
+            wait 50 ticks
+            execute console command "/particle portal 5 2 0 1 0 %player%"
+            execute console command "/playsound portal.trigger %player%"
+            execute console command "/particle portal 5 1 0 2 0 %player%"
+    else:
+        execute console command "/playsound random.click %player%"
+        message "&8[Energy Required]"
+        stop
+    
