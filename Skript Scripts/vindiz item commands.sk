@@ -45,10 +45,6 @@ on join:
         send "&e&oThis server is best played with our custom resource pack."
         send "&bhttp://host.vindicraft.com/files/VindiZ1.6.4.zip"
         wait 60 seconds
-    
-on click with a rotten flesh:
-    cancel the event
-    send message "&eYou have &a%player's money% &ecredits with the Vault bank." to the player
         
 on rightclick on a player holding a chest:
     cancel the event
@@ -60,3 +56,7 @@ on rightclick on a player holding a saddle:
     
 on zombie break door:
     cancel event
+    
+on right click on dispenser:
+    if player is not op:
+        cancel event
