@@ -39,7 +39,7 @@ on right click with blaze rod:
     set {_xloc1} to rounded player's x-coordinate
     set {_yloc1} to rounded player's y-coordinate
     set {_zloc1} to rounded player's z-coordinate
-    set {%player%.test.wand} to now
+    set {%player%.test.wand2} to now
     if player is not op:
         remove 1 redstone dust from player
     execute console command "/sound LEVEL_UP 5 1 %{_xloc1}% %{_yloc1}% %{_zloc1}%"
@@ -52,4 +52,3 @@ on right click with blaze rod:
     execute console command "/playeffect heart draw:circle radius:2 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
     wait 6 ticks
     execute console command "/playeffect heart draw:circle radius:3 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
-    set {%player%.test.wand2} to now

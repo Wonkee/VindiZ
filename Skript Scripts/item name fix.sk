@@ -1,0 +1,263 @@
+# Item Renaming Script
+# Renames unnamed items to their custom name
+
+on pick up of eye of ender:
+    wait 2 ticks
+    set {_itemrename} to number of eye of ender in player's inventory
+    remove all eye of ender from player's inventory
+    loop {_itemrename} times:
+        give eye of ender named "&5Homing Bot" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of diamond:
+    wait 2 ticks
+    set {_itemrename} to number of diamond in player's inventory
+    remove all diamond from player's inventory
+    loop {_itemrename} times:
+        give diamond named "&f.44 Ammo" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of string:
+    wait 2 ticks
+    set {_itemrename} to number of string in player's inventory
+    remove all string from player's inventory
+    loop {_itemrename} times:
+        give string named "&f.50 BMG Ammo" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of iron ingot:
+    wait 2 ticks
+    set {_itemrename} to number of iron ingot in player's inventory
+    remove all iron ingot from player's inventory
+    loop {_itemrename} times:
+        give iron ingot named "&f7.62mm Ammo" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of gold ingot:
+    wait 2 ticks
+    set {_itemrename} to number of gold ingot in player's inventory
+    remove all gold ingot from player's inventory
+    loop {_itemrename} times:
+        give gold ingot named "&f.300 Magnum Ammo" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of gunpowder:
+    wait 2 ticks
+    set {_itemrename} to number of gunpowder in player's inventory
+    remove all gunpowder from player's inventory
+    loop {_itemrename} times:
+        give gunpowder named "&f12ga Slug" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of feather:
+    wait 2 ticks
+    set {_itemrename} to number of feather in player's inventory
+    remove all feather from player's inventory
+    loop {_itemrename} times:
+        give feather named "&f10ga Shell" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of nether quartz:
+    wait 2 ticks
+    set {_itemrename} to number of nether quartz in player's inventory
+    remove all nether quartz from player's inventory
+    loop {_itemrename} times:
+        give nether quartz named "&f5.56mm Ammo" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of ghast tear:
+    wait 2 ticks
+    set {_itemrename} to number of ghast tear in player's inventory
+    remove all ghast tear from player's inventory
+    loop {_itemrename} times:
+        give ghast tear named "&f9mm Ammo" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of flower pot:
+    wait 2 ticks
+    set {_itemrename} to number of flower pot in player's inventory
+    remove all flower pot from player's inventory
+    loop {_itemrename} times:
+        give flower pot named "&f10mm Ammo" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of firework star:
+    wait 2 ticks
+    set {_itemrename} to number of firework star in player's inventory
+    remove all firework star from player's inventory
+    loop {_itemrename} times:
+        give firework star named "&f.22 Ammo" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of nether star:
+    wait 2 ticks
+    set {_itemrename} to number of nether star in player's inventory
+    remove all nether star from player's inventory
+    loop {_itemrename} times:
+        give nether star named "&fEnergy Cell" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of wood sword:
+    wait 2 ticks
+    set {_itemrename} to number of wood sword in player's inventory
+    remove all wood sword from player's inventory
+    loop {_itemrename} times:
+        give wood sword named "&fSpiked Bat" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of stone sword:
+    wait 2 ticks
+    set {_itemrename} to number of stone sword in player's inventory
+    remove all stone sword from player's inventory
+    loop {_itemrename} times:
+        give stone sword named "&fHammer" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of iron sword:
+    wait 2 ticks
+    set {_itemrename} to number of iron sword in player's inventory
+    remove all iron sword from player's inventory
+    loop {_itemrename} times:
+        give iron sword named "&fMachete" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of gold sword:
+    wait 2 ticks
+    set {_itemrename} to number of gold sword in player's inventory
+    remove all gold sword from player's inventory
+    loop {_itemrename} times:
+        give gold sword named "&fGolf Club" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of diamond sword:
+    wait 2 ticks
+    set {_itemrename} to number of diamond sword in player's inventory
+    remove all diamond sword from player's inventory
+    loop {_itemrename} times:
+        give diamond sword named "&4Light Saber" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of cookie:
+    wait 2 ticks
+    set {_itemrename} to number of cookie in player's inventory
+    remove all cookie from player's inventory
+    loop {_itemrename} times:
+        give cookie named "&fCheez-Its" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of pumpkin pie:
+    wait 2 ticks
+    set {_itemrename} to number of pumpkin pie in player's inventory
+    remove all pumpkin pie from player's inventory
+    loop {_itemrename} times:
+        give pumpkin pie named "&fPizza Slice" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of baked potato:
+    wait 2 ticks
+    set {_itemrename} to number of baked potato in player's inventory
+    remove all baked potato from player's inventory
+    loop {_itemrename} times:
+        give baked potato named "&fFrench Fries" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of carrot:
+    wait 2 ticks
+    set {_itemrename} to number of carrot in player's inventory
+    remove all carrot from player's inventory
+    loop {_itemrename} times:
+        give carrot named "&fBacon" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of bread:
+    wait 2 ticks
+    set {_itemrename} to number of bread in player's inventory
+    remove all bread from player's inventory
+    loop {_itemrename} times:
+        give bread named "&fSandwich" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of cooked chicken:
+    wait 2 ticks
+    set {_itemrename} to number of cooked chicken in player's inventory
+    remove all cooked chicken from player's inventory
+    loop {_itemrename} times:
+        give cooked chicken named "&fFried Chicken" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of mushroom soup:
+    wait 2 ticks
+    set {_itemrename} to number of mushroom soup in player's inventory
+    remove all mushroom soup from player's inventory
+    loop {_itemrename} times:
+        give mushroom soup named "&fSoup" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of cooked pork:
+    wait 2 ticks
+    set {_itemrename} to number of cooked pork in player's inventory
+    remove all cooked pork from player's inventory
+    loop {_itemrename} times:
+        give cooked pork named "&fSPAM" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of brick:
+    wait 2 ticks
+    set {_itemrename} to number of brick in player's inventory
+    remove all brick from player's inventory
+    loop {_itemrename} times:
+        give brick named "&fSyringe" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of red dye:
+    wait 2 ticks
+    set {_itemrename} to number of red dye in player's inventory
+    remove all red dye from player's inventory
+    loop {_itemrename} times:
+        give red dye named "&fOintment" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of light green dye:
+    wait 2 ticks
+    set {_itemrename} to number of light green dye in player's inventory
+    remove all light green dye from player's inventory
+    loop {_itemrename} times:
+        give light green dye named "&fAntiseptic" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of glass bottle:
+    wait 2 ticks
+    set {_itemrename} to number of glass bottle in player's inventory
+    remove all glass bottle from player's inventory
+    loop {_itemrename} times:
+        give glass bottle named "&fGlass Bottle" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
