@@ -261,3 +261,21 @@ on pick up of glass bottle:
         give glass bottle named "&fGlass Bottle" to player
     execute console command "/playsound random.pop %player%"
     reset {_itemrename}
+
+on pick up of rotten flesh:
+    wait 2 ticks
+    set {_itemrename} to number of rotten flesh in player's inventory
+    remove all rotten flesh from player's inventory
+    loop {_itemrename} times:
+        give rotten flesh named "&eCoin" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
+
+on pick up of potion of:0:
+    wait 2 ticks
+    set {_itemrename} to number of potion of:0 in player's inventory
+    remove all potion of:0 from player's inventory
+    loop {_itemrename} times:
+        give potion of:0 named "&fBottled Water" to player
+    execute console command "/playsound random.pop %player%"
+    reset {_itemrename}
