@@ -1,0 +1,55 @@
+# Test Wand
+
+on left click with blaze rod:
+    {%player%.test.wand} is set:
+        difference between {%player%.test.wand} and now is less than 1 seconds:
+            stop
+    if distance between the player and target is greater than 20:
+        stop
+    if player does not have 1 redstone dust:
+        message "&8Need more redstone dust."
+        stop
+    set {_world1} to player's world
+    set {_xloc1} to rounded player's x-coordinate
+    set {_yloc1} to rounded player's y-coordinate
+    set {_zloc1} to rounded player's z-coordinate
+    set {_xloc2} to rounded x-coordinate of target
+    set {_yloc2} to rounded y-coordinate of target
+    set {_zloc2} to rounded z-coordinate of target
+    if {_zloc2} is not set:
+        stop
+    set {%player%.test.wand} to now
+    if player is not op:
+        remove 1 redstone dust from player
+    execute console command "/sound ENDERDRAGON_HIT 5 1 %{_xloc1}% %{_yloc1}% %{_zloc1}%"
+    make the player shoot arrow at speed 45
+    execute console command "/playeffect crit draw:line loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}% loc2:greenfield,%{_xloc2}%,%{_yloc2}%,%{_zloc2}%"
+    if player is op:
+        stop
+    set {%player%.test.wand} to now
+
+on right click with blaze rod:
+    {%player%.test.wand2} is set:
+        difference between {%player%.test.wand2} and now is less than 3 seconds:
+            stop
+    if player does not have 1 redstone dust:
+        message "&8Need more redstone dust."
+        stop
+    set {_world1} to player's world
+    set {_xloc1} to rounded player's x-coordinate
+    set {_yloc1} to rounded player's y-coordinate
+    set {_zloc1} to rounded player's z-coordinate
+    set {%player%.test.wand} to now
+    if player is not op:
+        remove 1 redstone dust from player
+    execute console command "/sound LEVEL_UP 5 1 %{_xloc1}% %{_yloc1}% %{_zloc1}%"
+    loop all players:
+        if distance between loop-player and player is greater than 5:
+            stop
+        set loop-player's health to loop-player's health + 2
+    execute console command "/playeffect heart draw:circle radius:1 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+    wait 6 ticks
+    execute console command "/playeffect heart draw:circle radius:2 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+    wait 6 ticks
+    execute console command "/playeffect heart draw:circle radius:3 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+    set {%player%.test.wand2} to now

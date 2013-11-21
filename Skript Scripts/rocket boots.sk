@@ -28,6 +28,8 @@ on flight toggle:
         push player in direction of player at speed {@directional}
         remove 1 nether star from player
         set {%player%.class.choosedate} to now
+        wait 3 seconds
+        message "&8[Rocket Boots are Charged]"
         
 on join:
     if player has permission "perk.util.rocketboots":

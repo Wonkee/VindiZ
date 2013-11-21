@@ -1,0 +1,66 @@
+# VindiZ Food Scripts
+
+on right click with mushroom soup:
+    if player's health is greater than 19:
+        stop
+    apply regeneration 2 to player for 5 seconds
+    set player's hunger bar to player's hunger bar + 3
+    wait 2 ticks
+    remove 1 mushroom soup from player
+
+on right click with cooked pork:
+    if player's health is greater than 19:
+        stop
+    apply regeneration 2 to player for 5 seconds
+    set player's hunger bar to player's hunger bar + 3
+    wait 2 ticks
+    apply strength 1 to player for 20 seconds
+    remove 1 cooked pork from player
+
+on right click with cooked chicken:
+    if player's health is greater than 19:
+        stop
+    apply regeneration 2 to player for 4 seconds
+    set player's hunger bar to player's hunger bar + 2
+    wait 2 ticks
+    remove 1 cooked chicken from player
+
+on right click with bread:
+    if player's health is greater than 19:
+        stop
+    apply regeneration 2 to player for 4 seconds
+    set player's hunger bar to player's hunger bar + 2
+    wait 2 ticks
+    remove 1 bread from player
+
+on right click with carrot:
+    if player's health is greater than 19:
+        stop
+    apply regeneration 2 to player for 4 seconds
+    set player's hunger bar to player's hunger bar + 1
+    wait 2 ticks
+    remove 1 carrot from player
+
+on right click with baked potato:
+    if player's health is greater than 19:
+        stop
+    apply regeneration 2 to player for 4 seconds
+    set player's hunger bar to player's hunger bar + 1
+    wait 2 ticks
+    remove 1 baked potato from player
+
+on right click with pumpkin pie:
+    if player's health is greater than 19:
+        stop
+    apply regeneration 2 to player for 4 seconds
+    set player's hunger bar to player's hunger bar + 1
+    wait 2 ticks
+    remove 1 pumpkin pie from player
+
+on right click with cookie:
+    if player's health is greater than 19:
+        stop
+    apply regeneration 1 to player for 3 seconds
+    wait 2 ticks
+    remove 1 cookie from player
+    

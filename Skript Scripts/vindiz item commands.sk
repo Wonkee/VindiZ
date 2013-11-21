@@ -10,10 +10,10 @@ on click on enchantment table:
     
 #Hunger4Sprint
 options:
-    decrease-amt: 0.5
-    decrease-int: 1 second
-    increase-amt: 0.5
-    increase-int: 3 second
+    decrease-amt: 1
+    decrease-int: 1.5 second
+    increase-amt: 1
+    increase-int: 6 second
 on join:
     while player is online:
         while player is sprinting:
