@@ -45,14 +45,6 @@ on join:
         send "&e&oThis server is best played with our custom resource pack."
         send "&bhttp://host.vindicraft.com/files/VindiZ1.6.4.zip"
         wait 60 seconds
-        
-on rightclick on a player holding a chest:
-    cancel the event
-    kick player due to "Do not use backpacks to open shops."
-        
-on rightclick on a player holding a saddle:
-    cancel the event
-    kick player due to "Do not use backpacks to open shops."
     
 on zombie break door:
     cancel event

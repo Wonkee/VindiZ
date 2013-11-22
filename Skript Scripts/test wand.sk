@@ -35,7 +35,7 @@ on right click with blaze rod:
     if player does not have 1 redstone dust:
         message "&8Need more redstone dust."
         stop
-    set {_world1} to player's world
+    set {_world1} to event-world
     set {_xloc1} to rounded player's x-coordinate
     set {_yloc1} to rounded player's y-coordinate
     set {_zloc1} to rounded player's z-coordinate
@@ -48,7 +48,11 @@ on right click with blaze rod:
             stop
         set loop-player's health to loop-player's health + 2
     execute console command "/playeffect heart draw:circle radius:1 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
-    wait 6 ticks
+    wait 8 ticks
     execute console command "/playeffect heart draw:circle radius:2 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
-    wait 6 ticks
-    execute console command "/playeffect heart draw:circle radius:3 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+    wait 8 ticks
+    execute console command "/playeffect heart draw:circle radius:3 loc:%{_world1}%,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+    wait 8 ticks
+    execute console command "/playeffect heart draw:circle radius:2 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+    wait 8 ticks
+    execute console command "/playeffect heart draw:circle radius:1 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"

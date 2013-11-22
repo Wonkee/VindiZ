@@ -1,0 +1,231 @@
+# VindiZ Personal Shield
+
+on right click with emerald:
+    if player does not have permission "perk.util.shield":
+        message "&8[You do not know how to operate a shield]"
+        stop
+    if name of tool is "&2Personal Shield&a Mark I":
+        set {_xloc1} to rounded player's x-coordinate
+        set {_yloc1} to rounded player's y-coordinate
+        set {_zloc1} to rounded player's z-coordinate
+    else:
+        stop
+    {%player%.shield.cooldown} is set:
+        difference between {%player%.shield.cooldown} and now is less than 10 seconds:
+            message "&8[Personal Shield Is Re-Charging]"
+            stop
+    if player has 1 nether star:
+        execute console command "/playsound random.click %player%"
+        message "&8[Shield Activated]"
+        set {%player%.shield.cooldown} to now
+        remove 1 nether star from player
+        apply absorption 1 to the player for 10 seconds
+        loop 5 times:
+            set {_xloc1} to rounded player's x-coordinate
+            set {_yloc1} to rounded player's y-coordinate
+            set {_zloc1} to rounded player's z-coordinate
+            execute console command "/playsound portal.trigger %player%"
+            execute console command "/playeffect magicCrit draw:circle radius:1 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+            wait 10 ticks
+            set {_xloc1} to rounded player's x-coordinate
+            set {_yloc1} to rounded player's y-coordinate + 1
+            set {_zloc1} to rounded player's z-coordinate
+            execute console command "/playeffect magicCrit draw:circle radius:1 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+            wait 10 ticks
+            set {_xloc1} to rounded player's x-coordinate
+            set {_yloc1} to rounded player's y-coordinate
+            set {_zloc1} to rounded player's z-coordinate
+            execute console command "/playsound portal.trigger %player%"
+            execute console command "/playeffect magicCrit draw:circle radius:1 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+            wait 10 ticks
+            set {_xloc1} to rounded player's x-coordinate
+            set {_yloc1} to rounded player's y-coordinate + 1
+            set {_zloc1} to rounded player's z-coordinate
+            execute console command "/playeffect magicCrit draw:circle radius:1 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+            wait 10 ticks
+        set {_xloc1} to rounded player's x-coordinate
+        set {_yloc1} to rounded player's y-coordinate + 1
+        set {_zloc1} to rounded player's z-coordinate
+        execute console command "/playsound portal.trigger %player%"
+        execute console command "/playeffect magicCrit draw:circle radius:1 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+    else:
+        execute console command "/playsound random.click %player%"
+        message "&8[Energy Required]"
+
+on right click with emerald:
+    if player does not have permission "perk.util.shield":
+        message "&8[You do not know how to operate a shield]"
+        stop
+    if name of tool is "&2Personal Shield&a Mark II":
+        set {_xloc1} to rounded player's x-coordinate
+        set {_yloc1} to rounded player's y-coordinate
+        set {_zloc1} to rounded player's z-coordinate
+    else:
+        stop
+    {%player%.shield.cooldown} is set:
+        difference between {%player%.shield.cooldown} and now is less than 20 seconds:
+            message "&8[Personal Shield Is Re-Charging]"
+            stop
+    if player has 2 nether star:
+        execute console command "/playsound random.click %player%"
+        message "&8[Shield Activated]"
+        set {%player%.shield.cooldown} to now
+        remove 2 nether star from player
+        apply absorption 2 to the player for 20 seconds
+        loop 10 times:
+            set {_xloc1} to rounded player's x-coordinate
+            set {_yloc1} to rounded player's y-coordinate
+            set {_zloc1} to rounded player's z-coordinate
+            execute console command "/playsound portal.trigger %player%"
+            execute console command "/playeffect magicCrit draw:circle radius:1 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+            wait 10 ticks
+            set {_xloc1} to rounded player's x-coordinate
+            set {_yloc1} to rounded player's y-coordinate + 1
+            set {_zloc1} to rounded player's z-coordinate
+            execute console command "/playeffect magicCrit draw:circle radius:1 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+            wait 10 ticks
+            set {_xloc1} to rounded player's x-coordinate
+            set {_yloc1} to rounded player's y-coordinate
+            set {_zloc1} to rounded player's z-coordinate
+            execute console command "/playsound portal.trigger %player%"
+            execute console command "/playeffect magicCrit draw:circle radius:1 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+            wait 10 ticks
+            set {_xloc1} to rounded player's x-coordinate
+            set {_yloc1} to rounded player's y-coordinate + 1
+            set {_zloc1} to rounded player's z-coordinate
+            execute console command "/playeffect magicCrit draw:circle radius:1 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+            wait 10 ticks
+        set {_xloc1} to rounded player's x-coordinate
+        set {_yloc1} to rounded player's y-coordinate + 1
+        set {_zloc1} to rounded player's z-coordinate
+        execute console command "/playsound portal.trigger %player%"
+        execute console command "/playeffect magicCrit draw:circle radius:1 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+    else:
+        execute console command "/playsound random.click %player%"
+        message "&8[Energy Required]"
+
+on right click with emerald:
+    if player does not have permission "perk.util.shield":
+        message "&8[You do not know how to operate a shield]"
+        stop
+    if name of tool is "&2Personal Shield&a Mark III":
+        set {_xloc1} to rounded player's x-coordinate
+        set {_yloc1} to rounded player's y-coordinate
+        set {_zloc1} to rounded player's z-coordinate
+    else:
+        stop
+    {%player%.shield.cooldown} is set:
+        difference between {%player%.shield.cooldown} and now is less than 30 seconds:
+            message "&8[Personal Shield Is Re-Charging]"
+            stop
+    if player has 3 nether star:
+        execute console command "/playsound random.click %player%"
+        message "&8[Shield Activated]"
+        set {%player%.shield.cooldown} to now
+        remove 3 nether star from player
+        apply absorption 3 to the player for 30 seconds
+        loop 15 times:
+            set {_xloc1} to rounded player's x-coordinate
+            set {_yloc1} to rounded player's y-coordinate + 1
+            set {_zloc1} to rounded player's z-coordinate
+            execute console command "/playeffect magicCrit draw:circle radius:1 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+            set {_xloc1} to rounded player's x-coordinate
+            set {_yloc1} to rounded player's y-coordinate
+            set {_zloc1} to rounded player's z-coordinate
+            execute console command "/playsound portal.trigger %player%"
+            execute console command "/playeffect magicCrit draw:circle radius:1 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+            wait 10 ticks
+            set {_xloc1} to rounded player's x-coordinate
+            set {_yloc1} to rounded player's y-coordinate + 1
+            set {_zloc1} to rounded player's z-coordinate
+            execute console command "/playeffect magicCrit draw:circle radius:1 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+            wait 10 ticks
+            set {_xloc1} to rounded player's x-coordinate
+            set {_yloc1} to rounded player's y-coordinate + 1
+            set {_zloc1} to rounded player's z-coordinate
+            execute console command "/playeffect magicCrit draw:circle radius:1 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+            set {_xloc1} to rounded player's x-coordinate
+            set {_yloc1} to rounded player's y-coordinate
+            set {_zloc1} to rounded player's z-coordinate
+            execute console command "/playsound portal.trigger %player%"
+            execute console command "/playeffect magicCrit draw:circle radius:1 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+            wait 10 ticks
+            set {_xloc1} to rounded player's x-coordinate
+            set {_yloc1} to rounded player's y-coordinate + 1
+            set {_zloc1} to rounded player's z-coordinate
+            execute console command "/playeffect magicCrit draw:circle radius:1 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+            wait 10 ticks
+        set {_xloc1} to rounded player's x-coordinate
+        set {_yloc1} to rounded player's y-coordinate + 1
+        set {_zloc1} to rounded player's z-coordinate
+        execute console command "/playsound portal.trigger %player%"
+        execute console command "/playeffect magicCrit draw:circle radius:1 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+    else:
+        execute console command "/playsound random.click %player%"
+        message "&8[Energy Required]"
+
+on right click with emerald:
+    if player does not have permission "perk.util.shield":
+        message "&8[You do not know how to operate a shield]"
+        stop
+    if name of tool is "&2Personal Shield&a Mark IV":
+        set {_xloc1} to rounded player's x-coordinate
+        set {_yloc1} to rounded player's y-coordinate
+        set {_zloc1} to rounded player's z-coordinate
+    else:
+        stop
+    {%player%.shield.cooldown} is set:
+        difference between {%player%.shield.cooldown} and now is less than 40 seconds:
+            message "&8[Personal Shield Is Re-Charging]"
+            stop
+    if player has 3 nether star:
+        execute console command "/playsound random.click %player%"
+        message "&8[Shield Activated]"
+        set {%player%.shield.cooldown} to now
+        remove 3 nether star from player
+        apply absorption 4 to the player for 40 seconds
+        chance of 20%:
+            apply blindness 1 to player for 3 seconds
+            create a fake explosion at the player
+            damage player by 2 hearts
+            execute console command "/burn %player% 10 s"
+        loop 20 times:
+            set {_xloc1} to rounded player's x-coordinate
+            set {_yloc1} to rounded player's y-coordinate + 1
+            set {_zloc1} to rounded player's z-coordinate
+            execute console command "/playeffect magicCrit draw:circle radius:0 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+            set {_xloc1} to rounded player's x-coordinate
+            set {_yloc1} to rounded player's y-coordinate
+            set {_zloc1} to rounded player's z-coordinate
+            execute console command "/playsound portal.trigger %player%"
+            execute console command "/playeffect magicCrit draw:circle radius:1 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+            wait 10 ticks
+            set {_xloc1} to rounded player's x-coordinate
+            set {_yloc1} to rounded player's y-coordinate + 1
+            set {_zloc1} to rounded player's z-coordinate
+            execute console command "/playeffect magicCrit draw:circle radius:2 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+            wait 10 ticks
+            set {_xloc1} to rounded player's x-coordinate
+            set {_yloc1} to rounded player's y-coordinate + 1
+            set {_zloc1} to rounded player's z-coordinate
+            execute console command "/playeffect magicCrit draw:circle radius:1 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+            set {_xloc1} to rounded player's x-coordinate
+            set {_yloc1} to rounded player's y-coordinate
+            set {_zloc1} to rounded player's z-coordinate
+            execute console command "/playsound portal.trigger %player%"
+            execute console command "/playeffect magicCrit draw:circle radius:0 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+            wait 10 ticks
+            set {_xloc1} to rounded player's x-coordinate
+            set {_yloc1} to rounded player's y-coordinate + 1
+            set {_zloc1} to rounded player's z-coordinate
+            execute console command "/playeffect magicCrit draw:circle radius:1 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+            wait 10 ticks
+        set {_xloc1} to rounded player's x-coordinate
+        set {_yloc1} to rounded player's y-coordinate + 1
+        set {_zloc1} to rounded player's z-coordinate
+        execute console command "/playsound portal.trigger %player%"
+        execute console command "/playeffect magicCrit draw:circle radius:1 loc:greenfield,%{_xloc1}%,%{_yloc1}%,%{_zloc1}%"
+    else:
+        execute console command "/playsound random.click %player%"
+        message "&8[Energy Required]"
+    
