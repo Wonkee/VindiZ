@@ -26,3 +26,24 @@ on right click with clock:
         message "&8[Energy Required]"
         stop
     
+# Chameleon Armor
+
+on player toggling sneak:
+    if player is sneaking:
+        if player does not have permissions "perk.util.chameleon":
+            message "You are unable to use Chameleon armor."
+            stop
+        player has 1 nether star
+        {%player%.chameleon.cooldown} is set:
+            difference between {%player%.chameleon.cooldown} and now is less than 3 seconds:
+                message "&8[Chameleon Suit Is Re-Charging]"
+                stop
+        set {%player%.chameleon.cooldown} to now
+        while player is sneaking:
+            player has 1 nether star
+            apply invisibility to the player for 2 seconds
+            wait 20 ticks
+            chance of 33%:
+                remove 1 nether star from the player
+        message "&8[Chameleon Armor Deactivated]"
+        remove invisibility from the player
