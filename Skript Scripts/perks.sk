@@ -1,14 +1,122 @@
 # Perks
 
+
 # Major Perks
+
+#Damage
+
+
+#Critical Strike
+
+
+#Dodge
+
+
+#Speed
+
+
+#Damage Reduction
 
 
 
 # Weapon Spec Perks
 
+#Pistol + Incr Ammo Drops
+on damage:
+    if attacker does not have permissions "perk.spec.pistol":
+        stop
+    else:
+        attacker's tool is a wooden hoe, stone hoe, gold hoe or a diamond hoe
+        set damage to damage * 1.1
+
+on death of a zombie:
+    if attacker does not have permission "perk.spec.pistol":
+        stop
+    else:
+        chance of 20%:
+            drop ghast tear at the attacker
+        chance of 20%:
+            drop flower pot at the attacker
+        chance of 10%:
+            drop diamond at the attacker
 
 
-# Stat Perks
+#Shotgun + Incr Ammo Drops
+on damage:
+    if attacker does not have permissions "perk.spec.shotgun":
+        stop
+    else:
+        if victim is not a zombie or a giant:
+            stop
+        else:
+            attacker's tool is a iron shovel or a wooden shovel
+            set damage to damage * 1.1
+            
+on death of a zombie:
+    if attacker does not have permission "perk.spec.shotgun":
+        stop
+    else:
+        chance of 35%:
+            drop gunpowder at the attacker
+        chance of 10%:
+            drop feather at the attacker
 
 
+#SMG + Incr Ammo Drops
+on damage:
+    if attacker does not have permissions "perk.spec.smg":
+        stop
+    else:
+        attacker's tool is a stone pickaxe, iron pickaxe or a golden pickaxe
+        set damage to damage * 1.05
+
+on death of a zombie:
+    if attacker does not have permission "perk.spec.smg":
+        stop
+    else:
+        chance of 25%:
+            drop ghast tear at the attacker
+        chance of 25%:
+            drop flower pot at the attacker
+
+
+#Assault Rifle (Faster Speed) + Incr Ammo Drops
+on damage:
+    if attacker does not have permissions "perk.spec.ar":
+        stop
+    else:
+        attacker's tool is a diamond pickaxe, a iron axe or a gold shovel
+        set damage to damage * 1.05
+
+on death of a zombie:
+    if attacker does not have permission "perk.spec.ar":
+        stop
+    else:
+        chance of 25%:
+            drop quartz at the attacker
+        chance of 25%:
+            drop iron ingot at the attacker
+
+#Sniper Rifle + Increased Sniper Ammo Drops
+on damage:
+    if attacker does not have permission "perk.spec.sr":
+        stop
+    else:
+        attacker's tool is a wood axe, a stone axe, a flint or a leather
+        altitude of the attacker is higher than the altitude of the victim
+        set damage to damage * 1.1
+        
+on death of a zombie:
+    if attacker does not have permission "perk.spec.sr":
+        stop
+    else:
+        chance of 20%:
+            drop quartz at the attacker
+        chance of 20%:
+            drop iron ingot at the attacker
+        chance of 10%:
+            drop gold ingot at the attacker
+        chance of 10%:
+            drop string at the attacker
+#Demolitions
 
