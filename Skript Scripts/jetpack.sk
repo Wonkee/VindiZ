@@ -1,0 +1,28 @@
+# Jetpack
+
+on right click holding a tripwire hook:
+    if player's gamemode is creative:
+        stop
+    if player does not have nether star:
+        stop
+    else:
+        if the block below player is not air:
+            push player up at speed 0.8
+            stop
+        chance of 25%:
+            remove 1 nether star from player
+        push player up at speed 0.4
+        
+on left click holding a tripwire hook:
+    if {%player%.jetpack.cooldown} is set:
+        difference between {%player%.jetpack.cooldown} and now is less than 1 second:
+            message "&8[Easy on the thrusters!]"
+            stop
+    if player's gamemode is creative:
+        stop
+    if player does not have nether star:
+        stop
+    else:
+        remove 1 nether star from player
+        push the player horizontally forward at speed 0.8
+        set {%player%.jetpack.cooldown} to now

@@ -1,0 +1,40 @@
+'Welcome':
+    type: interact
+    Requirements:
+     Mode: All
+    steps:
+        '1':
+            proximity trigger:
+              entry:
+                script:
+                - random 8
+                - chat "Welcome to <&b>The Vault<&e>, <player.name><&e>."
+                - chat "We must find a cure!"
+                - chat "Nuke those Zombies to hell and back will ya?"
+                - chat "Welcome to the <&b>Societal Preservation Program<&e>."
+                - chat "Welcome back <&c> <player.name><&e>. I hope your mission went well."
+                - chat "You better get out there and do your part to keep <&b>The Vault<&e> running."
+                - chat "I see you're currently level <player.flag[level]||0>!"
+                - if <player.flag[Reputation]> <= 11 narrate "<green>Level 0 <red><el@val[11].sub[<player.flag[Reputation]>]><green>Rep till next level."
+                  else if <player.flag[Reputation]> <= 44 narrate "<green>Level 1 <red><el@val[44].sub[<player.flag[Reputation]>]><green>Rep till next level."
+                  else if <player.flag[Reputation]> <= 133 narrate "<green>Level 2 <red><el@val[133].sub[<player.flag[Reputation]>]><green>Rep till next level."
+                  else if <player.flag[Reputation]> <= 372 narrate "<green>Level 3 <red><el@val[372].sub[<player.flag[Reputation]>]><green>Rep till next level."
+                  else if <player.flag[Reputation]> <= 1013 narrate "<green>Level 4 <red><el@val[1013].sub[<player.flag[Reputation]>]><green>Rep till next level."
+                  else if <player.flag[Reputation]> <= 2737 narrate "<green>Level 5 <red><el@val[2737].sub[<player.flag[Reputation]>]><green>Rep till next level."
+                  else if <player.flag[Reputation]> <= 7376 narrate "<green>Level 6 <red><el@val[7376].sub[<player.flag[Reputation]>]><green>Rep till next level."
+                  else if <player.flag[Reputation]> <= 19860 narrate "<green>Level 7 <red><el@val[19860].sub[<player.flag[Reputation]>]><green>Rep till next level."
+                  else if <player.flag[Reputation]> <= 53463 narrate "<green>Level 8 <red><el@val[53463].sub[<player.flag[Reputation]>]><green>Rep till next level."
+                  else if <player.flag[Reputation]> <= 143911 narrate "<green>Level 9 <red><el@val[143911].sub[<player.flag[Reputation]>]><green>Rep till next level."
+                  else if <player.flag[Reputation]> <= 387376 narrate "<green>Level 10 <red><el@val[387376].sub[<player.flag[Reputation]>]><green>Rep till next level."
+                  else if <player.flag[Reputation]> <= 1042731 narrate "<green>Level 11 <red><el@val[1042731].sub[<player.flag[Reputation]>]><green>Rep till next level."
+                  else if <player.flag[Reputation]> <= 2806812 narrate "<green>Level 12 <red><el@val[2806812].sub[<player.flag[Reputation]>]><green>Rep till next level."
+                  else if <player.flag[Reputation]> <= 7555359 narrate "<green>Level 13 <red><el@val[7555359].sub[<player.flag[Reputation]>]><green>Rep till next level."
+                  else if <player.flag[Reputation]> <= 20337495 narrate "<green>Level 14 <red><el@val[20337495].sub[<player.flag[Reputation]>]><green>Rep till next level."
+                  else if <player.flag[Reputation]> <= 54744448 narrate "<green>Level 15 <red><el@val[54744448].sub[<player.flag[Reputation]>]><green>Rep till next level."
+                  else if <player.flag[Reputation]> <= 147361092 narrate "<green>Level 16 <red><el@val[147361092].sub[<player.flag[Reputation]>]><green>Rep till next level."
+                  else if <player.flag[Reputation]> <= 396666602 narrate "<green>Level 17 <red><el@val[396666602].sub[<player.flag[Reputation]>]><green>Rep till next level."
+                  else if <player.flag[Reputation]> <= 1067747263 narrate "<green>Level 18 <red><el@val[1067747263].sub[<player.flag[Reputation]>]><green>Rep till next level."
+                  else if <player.flag[Reputation]> <= 2874162437 narrate "<green>Level 19 <red><el@val[2874162437].sub[<player.flag[Reputation]>]><green>Rep till next level."
+                  else if <player.flag[Reputation]> <= 5748324874 narrate "<green>Level 20 <red><el@val[5748324874].sub[<player.flag[Reputation]>]><green>Rep till next level."
+                  else if <player.flag[Reputation]> >= 5748324874 narrate "<green>Holy Shit you're awesome!"
+                - cooldown duration:120

@@ -1,0 +1,165 @@
+# Supply Crates
+
+On right click with a hay block:
+    if player's gamemode is not creative:
+        cancel event
+    if name of tool is "&eCommon Weapons &f&oCrate":
+        remove tool from player
+        set {skript.%player%.random.crate} to a random integer between 1 and 10
+        if {skript.%player%.random.crate} is 1:
+            give a wood hoe named "&eP22&e «×»" to the player
+        if {skript.%player%.random.crate} is 2:
+            give a stone hoe named "&eBeretta 92FS&e «×»" to the player
+        if {skript.%player%.random.crate} is 3:
+            give a wood spade named "&eMossberg 500&e «×»" to the player
+        if {skript.%player%.random.crate} is 4:
+            give a wood sword named "&8Spiked Bat" to the player
+        if {skript.%player%.random.crate} is 5:
+            give a stone sword named "&7Hammer" to the player
+        if {skript.%player%.random.crate} is 6:
+            give a iron sword named "&fMachete" to the player
+        if {skript.%player%.random.crate} is 7:
+            give a gold sword named "&eGolf Club" to the player
+        if {skript.%player%.random.crate} is 8:
+            give a iron spade named "&eMossberg 930&e «×»" to the player
+        if {skript.%player%.random.crate} is 9:
+            give a gold pickaxe named "&eUZI&e «×»" to the player
+        if {skript.%player%.random.crate} is 10:
+            give a flint named "&eScout&e «×»" to the player
+        
+    else:
+        if name of tool is "&6Uncommon Weapons &f&oCrate":
+            remove tool from player
+            set {skript.%player%.random.crate} to a random integer between 1 and 8
+            if {skript.%player%.random.crate} is 1:
+                give a iron spade named "&eMossberg 930&e «×»" to the player
+            if {skript.%player%.random.crate} is 2:
+                give a iron axe named "&eAK-47&e «×»" to the player
+            if {skript.%player%.random.crate} is 3:
+                give a gold pickaxe named "&eUZI&e «×»" to the player
+            if {skript.%player%.random.crate} is 4:
+                give a iron pickaxe named "&eMAC10&e «×»" to the player
+            if {skript.%player%.random.crate} is 5:
+                give a flint named "&eScout&e «×»" to the player
+            if {skript.%player%.random.crate} is 6:
+                give a leather named "&eDragunov&e «×»" to the player
+            if {skript.%player%.random.crate} is 7:
+                give a diamond pickaxe named "&eM16&e «×»" to the player
+            if {skript.%player%.random.crate} is 8:
+                give a gold hoe named "&e.44 Magnum&e «×»" to the player
+        else:
+            if name of tool is "&4Rare Weapons &f&oCrate":
+                remove tool from player
+                set {skript.%player%.random.crate} to a random integer between 1 and 9
+                if {skript.%player%.random.crate} is 1:
+                    give a stone pickaxe named "&eMP5K&e «×»" to the player
+                if {skript.%player%.random.crate} is 2:
+                    give a wood axe named "&eAW Magnum&e «×»" to the player
+                if {skript.%player%.random.crate} is 3:
+                    give a stone axe named "&eBarrett M82&e «×»" to the player
+                if {skript.%player%.random.crate} is 4:
+                    give a gold shovel named "&eAUG&e «×»" to the player
+                if {skript.%player%.random.crate} is 5:
+                    give a diamond hoe named "&eDesert Eagle&e «7 | 7»" to the player
+                if {skript.%player%.random.crate} is 6:
+                    give a diamond sword named "&4Light Saber" to the player
+                if {skript.%player%.random.crate} is 7:
+                    give a flint named "&eScout&e «×»" to the player
+                if {skript.%player%.random.crate} is 8:
+                    give a leather named "&eDragunov&e «×»" to the player
+                if {skript.%player%.random.crate} is 9:
+                    give a gold axe named "&eBazooka&e «×»" to the player
+            else:
+                if name of tool is "&4Medical &f&oCrate":
+                    remove tool from player
+                    set {skript.%player%.random.crate} to a random integer between 1 and 5
+                    if {skript.%player%.random.crate} is 1:
+                        give 10 of paper to the player
+                    if {skript.%player%.random.crate} is 2:
+                        give 10 of brick named "&fSyringe" to the player
+                    if {skript.%player%.random.crate} is 3:
+                        give 10 of light green dye named "&fAntiseptic" to the player
+                    if {skript.%player%.random.crate} is 4:
+                        give 10 of red dye named "&fOintment" to the player
+                    if {skript.%player%.random.crate} is 5:
+                        give 10 of glass bottle to the player
+                else:
+                    if name of tool is "&6Ammo &f&oCrate":
+                        remove tool from player
+                        set {skript.%player%.random.crate} to a random integer between 1 and 9
+                        if {skript.%player%.random.crate} is 1:
+                            give 20 of ghast tear named "&f9mm Ammo" to the player
+                        if {skript.%player%.random.crate} is 2:
+                            give 20 of flower pot named "&f10mm Ammo" to the player
+                        if {skript.%player%.random.crate} is 3:
+                            give 20 of firework star named "&f.22 Ammo" to the player
+                        if {skript.%player%.random.crate} is 4:
+                            give 20 of gunpowder named "&f12ga Slug" to the player
+                        if {skript.%player%.random.crate} is 5:
+                            give 20 of diamond named "&f.44 Ammo" to the player
+                        if {skript.%player%.random.crate} is 6:
+                            give 20 of quartz named "&f5.56mm Ammo" to the player
+                        if {skript.%player%.random.crate} is 7:
+                            give 20 of iron ingot named "&f7.62mm Ammo" to the player
+                        if {skript.%player%.random.crate} is 8:
+                            give 20 of gold ingot named "&f.300 Ammo" to the player
+                        if {skript.%player%.random.crate} is 9:
+                            give 20 of string named "&f.50 BMG Ammo" to the player
+                    else:
+                        if name of tool is "&aFood &f&oCrate":
+                            remove tool from player
+                            set {skript.%player%.random.crate} to a random integer between 1 and 8
+                            if {skript.%player%.random.crate} is 1:
+                                give 10 of cookie named "&fCheez-Its" to the player
+                            if {skript.%player%.random.crate} is 2:
+                                give 10 of pumpkin pie named "&fPizza" to the player
+                            if {skript.%player%.random.crate} is 3:
+                                give 10 of baked potato named "&fFrench Fries" to the player
+                            if {skript.%player%.random.crate} is 4:
+                                give 10 of carrot named "&fBacon" to the player
+                            if {skript.%player%.random.crate} is 5:
+                                give 10 of bread named "&fSandwich" to the player
+                            if {skript.%player%.random.crate} is 6:
+                                give 10 of cooked chicken named "&fFried Chicken" to the player
+                            if {skript.%player%.random.crate} is 7:
+                                give 10 of cooked pork named "&fSPAM" to the player
+                            if {skript.%player%.random.crate} is 8:
+                                give 10 of mushroom soup named "&fSoup" to the player
+                        else:
+                            if name of tool is "&bWater &f&oCrate":
+                                remove tool from player
+                                set {skript.%player%.random.crate} to a random integer between 1 and 5
+                                if {skript.%player%.random.crate} is 1:
+                                    give 2 of potion of:0 to the player
+                                if {skript.%player%.random.crate} is 2:
+                                    give 3 of potion of:0 to the player
+                                if {skript.%player%.random.crate} is 3:
+                                    give 4 of potion of:0 to the player
+                                if {skript.%player%.random.crate} is 4:
+                                    give 5 of potion of:0 to the player
+                                if {skript.%player%.random.crate} is 5:
+                                    give 6 of potion of:0 to the player
+                            else:
+                                if name of tool is "&5Armor &f&oCrate":
+                                    remove tool from player
+                                    set {skript.%player%.random.crate} to a random integer between 1 and 4
+                                    if {skript.%player%.random.crate} is 1:
+                                        give a leather helmet to the player
+                                    if {skript.%player%.random.crate} is 2:
+                                        give a leather chestplate to the player
+                                    if {skript.%player%.random.crate} is 3:
+                                        give a leather leggings to the player
+                                    if {skript.%player%.random.crate} is 4:
+                                        give a leather boots to the player
+                                else:
+                                    if name of tool is "&4Explosives &f&oCrate":
+                                        remove 1 hay block named "&4Explosives &f&oCrate" from the player
+                                        set {skript.%player%.random.crate} to a random integer between 1 and 4
+                                        if {skript.%player%.random.crate} is 1:
+                                            give 4 of slimeball named "&eFrag Grenade&e «×»" to the player
+                                        if {skript.%player%.random.crate} is 2:
+                                            give 10 of glowstone dust named "&eFlashbang&e «×»" to the player
+                                        if {skript.%player%.random.crate} is 3:
+                                            give 2 of cocoa named "&eCluster Bomb&e «×»" to the player
+                                        if {skript.%player%.random.crate} is 4:
+                                            give a redstone torch named "&eHarrier Strike&e «×»" to the player

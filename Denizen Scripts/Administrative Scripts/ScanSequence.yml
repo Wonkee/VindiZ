@@ -15,3 +15,22 @@
       - narrate "<&6><util.random.int[1].to[1000000000]>."
       - narrate "<&2>Scan results completed."   
       }
+    - if <player.flag[LabatoryQuest].aslist> contains 'LabFinish' || <player.flag[LabatoryQuest].aslist> contains 'LabFinish' {
+      - queue clear
+      }
+      else if <player.flag[LabatoryQuest].aslist> !contains 'LabFinish' {
+      - ^narrate "FORMAT:Quest Success" "Lab Escape"
+      - flag Reputation:++:11
+      - flag LabatoryQuest:->:LabFinish
+      - flag LabatoryQuest:<-:LCP3
+      - flag LabatoryQuest:<-:LCP2
+      - flag LabatoryQuest:<-:LCP1
+      - flag LabatoryQuest:<-:LCP1End
+      - flag LabatoryQuest:<-:LCP1Exit
+      - flag LabatoryQuest:<-:EndHallway
+      - flag LabatoryQuest:<-:Start
+      - flag LabatoryQuest:<-:RoomExit
+      - flag LabatoryQuest:<-:StartHallway
+      - flag LabatoryQuest:<-:StartHallway1
+      - flag LabatoryQuest:<-:EndHallway
+      }

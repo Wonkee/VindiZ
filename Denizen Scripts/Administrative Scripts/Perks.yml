@@ -1,0 +1,402 @@
+'Perk1':
+  type: world
+  events:
+    on walked over plusdamage:
+    - if <player.flag[Perk]||0> >= '1' && <player.flag[cooldown]> != 'true' {
+      - ^flag cooldown duration:5s
+      - flag Perk:--
+      - ^flag plusdamage:++
+      - execute as_server permissions player <player> set perk.stat.damage.<player.flag[plusdamage]> true
+      - narrate "<&c><&l>You gained 0.25 increase to damage"
+      }
+      else {
+      - narrate "<&c><&l>You do not have any points to spend"
+      }
+'Perk2':
+  type: world
+  events:
+    on walked over plusdef:
+    - if <player.flag[Perk]||0> >= '1' && <player.flag[cooldown]> != 'true' {
+      - ^flag cooldown duration:5s
+      - flag Perk:--
+      - ^flag plusdef:++
+      - execute as_server permissions player <player> set perk.stat.defense.<player.flag[plusdef]> true
+      - narrate "<&c><&l>You gained 0.25 increase to Defence"
+      }
+      else {
+      - narrate "<&c><&l>You do not have any points to spend"
+      }
+'Perk3':
+  type: world
+  events:
+    on walked over plusspeed:
+    - if <player.flag[Perk]||0> >= '1' && <player.flag[cooldown]> != 'true' {
+      - ^flag cooldown duration:5s
+      - flag Perk:--
+      - ^flag plusspeed:++
+      - execute as_server permissions player <player> set perk.stat.speed.<player.flag[plusspeed]> true
+      - narrate "<&c><&l>You gained 0.25 increase to speed."
+      }
+      else {
+      - narrate "<&c><&l>You do not have any points to spend"
+      }
+#-Trainer Script-#
+'Perk Exchange':
+    type: interact
+    steps:
+        '1':
+            click trigger:              
+                script:
+                - chat "Hello <player.name> How can I help you?"
+                - narrate "<&6>[<&4>HINT<&6>]<&d> You can say <&e><&n>Utility Perks<&d> or <&e><&n>Major Perk<&r><&e>."
+            chat trigger:
+                '1':
+                    trigger: "I want to buy some /Utility/ Perks!"
+                    script:
+                    - engage
+                    - chat "Very well then, you have <player.flag[UtilityPerk]> credits to spend."
+                    - if <player.flag[UtilityPerk]> == 0 {
+                      - zap step:1
+                      - narrate "<&e>You do not have enough credits"
+                      }
+                      else {
+                      - chat "Just tell me which Perk you want to buy."
+                      - NARRATE "<&d>[HINT] <&e>Type in the number to the reward you would like to obtain."
+                      - NARRATE "<&6>1.<&e> Night Vision Goggles"
+                      - NARRATE "<&6>2.<&e> Fly High Rocket Boots"
+                      - NARRATE "<&6>3.<&e> Battery Shop Discount"
+                      - NARRATE "<&6>4.<&e> Active Camo Clock"
+                      - NARRATE "<&6>5.<&e> I wish to save my credits for now."
+                      - zap step:2
+                      }
+                    - disengage
+                '2':
+                    trigger: "I want to buy some /Major/ Perks!"
+                    script:
+                    - engage
+                    - chat "Very well then, you have <player.flag[MajorPerk]> credits to spend."
+                    - if <player.flag[MajorPerk]> == 0 {                    
+                      - narrate "<&e>You do not have enough credits"
+                      - zap step:1
+                      }
+                      else {
+                      - chat "Just tell me which Perk you want to buy."
+                      - NARRATE "<&d>[HINT] <&e>Type in the number to the reward you would like to obtain."
+                      - NARRATE "<&6>1.<&e> 5<&pc> Damage increase"
+                      - NARRATE "<&6>2.<&e> 5<&pc> Damage Reduction in full armor"
+                      - NARRATE "<&6>3.<&e> 5<&pc> Dodge increase"
+                      - NARRATE "<&6>4.<&e> 5<&pc> Crit increace"
+                      - NARRATE "<&6>5.<&e> 5<&pc> Speed increase"
+                      - NARRATE "<&6>6.<&e> Next Page"
+                      - zap 3
+                      }                      
+                    - disengage
+        '3':
+            chat trigger:
+                '1':
+                    trigger: "I choose /1/ the 5<&pc> damage increase."
+                    script:
+                    - engage
+                    - if <player.flag[damageincrease]> != true && <player.flag[MajorPerk]> >= '1' {
+                      - zap step:1
+                      - flag damageincrease
+                      - flag MajorPerk:--
+                      - execute as_server permissions player <player> set perk.major.damage true 
+                      - Narrate "<&e>You have been trained to be stronger in battle"
+                      }
+                      else if <player.flag[MajorPerk]> < '1' {
+                      - narrate "<&e>You do not have enough credits"
+                      }
+                      else {
+                      - narrate "<&e>You already know how to use this."
+                      }
+                    - disengage
+                '2':
+                    trigger: "I choose /2/ the damage reduction in full armor."
+                    script:
+                    - engage
+                    - if <player.flag[damagereduction]> != true && <player.flag[MajorPerk]> >= '1' {
+                      - zap step:1
+                      - flag damagereduction
+                      - flag MajorPerk:--
+                      - execute as_server permissions player <player> set perk.major.defense true 
+                      - Narrate "<&e>You have been trained to make better use of your armor."
+                      }
+                      else if <player.flag[MajorPerk]> < '1' {
+                      - narrate "<&e>You do not have enough credits"
+                      }
+                      else {
+                      - narrate "<&e>You already know how to use this."
+                      }
+                    - disengage
+                '3':
+                    trigger: "I choose /3/, Dodge increase."
+                    script:
+                    - engage
+                    - if <player.flag[dodgeincrease]> != true && <player.flag[MajorPerk]> >= '1' {
+                      - zap step:1
+                      - flag dodgeincrease
+                      - flag MajorPerk:--
+                      - execute as_server permissions player <player> set perk.major.dodge true 
+                      - Narrate "<&e>You have increased your dodge!"
+                      }
+                      else if <player.flag[MajorPerk]> < '1' {
+                      - narrate "<&e>You do not have enough credits"
+                      }
+                      else {
+                      - narrate "<&e>You already know how to use this."
+                      }
+                    - disengage
+                '4':
+                    trigger: "I choose /4/ the Crtical strike increase."
+                    script:
+                    - engage
+                    - if <player.flag[critdamage]> != true && <player.flag[MajorPerk]> >= '1' {
+                      - zap step:1
+                      - flag critdamage
+                      - flag MajorPerk:--
+                      - execute as_server permissions player <player> set perk.major.crit true 
+                      - Narrate "<&e>You now have a higher chance on critical strikes."
+                      }
+                      else if <player.flag[MajorPerk]> < '1' {
+                      - narrate "<&e>You do not have enough credits"
+                      }
+                      else {
+                      - narrate "<&e>You already know how to use this."
+                      }
+                    - disengage
+                '5':
+                    trigger: "I choose /5/, I wish to be faster."
+                    script:
+                    - engage
+                    - if <player.flag[speedincrease]> != true && <player.flag[MajorPerk]> >= '1' {
+                      - zap step:1
+                      - flag speedincrease
+                      - flag MajorPerk:--
+                      - execute as_server permissions player <player> set perk.major.speed true 
+                      - Narrate "<&e>You can now run faster"
+                      }
+                      else if <player.flag[MajorPerk]> < '1' {
+                      - narrate "<&e>You do not have enough credits"
+                      }
+                      else {
+                      - narrate "<&e>You already know how to use this."
+                      }
+                    - disengage
+                '6':
+                    trigger: "I choose /6/ Next Page."
+                    script:
+                    - engage
+                    - NARRATE "<&d>[HINT] <&e>Type in the number to the reward you would like to obtain."
+                    - NARRATE "<&6>7.<&e> Pistol Specialization"
+                    - NARRATE "<&6>8.<&e> Shotgun Specialization"
+                    - NARRATE "<&6>9.<&e> SMG Specialization"
+                    - NARRATE "<&6>10.<&e> Assault Rifle Specialization"
+                    - NARRATE "<&6>11.<&e> Sniper Specialization"
+                    - NARRATE "<&6>12.<&e> Explosive Specialization"
+                    - NARRATE "<&6>13.<&e> First Page"
+                    - zap 4
+                    - disengage
+        '4':
+            chat trigger:
+                '1':
+                    trigger: "I choose /7/ the Pistol Specialization."
+                    script:
+                    - engage
+                    - if <player.flag[pistolspecial]> != true && <player.flag[MajorPerk]> >= '1' {
+                      - zap step:1
+                      - flag pistolspecial
+                      - flag MajorPerk:--
+                      - execute as_server permissions player <player> set perk.spec.pistol true 
+                      - Narrate "<&e>You are now a better with pistols"
+                      }
+                      else if <player.flag[MajorPerk]> < '1' {
+                      - narrate "<&e>You do not have enough credits"
+                      }
+                      else {
+                      - narrate "<&e>You already know how to use this."
+                      }
+                    - disengage
+                '2':
+                    trigger: "I choose /8/ the Shotgun Specialization."
+                    script:
+                    - engage
+                    - if <player.flag[shotgunspecial]> != true && <player.flag[MajorPerk]> >= '1' {
+                      - zap step:1
+                      - flag shotgunspecial
+                      - flag MajorPerk:--
+                      - execute as_server permissions player <player> set perk.spec.shotgun true 
+                      - Narrate "<&e>You have been trained to use shotguns!"
+                      }
+                      else if <player.flag[MajorPerk]> < '1' {
+                      - narrate "<&e>You do not have enough credits"
+                      }
+                      else {
+                      - narrate "<&e>You already know how to use this."
+                      }
+                    - disengage
+                '3':
+                    trigger: "I choose /9/ the SMG Specialization."
+                    script:
+                    - engage
+                    - if <player.flag[smgspecial]> != true && <player.flag[MajorPerk]> >= '1' {
+                      - zap step:1
+                      - flag smgspecial
+                      - flag MajorPerk:--
+                      - execute as_server permissions player <player> set perk.spec.smg true 
+                      - Narrate "<&e>You have been trained to use SMGs"
+                      }
+                      else if <player.flag[MajorPerk]> < '1' {
+                      - narrate "<&e>You do not have enough credits"
+                      }
+                      else {
+                      - narrate "<&e>You already know how to use this."
+                      }
+                    - disengage
+                '4':
+                    trigger: "I choose /10/ the Assault Rifle Specialization."
+                    script:
+                    - engage
+                    - if <player.flag[arspecial]> != true && <player.flag[MajorPerk]> >= '1' {
+                      - zap step:1
+                      - flag arspecial
+                      - flag MajorPerk:--
+                      - execute as_server permissions player <player> set perk.spec.ar true 
+                      - Narrate "<&e>You have been trained to use Assault rifles!"
+                      }
+                      else if <player.flag[MajorPerk]> < '1' {
+                      - narrate "<&e>You do not have enough credits"
+                      }
+                      else {
+                      - narrate "<&e>You already know how to use this."
+                      }
+                    - disengage
+                '5':
+                    trigger: "I choose /11/ the Sniper Rifle Specialization."
+                    script:
+                    - engage
+                    - if <player.flag[sniperspecial]> != true && <player.flag[MajorPerk]> >= '1' {
+                      - zap step:1
+                      - flag sniperspecial
+                      - flag MajorPerk:--
+                      - execute as_server permissions player <player> set perk.spec.sr true 
+                      - Narrate "<&e>You have been trained to use the sniper rifle"
+                      }
+                      else if <player.flag[MajorPerk]> < '1' {
+                      - narrate "<&e>You do not have enough credits"
+                      }
+                      else {
+                      - narrate "<&e>You already know how to use this."
+                      }
+                    - disengage
+                '6':
+                    trigger: "I choose /12/ the Explosive Specialization"
+                    script:
+                    - engage
+                    - if <player.flag[explodespecial]> != true && <player.flag[MajorPerk]> >= '1' {
+                      - zap step:1
+                      - flag explodespecial
+                      - flag MajorPerk:--
+                      - execute as_server permissions player <player> set perk.spec.demo true 
+                      - Narrate "<&e>You have been trained to use explosives!"
+                      }
+                      else if <player.flag[MajorPerk]> < '1' {
+                      - narrate "<&e>You do not have enough credits"
+                      }
+                      else {
+                      - narrate "<&e>You already know how to use this."
+                      }
+                    - disengage
+                '7':
+                    trigger: "I choose /13/ First Page"
+                    script:
+                    - engage
+                    - NARRATE "<&d>[HINT] <&e>Type in the number to the reward you would like to obtain."
+                    - NARRATE "<&6>1.<&e> 5<&pc> Damage increase"
+                    - NARRATE "<&6>2.<&e> 5<&pc> Damage Reduction in full armor"
+                    - NARRATE "<&6>3.<&e> 5<&pc> Dodge increase"
+                    - NARRATE "<&6>4.<&e> 5<&pc> Crit increace"
+                    - NARRATE "<&6>5.<&e> 5<&pc> Speed increase"
+                    - zap 3
+                    - disengage
+        '2':
+            chat trigger:
+                '1':
+                    trigger: "I choose /1/ the Night Vision Goggles."
+                    script:
+                    - engage
+                    - if <player.flag[NightVisionGoggles]> != true && <player.flag[UtilityPerk]> >= '1' {
+                      - zap step:1
+                      - flag NightVisionGoggles
+                      - flag UtilityPerk:--
+                      - execute as_server permissions player <player> set perk.util.nightvision true 
+                      - Narrate "<&e>You have been trained to use Night Vision Goggles!"
+                      }
+                      else if <player.flag[UtilityPerk]> < '1' {
+                      - narrate "<&e>You do not have enough credits"
+                      }
+                      else {
+                      - narrate "<&e>You already know how to use this."
+                      }
+                    - disengage
+                '2':
+                    trigger: "I choose /2/ the Fly High Rocket Boots."
+                    script:
+                    - engage
+                    - ^if <player.flag[FHRocketBoots]> != true && <player.flag[UtilityPerk]> >= '1' {
+                      - zap step:1
+                      - flag FHRocketBoots
+                      - flag UtilityPerk:--
+                      - execute as_server permissions player <player> set perk.util.rocketboots true
+                      - Narrate "<&e>You have been trained to use Rocket Boots!"
+                      }
+                      else if <player.flag[UtilityPerk]> < '1' {
+                      - narrate "<&e>You do not have enough credits"
+                      }
+                      else {
+                      - narrate "<&e>You already know how to use this."
+                      }
+                    - disengage
+                '3':
+                    trigger: "I choose /3/ the Battery Shop Discount."
+                    script:
+                    - engage
+                    - ^if <player.flag[BatteryShopDC]> != true && <player.flag[UtilityPerk]> >= '1' {
+                      - zap step:1
+                      - flag BatteryShopDC
+                      - flag UtilityPerk:--
+                      - execute as_server permissions player <player> set perk.util.battery true
+                      - Narrate "<&e>You will now recieve a discount on Batteries!"
+                      }
+                      else if <player.flag[UtilityPerk]> < '1' {
+                      - narrate "<&e>You do not have enough credits"
+                      }
+                      else {
+                      - narrate "<&e>You already have access to this."
+                      }
+                    - disengage
+                '4':
+                    trigger: "I choose /4/ the Active Camo Clock."
+                    script:
+                    - engage
+                    - ^if <player.flag[CamClock]> != true && <player.flag[UtilityPerk]> >= '1' {
+                      - zap step:1
+                      - flag CamClock
+                      - flag UtilityPerk:--
+                      - execute as_server permissions player <player> set perk.util.camo true
+                      - Narrate "<&e>You have been trained to use Night Vision Goggles!"
+                      }
+                      else if <player.flag[UtilityPerk]> < '1' {
+                      - narrate "<&e>You do not have enough credits"
+                      }
+                      else {
+                      - narrate "<&e>You already know how to use this."
+                      }
+                    - disengage
+                '5':
+                    trigger: "I choose /5/, I wish to keep my credits."
+                    script:
+                    - engage
+                    - zap step:1
+                    - chat "Very well then"
+                    - disengage

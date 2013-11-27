@@ -1,0 +1,11 @@
+supply crate names
+
+&eCommon Weapons &f&oCrate
+&6Uncommon Weapons &f&oCrate
+&4Rare Weapons &f&oCrate
+&4Medical &f&oCrate
+&6Ammo &f&oCrate
+&aFood &f&oCrate
+&bWater &f&oCrate
+&5Armor &f&oCrate
+&4Explosives &f&oCrate

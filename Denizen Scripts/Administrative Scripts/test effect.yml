@@ -1,0 +1,10 @@
+'test effect':
+    type: interact
+    Requirements:
+     Mode: none
+     List:
+    steps:
+        '1':
+            click trigger:
+                script:
+                - execute as_op "play witchmagic draw<&co>line loc<&co>here loc2<&co>view"

@@ -3,27 +3,32 @@
 
 # Major Perks
 
-#Damage
+# Speed
 
 
-#Critical Strike
+#Dodge, Damage, Critical & Damage Reduction
 
-
-#Dodge
-
-
-#Speed
-
-
-#Damage Reduction
-
-
+on damage:
+    if the attacker has permission "perk.major.damage":
+        set damage to damage * 1.05
+    if the attacker has permission "perk.major.crit":
+        chance of 5%:
+            set damage to damage * 1.5
+            send message "&8[Critical Damage!]" to the attacker
+    if the victim has permission "perk.major.dodge":
+        chance of 5%:
+            cancel event
+            send message "&8[%victim% dodged your attack!]" to the attacker
+            send message "&8[You dodged %attacker%'s attack!]" to the victim
+            stop
+    if the victim has permission "perk.major.defense":
+        set damage to damage * 0.9
 
 # Weapon Spec Perks
 
 #Pistol + Incr Ammo Drops
 on damage:
-    if attacker does not have permissions "perk.spec.pistol":
+    if attacker does not have permission "perk.spec.pistol":
         stop
     else:
         attacker's tool is a wooden hoe, stone hoe, gold hoe or a diamond hoe
@@ -43,7 +48,7 @@ on death of a zombie:
 
 #Shotgun + Incr Ammo Drops
 on damage:
-    if attacker does not have permissions "perk.spec.shotgun":
+    if attacker does not have permission "perk.spec.shotgun":
         stop
     else:
         if victim is not a zombie or a giant:
@@ -64,7 +69,7 @@ on death of a zombie:
 
 #SMG + Incr Ammo Drops
 on damage:
-    if attacker does not have permissions "perk.spec.smg":
+    if attacker does not have permission "perk.spec.smg":
         stop
     else:
         attacker's tool is a stone pickaxe, iron pickaxe or a golden pickaxe
@@ -82,7 +87,7 @@ on death of a zombie:
 
 #Assault Rifle (Faster Speed) + Incr Ammo Drops
 on damage:
-    if attacker does not have permissions "perk.spec.ar":
+    if attacker does not have permission "perk.spec.ar":
         stop
     else:
         attacker's tool is a diamond pickaxe, a iron axe or a gold shovel

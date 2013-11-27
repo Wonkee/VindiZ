@@ -191,6 +191,7 @@
       - flag LabatoryQuest:<-:StartHallway
       - flag LabatoryQuest:<-:StartHallway1
       - flag LabatoryQuest:<-:EndHallway
+      - flag Reputation:++:11
       }
 'VentAction':
   type: world
