@@ -37,28 +37,158 @@ levelcheck_task:
 #Static Rewards based on current level
 'Low Reward':
     type: task
-    script:
-    - give "item:22 Ammo" QTY:64
-    - flag Perk:++:20
-    - chat "here is your reward"
+    script:    
+    - flag Perk:++:<util.random.int[<10>].to[<50>]>
+    - narrate "<&7>You've been given some sweet stuff!"
+    - Random {
+      - give "item:22 Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:762 Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:300 Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:50 Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:10GA Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:12GA Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:9mm Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:10mm Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:44 Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:556 Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      {
+    - Random {
+      - give "item:Energy Cell" QTY:<util.random.int[<1>].to[<5>]>
+      - give "item:Rocket" QTY:<util.random.int[<1>].to[<5>]>
+      - give "item:Flag Grenade" QTY:<util.random.int[1>].to[<5>]>
+      - give "item:Cluster Bomb" QTY:<util.random.int[<1>].to[<3>]>
+      - give "item:Flash Bang" QTY:<util.random.int[<2>].to[<7>]>
+      - give "item:Flare" QTY:<util.random.int[<2>].to[<5>]>
+      {
+    - Random {
+      - give "item:Common Weapon Crate" QTY:1
+      - give "item:Medical Crate" QTY:1
+      - give "item:Food Crate" QTY:1
+      - give "item:Water Crate" QTY:1
+      - give "item:Armor Crate" QTY:1
+      {
 'Mid Reward':
     type: task
     script:
-    - give "item:22 Ammo" QTY:64
-    - flag Perk:++:100
-    - chat "here is your reward"
+    - flag Perk:++:<util.random.int[<10>].to[<50>]>
+    - narrate "<&7>You've been given some sweet stuff!"
+    - Random {
+      - give "item:22 Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:762 Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:300 Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:50 Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:10GA Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:12GA Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:9mm Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:10mm Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:44 Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:556 Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      {
+    - Random {
+      - give "item:Energy Cell" QTY:<util.random.int[<1>].to[<5>]>
+      - give "item:Rocket" QTY:<util.random.int[<1>].to[<5>]>
+      - give "item:Flag Grenade" QTY:<util.random.int[1>].to[<5>]>
+      - give "item:Cluster Bomb" QTY:<util.random.int[<1>].to[<3>]>
+      - give "item:Flash Bang" QTY:<util.random.int[<2>].to[<7>]>
+      - give "item:Flare" QTY:<util.random.int[<2>].to[<5>]>
+      {
+    - Random {
+      - give "item:Common Weapon Crate" QTY:1
+      - give "item:Medical Crate" QTY:1
+      - give "item:Food Crate" QTY:1
+      - give "item:Water Crate" QTY:1
+      - give "item:Armor Crate" QTY:1
+      {
 'High Reward':
     type: task
     script:
-    - give "item:22 Ammo" QTY:64
-    - flag Perk:++:1000
-    - chat "here is your reward"
+    - flag Perk:++:<util.random.int[<10>].to[<50>]>
+    - narrate "<&7>You've been given some sweet stuff!"
+    - Random {
+      - give "item:22 Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:762 Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:300 Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:50 Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:10GA Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:12GA Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:9mm Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:10mm Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:44 Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:556 Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      {
+    - Random {
+      - give "item:Energy Cell" QTY:<util.random.int[<1>].to[<5>]>
+      - give "item:Rocket" QTY:<util.random.int[<1>].to[<5>]>
+      - give "item:Flag Grenade" QTY:<util.random.int[1>].to[<5>]>
+      - give "item:Cluster Bomb" QTY:<util.random.int[<1>].to[<3>]>
+      - give "item:Flash Bang" QTY:<util.random.int[<2>].to[<7>]>
+      - give "item:Flare" QTY:<util.random.int[<2>].to[<5>]>
+      {
+    - Random {
+      - give "item:Common Weapon Crate" QTY:1
+      - give "item:Medical Crate" QTY:1
+      - give "item:Food Crate" QTY:1
+      - give "item:Water Crate" QTY:1
+      - give "item:Armor Crate" QTY:1
+      {
 'Awesome Reward':
     type: task
     script:
-    - give "item:22 Ammo" QTY:64
-    - flag Perk:++:5000
-    - chat "here is your reward"
+    - flag Perk:++:<util.random.int[<10>].to[<50>]>
+    - narrate "<&7>You've been given some sweet stuff!"
+    - Random {
+      - give "item:22 Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:762 Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:300 Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:50 Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:10GA Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:12GA Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:9mm Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:10mm Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:44 Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      - give "item:556 Ammo" QTY:<util.random.int[<10>].to[<30>]>
+      {
+    - Random {
+      - give "item:Energy Cell" QTY:<util.random.int[<1>].to[<5>]>
+      - give "item:Rocket" QTY:<util.random.int[<1>].to[<5>]>
+      - give "item:Flag Grenade" QTY:<util.random.int[1>].to[<5>]>
+      - give "item:Cluster Bomb" QTY:<util.random.int[<1>].to[<3>]>
+      - give "item:Flash Bang" QTY:<util.random.int[<2>].to[<7>]>
+      - give "item:Flare" QTY:<util.random.int[<2>].to[<5>]>
+      {
+    - Random {
+      - give "item:Common Weapon Crate" QTY:1
+      - give "item:Medical Crate" QTY:1
+      - give "item:Food Crate" QTY:1
+      - give "item:Water Crate" QTY:1
+      - give "item:Armor Crate" QTY:1
+      {
+#Rep Give
+
+'Rep':
+  type: world
+  events:  
+    on rep command:
+    - if <player.has_permission[give.rep]> != true {
+      - narrate "<&4>You do not have access to this command."
+      - queue clear
+      }
+      else if <context.raw_args> != '' 
+      && <context.raw_args> != 'honorhold'
+      && <context.raw_args> != 'blacksmith'
+      && <context.raw_args> != 'well'
+      && <context.raw_args> != 'magetower'
+      && <context.raw_args> != 'library'
+      
+      
+    - run 'giverep'
+    - determine passively fulfilled    
+    
+"giverep":
+    type: task
+    script:
+    - flag reputation:++:1
+    - run "Level Check"
         
 #Level Command
 'Level':
