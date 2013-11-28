@@ -6,7 +6,7 @@
   material: 354
   display name: "<&b>Tasty Cake"
   lore:
-  - mmmm Cake!
+  - "<&c>mmmm Cake!"
   
 #Ammo
 
@@ -15,7 +15,159 @@
   material: 402
   display name: "<&7>.22 Ammo"
   lore:
-  - .22 Ammo
+  - "<&c>.22 Ammo"
+"762 Ammo":
+  type: item 
+  material: 265
+  display name: "<&7>7.62 Ammo"
+  lore:
+  - "<&c>7.62 Ammo"
+"300 Ammo":
+  type: item 
+  material: 266
+  display name: "<&7>300 Mag"
+  lore:
+  - "<&c>300 Mag"
+"50 Ammo":
+  type: item 
+  material: 287
+  display name: "<&7>.50 bmg"
+  lore:
+  - "<&c>.50 BMG"
+"10GA Ammo":
+  type: item 
+  material: 288
+  display name: "<&7>10GA"
+  lore:
+  - "<&c>10GA"
+"12GA Ammo":
+  type: item 
+  material: 289
+  display name: "<&7>12GA"
+  lore:
+  - "<&c>12GA"
+"9mm Ammo":
+  type: item 
+  material: 370
+  display name: "<&7>9mm"
+  lore:
+  - "<&c>9mm"
+"10mm Ammo":
+  type: item 
+  material: 390
+  display name: "<&7>10mm"
+  lore:
+  - "<&c>10mm"
+"44 Ammo":
+  type: item 
+  material: 264
+  display name: "<&7>.44 Ammo"
+  lore:
+  - "<&c>.44 Ammo"
+"556 Ammo":
+  type: item 
+  material: 406
+  display name: "<&7>5.56 Ammo"
+  lore:
+  - "<&c>5.56 Ammo"
+"Energy Cell":
+  type: item 
+  material: 399
+  display name: "<&7>Energy Cell"
+  lore:
+  - "<&2>Battery Power"
+"Rocket":
+  type: item 
+  material: 401
+  display name: "<&7>Rocket"
+  lore:
+  - "<&4>Ammo for the Bazooka"
+"Flag Grenade":
+  type: item 
+  material: 341
+  display name: "<&e>Flag Grenade"
+  lore:
+  - "<&7>KABOOOM"
+"Cluster Bomb":
+  type: item 
+  material: 127
+  display name: "<&e>Cluster Bomb"
+  lore:
+  - "<&7>Duck and Cover"
+"Harrier Strike":
+  type: item 
+  material: 75
+  display name: "<&e>Harrier Strike"
+  lore:
+  - "<&7>Run and hide"
+"Flash Bang":
+  type: item 
+  material: 348
+  display name: "<&e>Flash Bang"
+  lore:
+  - "<&7>Throw and run"
+"Flare":
+  type: item 
+  material: 348
+  display name: "<&4>Flare"
+  lore:
+  - "<&4>Flare"
+#Crates
+
+"Common Weapon Crate":
+  type: item 
+  material: 348
+  display name: "<&e>Common Weapons<&f><&o> Crate"
+  lore:
+  - "<&7>Common Weapons"
+"Uncommon Weapon Crate":
+  type: item 
+  material: 348
+  display name: "<&6>Uncommon Weapons<&f><&o> Crate"
+  lore:
+  - "<&7>Uncommon Weapons"
+"Rare Weapon Crate":
+  type: item 
+  material: 348
+  display name: "<&4>Rare Weapons<&f><&o> Crate"
+  lore:
+  - "<&e>Rare Weapons"
+"Medical Crate":
+  type: item 
+  material: 348
+  display name: "<&4>Medical<&f><&o> Crate"
+  lore:
+  - "<&7>Medical Supplies"
+"Ammo Crate":
+  type: item 
+  material: 348
+  display name: "<&6>Ammo<&f><&o> Crate"
+  lore:
+  - "<&2>Ammunition Box"
+"Food Crate":
+  type: item 
+  material: 348
+  display name: "<&a>Food<&f><&o> Crate"
+  lore:
+  - "<&a>Box-O-Food"
+"Water Crate":
+  type: item 
+  material: 348
+  display name: "<&b>Water<&f><&o> Crate"
+  lore:
+  - "<&b>Don't spill a drop"
+"Armor Crate":
+  type: item 
+  material: 348
+  display name: "<&5>Armor<&f><&o> Crate"
+  lore:
+  - "<&5>Gearing Up!"
+"Explosives Crate":
+  type: item 
+  material: 348
+  display name: "<&4>Explosives<&f><&o> Crate"
+  lore:
+  - "<&4>Do not shake"
 
 #Guns
 "Airazz Pistol":
