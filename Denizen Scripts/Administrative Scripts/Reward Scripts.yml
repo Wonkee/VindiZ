@@ -51,7 +51,7 @@ levelcheck_task:
       - give "item:10mm Ammo" QTY:<util.random.int[<10>].to[<30>]>
       - give "item:44 Ammo" QTY:<util.random.int[<10>].to[<30>]>
       - give "item:556 Ammo" QTY:<util.random.int[<10>].to[<30>]>
-      {
+      }
     - Random {
       - give "item:Energy Cell" QTY:<util.random.int[<1>].to[<5>]>
       - give "item:Rocket" QTY:<util.random.int[<1>].to[<5>]>
@@ -59,14 +59,14 @@ levelcheck_task:
       - give "item:Cluster Bomb" QTY:<util.random.int[<1>].to[<3>]>
       - give "item:Flash Bang" QTY:<util.random.int[<2>].to[<7>]>
       - give "item:Flare" QTY:<util.random.int[<2>].to[<5>]>
-      {
+      }
     - Random {
       - give "item:Common Weapon Crate" QTY:1
       - give "item:Medical Crate" QTY:1
       - give "item:Food Crate" QTY:1
       - give "item:Water Crate" QTY:1
       - give "item:Armor Crate" QTY:1
-      {
+      }
 'Mid Reward':
     type: task
     script:
@@ -83,7 +83,7 @@ levelcheck_task:
       - give "item:10mm Ammo" QTY:<util.random.int[<10>].to[<30>]>
       - give "item:44 Ammo" QTY:<util.random.int[<10>].to[<30>]>
       - give "item:556 Ammo" QTY:<util.random.int[<10>].to[<30>]>
-      {
+      }
     - Random {
       - give "item:Energy Cell" QTY:<util.random.int[<1>].to[<5>]>
       - give "item:Rocket" QTY:<util.random.int[<1>].to[<5>]>
@@ -91,14 +91,14 @@ levelcheck_task:
       - give "item:Cluster Bomb" QTY:<util.random.int[<1>].to[<3>]>
       - give "item:Flash Bang" QTY:<util.random.int[<2>].to[<7>]>
       - give "item:Flare" QTY:<util.random.int[<2>].to[<5>]>
-      {
+      }
     - Random {
       - give "item:Common Weapon Crate" QTY:1
       - give "item:Medical Crate" QTY:1
       - give "item:Food Crate" QTY:1
       - give "item:Water Crate" QTY:1
       - give "item:Armor Crate" QTY:1
-      {
+      }
 'High Reward':
     type: task
     script:
@@ -123,14 +123,14 @@ levelcheck_task:
       - give "item:Cluster Bomb" QTY:<util.random.int[<1>].to[<3>]>
       - give "item:Flash Bang" QTY:<util.random.int[<2>].to[<7>]>
       - give "item:Flare" QTY:<util.random.int[<2>].to[<5>]>
-      {
+      }
     - Random {
       - give "item:Common Weapon Crate" QTY:1
       - give "item:Medical Crate" QTY:1
       - give "item:Food Crate" QTY:1
       - give "item:Water Crate" QTY:1
       - give "item:Armor Crate" QTY:1
-      {
+      }
 'Awesome Reward':
     type: task
     script:
@@ -147,7 +147,7 @@ levelcheck_task:
       - give "item:10mm Ammo" QTY:<util.random.int[<10>].to[<30>]>
       - give "item:44 Ammo" QTY:<util.random.int[<10>].to[<30>]>
       - give "item:556 Ammo" QTY:<util.random.int[<10>].to[<30>]>
-      {
+      }
     - Random {
       - give "item:Energy Cell" QTY:<util.random.int[<1>].to[<5>]>
       - give "item:Rocket" QTY:<util.random.int[<1>].to[<5>]>
@@ -155,14 +155,14 @@ levelcheck_task:
       - give "item:Cluster Bomb" QTY:<util.random.int[<1>].to[<3>]>
       - give "item:Flash Bang" QTY:<util.random.int[<2>].to[<7>]>
       - give "item:Flare" QTY:<util.random.int[<2>].to[<5>]>
-      {
+      }
     - Random {
       - give "item:Common Weapon Crate" QTY:1
       - give "item:Medical Crate" QTY:1
       - give "item:Food Crate" QTY:1
       - give "item:Water Crate" QTY:1
       - give "item:Armor Crate" QTY:1
-      {
+      }
 #Rep Give
 
 'Rep':
