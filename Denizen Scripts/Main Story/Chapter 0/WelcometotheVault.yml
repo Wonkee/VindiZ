@@ -1,0 +1,139 @@
+'Welcome Committee':
+    type: interact
+    Requirements:
+     Mode: All
+     List:
+     - -script finished 'script:Welcome Committee'
+     - -flagged 'current_step:Cafeteria'
+
+    steps:
+        '1':
+            click trigger:
+                script:
+                - engage
+                - narrate "FORMAT:Quest Given" "Welcome Committee"
+                - ^flag 'current_quests:->:Welcome Committee'
+                - chat "I see you're new here <&c>Recruit<&e>."
+                - wait 1
+                - chat "Here is a book that should explain the facility."
+                - wait 1
+                - ^scribe 'script:Starter Book' give
+                - narrate "<&d>You received a guide book."
+                - chat "Talk to me again after you've read the book."
+                - zap step:2
+                - disengage
+        '2':
+            click trigger:
+                script:
+                - chat "Now that you have read the book you should pay a visit to<&b>Jack<&e> in the <&b>Armory<&e> to collect a Gun and some Ammo."
+                - ^flag 'current_step:Armory'
+                - zap step:3
+        '3':
+            click trigger:
+                script:
+                - chat "Have you visited the <&b><flag.p:current_step><&e> yet?"
+'Armory':
+    type: interact
+    Requirements:
+     Mode: All
+     List:
+     - flagged 'current_step:Armory'
+     - -flagged 'current_step:Cafeteria'
+    steps:
+        '1':
+            click trigger:
+                script:
+                - engage
+                - chat "Welcome to the <&b>Armory<&e> <&c><player.name><&e>."
+                - wait 1
+                - chat "I suppose you'll need a gun to survive out there."
+                - wait 2
+                - narrate "<&d>You barely contain your excitement as he reaches for a gun."
+                - wait 1
+                - chat "Ah this one is a fine gun indeed. I hope you take good care of her <&b><player.name><&e>."
+                - wait 1
+                - ^flag global "Temporary Player Holder:<&c><player.name>"
+                - give "item:First Gun"
+                - give "item:22 Ammo" QTY:64
+                - wait 2                
+                - chat "Now that you have a weapon and ammo you should suit up with some armor."
+                - give "item:LeatherHelmet"
+                - give "item:LeatherChest"
+                - give "item:LeatherLeggins"
+                - give "item:LeatherBoots"
+                - wait 2
+                - chat "Now that you have a good set of armor, You should go back to <&2>Duck<&e> and let him know all you need now is food."
+                - flag 'current_step:Cafeteria'
+                - disengage
+'Cafeteria':
+    type: interact
+    Requirements:
+     Mode: All
+     List:
+     - flagged 'current_step:Cafeteria'
+    steps:
+        '1':
+            click trigger:
+                script:
+                - engage
+                - chat "Looks like you're all geared up. I don't want to tell you which food to buy instead here is 50 bucks. Spend it wisely."
+                - wait 1
+                - chat "Make sure to only buy what you need and items you don't need put them in your chest."
+                - wait 1
+                - chat "See you around."                
+                - narrate "<&d>You received 50V."
+                - ^give money qty:50
+                - wait 5                
+                - chat "I almost forgot you should visit the <&b>Pharmacy<&e>."
+                - ^flag 'current_step:Pharmacy'
+                - zap step:2
+                - disengage
+        '2':
+            click trigger:
+                script:
+                - chat "I almost forgot you should visit the <&b>Pharmacy<&e>."
+'Pharmacy':
+    type: interact
+    Requirements:
+     Mode: All
+     List:
+     - flagged 'current_step:Pharmacy'
+    steps:
+        '1':
+            click trigger:
+                script:
+                - engage
+                - chat "Looks like <&2>Duck<&e> forgot about me again. Well Food, Armor, and Guns are great but how do you expect to stay alive out there?"
+                - wait 1
+                - chat "Here is a health potion for you."
+                - wait 2
+                - narrate "<&d>You received a health potion"
+                - give "item:373:5"
+                - wait 1
+                - cast speed duration:60 power:1
+                - chat "Make sure to tell <&2>Fredbob<&e> to have <&2>Duck<&e> send me new recruits."
+                - wait 2
+                - ^flag 'current_quests:<-:Welcome Committee'
+                - narrate "<&d>You're able to start your first mission, visit <&b>The War Room<&d> for details."
+                - ^flag 'current_step:Pharmacy!'
+                - finish 'script:Welcome Committee'
+                - run 'script:Mission Reward'
+                - ^narrate "FORMAT:Quest Success" "Welcome Committee"
+                - disengage
+'Starter Book':
+  type: book
+  title: "Societal Preservation Program"
+  author: <npc.name.nickname>
+  text:
+  - <&l>Getting Started<P><&r>Welcome to <&5>The Vault<&0>. This is the only safe place left from the Zombie shitstorm. Make yourself useful and see if you can help out around <&5>The Vault<&0>. Everyone has do their part or you'll end up like them.
+  - <&l>Resource Pack<P><&r>Make sure you get the resource pack, it can be obtained at http<&co>//host.vindicraft.com/files/VindiZ1.6.4.zip
+  - <&l>NPCs<P><&r>Try talking to the NPCs around <&5>The Vault<&0>. Some NPCs will give you missions, sell you items or just help you out.
+  - <&l>ShopNPCs<P><&r>Simply right click a shop NPC to see what they have to sell. Mouse-over an item for the item details, left click an item to buy it. Currently you cannot sell items to a shop.
+  - <&l>Missions<P><&r>Various NPCs will offer you missions to complete, doing so will open the story line for <&d>VindiZ<&0> and offer you helpful rewards.
+  - <&l>Storage<P><&r>You can store your items in <&5>The Vault Bank<&0>. Be smart with what you store as you only have limited space, If you need more space you can purchase storage containers at the Bank.
+  - <&l>Exploring the City<P><&r>There are warp signs around <&5>The Vault<&0>. You can also left click with a clock to open the menu to travel.
+  - <&l>Returning to <&5><&l>The Vault<P><&0>You'll need to find the safe zone warps. Most are identified by a beacon, be warned it will take a few seconds to warp you back so make sure the area is secure.
+  - <&l>Guns<P><&r>To fire a gun simply right or left click. Make sure you have the ammo required for the weapon.
+  - <&l>Making Money<P><&r>The citizens of <&5>The Vault<&0> deposit Z2 into your account for every zombie you kill, Completing missions, and exchanging coins with the banker. You can also trade with other survivors simply shift right click them.
+  - <&l>Server Admins<P>Owner<&co><&4>Wonkee<P><&0>Admin<&co><&4>Danton
+  - <&l>Honorable Mentions<P><&r> 

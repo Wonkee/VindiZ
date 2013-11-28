@@ -38,19 +38,27 @@ levelcheck_task:
 'Low Reward':
     type: task
     script:
-    - narrate "Random reward 1"
+    - give "item:22 Ammo" QTY:64
+    - flag Perk:++:20
+    - chat "here is your reward"
 'Mid Reward':
     type: task
     script:
-    - narrate "Random reward 2"
+    - give "item:22 Ammo" QTY:64
+    - flag Perk:++:100
+    - chat "here is your reward"
 'High Reward':
     type: task
     script:
-    - narrate "Random reward 3"
+    - give "item:22 Ammo" QTY:64
+    - flag Perk:++:1000
+    - chat "here is your reward"
 'Awesome Reward':
     type: task
     script:
-    - narrate "Random reward 4"
+    - give "item:22 Ammo" QTY:64
+    - flag Perk:++:5000
+    - chat "here is your reward"
         
 #Level Command
 'Level':

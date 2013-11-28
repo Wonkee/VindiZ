@@ -77,4 +77,5 @@
     - ^give "item:Airazz Pistol" qty:1
     - ^give "item:22 Ammo" qty:60
     - ^zap step:3 'script:LabSideQuest1'
+    - run 'script:Mission Reward'
     - disengage

@@ -1,0 +1,497 @@
+'Training':
+    type: interact
+    Requirements:
+     Mode: All
+     List:
+     - script finished 'script:Welcome Committee'
+    steps:
+        '1':
+            click trigger:
+                script:
+                - engage
+                - chat "Are you ready for your first mission?"
+                - narrate "<&6>[<&4>HINT<&6>]<&d> You can say <&e><&n>Yes<&d> or <&e><&n>No<&r><&e>."
+                - disengage
+            chat trigger:
+                'a':
+                    trigger: "/Yes/ Sir I am ready!"
+                    script:
+                    - engage
+                    - narrate "FORMAT:Quest Given" "Training"
+                    - ^flag 'current_quests:->:Training'
+                    - ^flag 'current_step:Supplies'
+                    - wait 1
+                    - chat "Great, we're needing some medical supplies to restock the pharmacy."
+                    - chat "I need you to head to the hospital and pick up at least 5 first aid kits."
+                    - zap step:2
+                    - disengage
+                'b':
+                    trigger: "/No/ Sir I am still learning!"
+                    script:
+                    - engage
+                    - zap 1
+                    - chat "Get it together soldier, we are in need of help!"
+                    - disengage
+        '2':
+            click trigger:
+                script:
+                - engage
+                - if <player.flag[MedicalKit]||0> >= '5' {
+                  - run "Mission 1 Reward"
+                  - zap 3
+                  } 
+                  else {
+                  - narrate "<&d>You still need to find <el@val[5].sub[<player.flag[MedicalKit]>]> First Aid kits at the hospital"
+                  }
+                - disengage
+        '3':
+            click trigger:
+                script:
+                - engage
+                - chat "Great! Let's move on then"
+                - wait 1
+                - zap 4
+                - flag 'current_step:Scout'
+                - chat "Now I need you to head back to the hospital and map out all of the wards so we can send men in to gather more supplies."
+                - disengage
+        '4':
+            click trigger:
+                script:
+                - engage
+                - if <player.flag[WardsFound]||0> >= '9' {
+                  - run "Mission 2 Reward"
+                  - zap 5
+                  } 
+                  else {
+                  - chat "You now have <el@val[12].sub[<player.flag[WardsFound]||0>]> Wards reamining to find at the hospital"
+                  }
+                - disengage
+        '5':
+            click trigger:
+                script:
+                - engage
+                - chat "Now that you have the hang of this, I need you to do one last mission before send out men in."
+                - wait 1
+                - chat "I need you to clear out any remaining <&c>Zombies<&e> in the <&b>hospital<&e>."
+                - zap 6
+                - flag 'current_step:Zombie Slayer'
+                - flag zombiekillsneeded:++:<util.random.int[<10>].to[<20>]>
+                - listen kill type:entity target:zombie qty:1 region:Hospital id:traininghospital 'script:zombiekillcount'
+                - disengage
+        '6':
+            click trigger:
+                script:
+                - chat "You still need to kill the reamining zombies in the Hospital."
+                - wait 1
+                - chat "You need to kill <player.flag[zombiekillsneeded]> more zombies."
+        '7':
+            click trigger:
+                script:
+                - engage
+                - chat "You've passed your training tests. Here is a little something to help you in the field."
+                - give "item:Starter Shield" qty:1
+                - narrate "FORMAT:Quest Success" "Training"
+                - ^finish 'script:Training'
+                - ^flag 'current_quests:<-:Training'
+                - zap 8
+                - disengage
+        '8':
+            click trigger:
+                script:
+                - Chat "Good work out there <player.name>"
+"Mission 1 Reward":
+    type: task
+    script:
+    - chat "Way to go <&b><player.name><&e>! Now we have enough for our citizens to keep going."
+    - chat "Just let me know when you're ready for the next part."
+    - ^flag 'current_step:Supplies!'
+    - run 'script:Mission Reward'
+    - flag FirstAidKit:!
+
+"Mission 2 Reward":
+    type: task
+    script:
+    - chat "Way to go <&b><player.name><&e>! We'll send more men in to collect the rest of the supplies!"
+    - ^flag 'current_step:Scout!'
+    - run 'script:Mission Reward'
+    - flag Ward:!
+
+"Training Finished":
+    type: task
+    script:
+    - flag zombiekillcount:!
+    - flag zombiekillsneeded:!
+    - narrate "<&d><&l>You should go back and speak with Fredbob now."
+    - zap step:8 'script:Training'
+    - run 'script:Mission Reward'
+    - run 'script:Mission Reward'
+    
+"zombiekillcount":
+    type: task
+    script:
+    - engage
+    - if <player.flag[zombiekillcount]||0> >= '<player.flag[zombiekillsneeded]||0>' {
+      - run 'Training Finished'
+      }
+      else {
+      - flag zombiekillcount:++
+      - narrate "<&7>You still need to kill <el@val[<player.flag[zombiekillsneeded]>].sub[<player.flag[zombiekillcount]>]> more zombies."
+      - listen kill type:entity target:zombie qty:1 region:Hospital id:traininghospital 'script:zombiekillcount'
+      }
+    - disengage   
+    
+#####First Aid Kits#####    
+'FirstAidKit1':
+  type: world
+  events:
+    on walked over firstaid1:    
+    - if <player.flag[FirstAidKit].aslist> contains '1' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[FirstAidKit].aslist> !contains '1' {
+      - flag player MedicalKit:++
+      - flag FirstAidKit:->:1
+      - narrate "<&d>You found a first aid kit. You now have <player.flag[MedicalKit]> first aid kits."
+      }
+'FirstAidKit2':
+  type: world
+  events:
+    on walked over firstaid2:    
+    - if <player.flag[FirstAidKit].aslist> contains '2' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[FirstAidKit].aslist> !contains '2' {
+      - flag player MedicalKit:++
+      - flag FirstAidKit:->:2
+      - narrate "<&d>You found a first aid kit. You now have <player.flag[MedicalKit]> first aid kits."
+      }
+'FirstAidKit3':
+  type: world
+  events:
+    on walked over firstaid3:    
+    - if <player.flag[FirstAidKit].aslist> contains '3' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[FirstAidKit].aslist> !contains '3' {
+      - flag player MedicalKit:++
+      - flag FirstAidKit:->:3
+      - narrate "<&d>You found a first aid kit. You now have <player.flag[MedicalKit]> first aid kits."
+      }
+'FirstAidKit4':
+  type: world
+  events:
+    on walked over firstaid4:    
+    - if <player.flag[FirstAidKit].aslist> contains '4' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[FirstAidKit].aslist> !contain '4' {
+      - flag player MedicalKit:++
+      - flag FirstAidKit:->:4
+      - narrate "<&d>You found a first aid kit. You now have <player.flag[MedicalKit]> first aid kits."
+      }
+'FirstAidKit5':
+  type: world
+  events:
+    on walked over firstaid5:    
+    - if <player.flag[FirstAidKit].aslist> contains '5' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[FirstAidKit].aslist> !contains '5' {
+      - flag player MedicalKit:++
+      - flag FirstAidKit:->:5
+      - narrate "<&d>You found a first aid kit. You now have <player.flag[MedicalKit]> first aid kits."
+      }
+'FirstAidKit6':
+  type: world
+  events:
+    on walked over firstaid6:    
+    - if <player.flag[FirstAidKit].aslist> contains '6' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[FirstAidKit].aslist> !contains '6' {
+      - flag player MedicalKit:++
+      - flag FirstAidKit:->:6
+      - narrate "<&d>You found a first aid kit. You now have <player.flag[MedicalKit]> first aid kits."
+      }
+'FirstAidKit7':
+  type: world
+  events:
+    on walked over firstaid7:    
+    - if <player.flag[FirstAidKit].aslist> contains '7' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[FirstAidKit].aslist> !contains '7' {
+      - flag player MedicalKit:++
+      - flag FirstAidKit:->:7
+      - narrate "<&d>You found a first aid kit. You now have <player.flag[MedicalKit]> first aid kits."
+      }
+'FirstAidKit8':
+  type: world
+  events:
+    on walked over firstaid8:    
+    - if <player.flag[FirstAidKit].aslist> contains '8' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[FirstAidKit].aslist> !contains '8' {
+      - flag player MedicalKit:++
+      - flag FirstAidKit:->:8
+      - narrate "<&d>You found a first aid kit. You now have <player.flag[MedicalKit]> first aid kits."
+      }
+'FirstAidKit9':
+  type: world
+  events:
+    on walked over firstaid9:    
+    - if <player.flag[FirstAidKit].aslist> contains '9' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[FirstAidKit].aslist> !contains '9' {
+      - flag player MedicalKit:++
+      - flag FirstAidKit:->:9
+      - narrate "<&d>You found a first aid kit. You now have <player.flag[MedicalKit]> first aid kits."
+      }
+'FirstAidKit10':
+  type: world
+  events:
+    on walked over firstaid10:    
+    - if <player.flag[FirstAidKit].aslist> contains '10' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[FirstAidKit].aslist> !contains '10' {
+      - flag player MedicalKit:++
+      - flag FirstAidKit:->:10
+      - narrate "<&d>You found a first aid kit. You now have <player.flag[MedicalKit]> first aid kits."
+      }
+      
+####Wards####
+'WardA11':
+  type: world
+  events:
+    on walked over WardA11:    
+    - if <player.flag[Ward].aslist> contains 'A1' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[Ward].aslist> !contains 'A1' {
+      - flag player WardsFound:++
+      - flag Ward:->:A1
+      - narrate "<&d>You have found Ward A2. You now have <el@val[12].sub[<player.flag[WardsFound]>]> Wards reamining to find."
+'WardA12':
+  type: world
+  events:
+    on walked over WardA12:    
+    - if <player.flag[Ward].aslist> contains 'A1' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[Ward].aslist> !contains 'A1' {
+      - flag player WardsFound:++
+      - flag Ward:->:A1
+      - narrate "<&d>You have found Ward A2. You now have <el@val[12].sub[<player.flag[WardsFound]>]> Wards reamining to find."
+'WardA21':
+  type: world
+  events:
+    on walked over WardA21:    
+    - if <player.flag[Ward].aslist> contains 'A2' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[Ward].aslist> !contains 'A2' {
+      - flag player WardsFound:++
+      - flag Ward:->:A2
+      - narrate "<&d>You have found Ward A1. You now have <el@val[12].sub[<player.flag[WardsFound]>]> Wards reamining to find."
+'WardA22':
+  type: world
+  events:
+    on walked over WardA22:    
+    - if <player.flag[Ward].aslist> contains 'A2' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[Ward].aslist> !contains 'A2' {
+      - flag player WardsFound:++
+      - flag Ward:->:A2
+      - narrate "<&d>You have found Ward A1. You now have <el@val[12].sub[<player.flag[WardsFound]>]> Wards reamining to find."
+      
+'WardB11':
+  type: world
+  events:
+    on walked over Wardb11:    
+    - if <player.flag[Ward].aslist> contains 'B1' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[Ward].aslist> !contains 'B1' {
+      - flag player WardsFound:++
+      - flag Ward:->:B1
+      - narrate "<&d>You have found Ward B1. You now have <el@val[12].sub[<player.flag[WardsFound]>]> Wards reamining to find."
+'WardB12':
+  type: world
+  events:
+    on walked over Wardb12:    
+    - if <player.flag[Ward].aslist> contains 'B1' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[Ward].aslist> !contains 'B1' {
+      - flag player WardsFound:++
+      - flag Ward:->:B1
+      - narrate "<&d>You have found Ward B1. You now have <el@val[12].sub[<player.flag[WardsFound]>]> Wards reamining to find."
+'WardB21':
+  type: world
+  events:
+    on walked over Wardb21:    
+    - if <player.flag[Ward].aslist> contains 'B2' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[Ward].aslist> !contains 'B2' {
+      - flag player WardsFound:++
+      - flag Ward:->:B2
+      - narrate "<&d>You have found Ward B2. You now have <el@val[12].sub[<player.flag[WardsFound]>]> Wards reamining to find."
+'WardB22':
+  type: world
+  events:
+    on walked over Wardb22:    
+    - if <player.flag[Ward].aslist> contains 'B2' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[Ward].aslist> !contains 'B2' {
+      - flag player WardsFound:++
+      - flag Ward:->:B2
+      - narrate "<&d>You have found Ward B1. You now have <el@val[12].sub[<player.flag[WardsFound]>]> Wards reamining to find."
+'WardC11':
+  type: world
+  events:
+    on walked over WardC11:    
+    - if <player.flag[Ward].aslist> contains 'C1' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[Ward].aslist> !contains 'C1' {
+      - flag player WardsFound:++
+      - flag Ward:->:C1
+      - narrate "<&d>You have found Ward C1. You now have <el@val[12].sub[<player.flag[WardsFound]>]> Wards reamining to find."
+'WardC12':
+  type: world
+  events:
+    on walked over WardC12:    
+    - if <player.flag[Ward].aslist> contains 'C1' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[Ward].aslist> !contains 'C1' {
+      - flag player WardsFound:++
+      - flag Ward:->:C1
+      - narrate "<&d>You have found Ward C1. You now have <el@val[12].sub[<player.flag[WardsFound]>]> Wards reamining to find."
+'WardC21':
+  type: world
+  events:
+    on walked over WardC21:    
+    - if <player.flag[Ward].aslist> contains 'C2' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[Ward].aslist> !contains 'C2' {
+      - flag player WardsFound:++
+      - flag Ward:->:C2
+      - narrate "<&d>You have found Ward C2. You now have <el@val[12].sub[<player.flag[WardsFound]>]> Wards reamining to find."
+'WardC22':
+  type: world
+  events:
+    on walked over WardC22:    
+    - if <player.flag[Ward].aslist> contains 'C2' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[Ward].aslist> !contains 'C2' {
+      - flag player WardsFound:++
+      - flag Ward:->:C2
+      - narrate "<&d>You have found Ward C2. You now have <el@val[12].sub[<player.flag[WardsFound]>]> Wards reamining to find."
+'WardD11':
+  type: world
+  events:
+    on walked over WardD11:    
+    - if <player.flag[Ward].aslist> contains 'D1' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[Ward].aslist> !contains 'D1' {
+      - flag player WardsFound:++
+      - flag Ward:->:D1
+      - narrate "<&d>You have found Ward D1. You now have <el@val[12].sub[<player.flag[WardsFound]>]> Wards reamining to find."
+'WardD12':
+  type: world
+  events:
+    on walked over WardD12:    
+    - if <player.flag[Ward].aslist> contains 'D1' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[Ward].aslist> !contains 'D1' {
+      - flag player WardsFound:++
+      - flag Ward:->:D1
+      - narrate "<&d>You have found Ward D1. You now have <el@val[12].sub[<player.flag[WardsFound]>]> Wards reamining to find."
+'WardD21':
+  type: world
+  events:
+    on walked over WardD21:    
+    - if <player.flag[Ward].aslist> contains 'D2' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[Ward].aslist> !contains 'D2' {
+      - flag player WardsFound:++
+      - flag Ward:->:D2
+      - narrate "<&d>You have found Ward D2. You now have <el@val[12].sub[<player.flag[WardsFound]>]> Wards reamining to find."
+'WardD22':
+  type: world
+  events:
+    on walked over WardD22:    
+    - if <player.flag[Ward].aslist> contains 'D2' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[Ward].aslist> !contains 'D2' {
+      - flag player WardsFound:++
+      - flag Ward:->:D2
+      - narrate "<&d>You have found Ward D2. You now have <el@val[12].sub[<player.flag[WardsFound]>]> Wards reamining to find."
+'WardE11':
+  type: world
+  events:
+    on walked over WardE11:    
+    - if <player.flag[Ward].aslist> contains 'E1' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[Ward].aslist> !contains 'E1' {
+      - flag player WardsFound:++
+      - flag Ward:->:E1
+      - narrate "<&d>You have found Ward E1. You now have <el@val[12].sub[<player.flag[WardsFound]>]> Wards reamining to find."
+'WardE12':
+  type: world
+  events:
+    on walked over WardE11:    
+    - if <player.flag[Ward].aslist> contains 'E1' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[Ward].aslist> !contains 'E1' {
+      - flag player WardsFound:++
+      - flag Ward:->:E1
+      - narrate "<&d>You have found Ward E1. You now have <el@val[12].sub[<player.flag[WardsFound]>]> Wards reamining to find."
+'WardE21':
+  type: world
+  events:
+    on walked over WardE21:    
+    - if <player.flag[Ward].aslist> contains 'E2' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[Ward].aslist> !contains 'E2' {
+      - flag player WardsFound:++
+      - flag Ward:->:E2
+      - narrate "<&d>You have found Ward E2. You now have <el@val[12].sub[<player.flag[WardsFound]>]> Wards reamining to find."
+'WardE22':
+  type: world
+  events:
+    on walked over WardE22:    
+    - if <player.flag[Ward].aslist> contains 'E2' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[Ward].aslist> !contains 'E2' {
+      - flag player WardsFound:++
+      - flag Ward:->:E2
+      - narrate "<&d>You have found Ward E2. You now have <el@val[12].sub[<player.flag[WardsFound]>]> Wards reamining to find."
+'WardF11':
+  type: world
+  events:
+    on walked over Wardf11:    
+    - if <player.flag[Ward].aslist> contains 'F1' || <player.flag[current_quests].aslist> !contains 'Training'{
+      - queue clear
+      }
+      else if <player.flag[Ward].aslist> !contains 'F1' {
+      - flag player WardsFound:++
+      - flag Ward:->:F1
+      - narrate "<&d>You have found Ward F1. You now have <el@val[12].sub[<player.flag[WardsFound]>]> Wards reamining to find."

@@ -1,7 +1,0 @@
-###Permission Nodes for Levels####
-
-upgrade.player.speed.1
-upgrade.player.crit.1
-upgrade.player.hp.1
-upgrade.player.dodge.1
-

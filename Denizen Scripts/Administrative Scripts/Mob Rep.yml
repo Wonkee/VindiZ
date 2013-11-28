@@ -1,0 +1,15 @@
+OnMobKill:
+  type: world
+  events:
+    on player kills entity: 
+    - define pl <context.damager>
+    - if <el@val[<%pl%.flag[level]||0>].add[3]> > <context.entity.custom_name.after[(].before[)]||0> && <e@entity.is_mob> {
+      - flag %pl% reputation:+:0.5
+      }
+      else if <el@val[<%pl%.flag[level]||0>].sub[3]> < <context.entity.custom_name.after[(].before[)]||0> && <e@entity.is_mob> {
+      - flag %pl% reputation:+:1.5
+      }
+      else if <context.entity.is_mob> {
+      - flag %pl% reputation:++:1
+      }
+    - run as:%pl% "Level Check"
