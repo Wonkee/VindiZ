@@ -1,0 +1,50 @@
+'Scout the Hospital':
+    type: interact
+    Requirements:
+     Mode: All
+     List:
+     - script finished 'script:Supplies'
+    steps:
+        '1':
+            click trigger:
+                script:
+                - engage
+                - chat "Are you ready for your Second mission?"
+                - narrate "<&6>[<&4>HINT<&6>]<&d> You can say <&e><&n>Yes<&d> or <&e><&n>No<&r><&e>."
+                - disengage
+            chat trigger:
+                'a':
+                    trigger: "/Yes/ Sir I am ready!"
+                    script:
+                    - engage
+                    - narrate "FORMAT:Quest Given" "Scout the Hospital"
+                    - ^flag 'current_quests:->:Scout the Hospital'
+                    - wait 1
+                    - chat "Great, I need you to find some key points for us in the hospital."
+                    - zap step:2
+                    - disengage
+                'b':
+                    trigger: "/No/ Sir I am still learning!"
+                    script:
+                    - engage
+                    - zap 1
+                    - chat "Get it together soldier, we are in need of help!"
+                    - disengage
+        '2':
+            click trigger:
+                script:
+                - engage
+                - if <player.flag[MedicalKit]||0> >= '5' {
+                  - run "Mission 1 Reward"
+                  - zap 3
+                  } 
+                  else {
+                  - narrate "<&d>You still need to find <el@val[5].sub[<player.flag[MedicalKit]>]> First Aid kits at the hospital"
+                  }
+                - disengage
+        '3':
+            click trigger:
+                script:
+                - engage
+                - chat "Thank you for the first aid kits from before."
+                - disengage

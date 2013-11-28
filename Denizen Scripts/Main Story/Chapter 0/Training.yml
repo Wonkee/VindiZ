@@ -1,17 +1,21 @@
 'Training':
     type: interact
     Requirements:
-     Mode: All
-     List:
-     - script finished 'script:Welcome Committee'
     steps:
         '1':
             click trigger:
                 script:
                 - engage
-                - chat "Are you ready for your first mission?"
-                - narrate "<&6>[<&4>HINT<&6>]<&d> You can say <&e><&n>Yes<&d> or <&e><&n>No<&r><&e>."
+                - if "<player.flag[Welcome Committee]>" == Finished {
+                  - Zap 9
+                  - chat "Are you ready for your first mission?"
+                  - narrate "<&6>[<&4>HINT<&6>]<&d> You can say <&e><&n>Yes<&d> or <&e><&n>No<&r><&e>."
+                  }
+                  else {
+                  - chat "You should talk to <&b>Duck."
+                  }
                 - disengage
+        '9':
             chat trigger:
                 'a':
                     trigger: "/Yes/ Sir I am ready!"
@@ -91,7 +95,7 @@
                 - chat "You've passed your training tests. Here is a little something to help you in the field."
                 - give "item:Starter Shield" qty:1
                 - narrate "FORMAT:Quest Success" "Training"
-                - ^finish 'script:Training'
+                - flag "Training:Finished"
                 - ^flag 'current_quests:<-:Training'
                 - zap 8
                 - disengage
