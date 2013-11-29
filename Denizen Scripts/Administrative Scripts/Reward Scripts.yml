@@ -163,7 +163,16 @@ levelcheck_task:
       - give "item:Water Crate" QTY:1
       - give "item:Armor Crate" QTY:1
       }
-        
+# Give Rep Command
+'giverep':
+  type: world
+  events:  
+    on grantrep command:
+    - if <player> == null && <context.args.size> > 0 && <context.raw_args> matches 'player' {
+      - flag <player[context.raw_args]> Perk:++
+      }
+    - determine passively fulfilled
+    
 #Level Command
 'Level':
   type: world
