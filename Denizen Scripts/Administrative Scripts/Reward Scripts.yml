@@ -55,7 +55,7 @@ levelcheck_task:
     - Random {
       - give "item:Energy Cell" QTY:<util.random.int[<1>].to[<5>]>
       - give "item:Rocket" QTY:<util.random.int[<1>].to[<5>]>
-      - give "item:Flag Grenade" QTY:<util.random.int[1>].to[<5>]>
+      - give "item:Flag Grenade" QTY:<util.random.int[<1>].to[<5>]>
       - give "item:Cluster Bomb" QTY:<util.random.int[<1>].to[<3>]>
       - give "item:Flash Bang" QTY:<util.random.int[<2>].to[<7>]>
       - give "item:Flare" QTY:<util.random.int[<2>].to[<5>]>
@@ -87,7 +87,7 @@ levelcheck_task:
     - Random {
       - give "item:Energy Cell" QTY:<util.random.int[<1>].to[<5>]>
       - give "item:Rocket" QTY:<util.random.int[<1>].to[<5>]>
-      - give "item:Flag Grenade" QTY:<util.random.int[1>].to[<5>]>
+      - give "item:Flag Grenade" QTY:<util.random.int[<1>].to[<5>]>
       - give "item:Cluster Bomb" QTY:<util.random.int[<1>].to[<3>]>
       - give "item:Flash Bang" QTY:<util.random.int[<2>].to[<7>]>
       - give "item:Flare" QTY:<util.random.int[<2>].to[<5>]>
@@ -115,11 +115,11 @@ levelcheck_task:
       - give "item:10mm Ammo" QTY:<util.random.int[<10>].to[<30>]>
       - give "item:44 Ammo" QTY:<util.random.int[<10>].to[<30>]>
       - give "item:556 Ammo" QTY:<util.random.int[<10>].to[<30>]>
-      {
+      }
     - Random {
       - give "item:Energy Cell" QTY:<util.random.int[<1>].to[<5>]>
       - give "item:Rocket" QTY:<util.random.int[<1>].to[<5>]>
-      - give "item:Flag Grenade" QTY:<util.random.int[1>].to[<5>]>
+      - give "item:Flag Grenade" QTY:<util.random.int[<1>].to[<5>]>
       - give "item:Cluster Bomb" QTY:<util.random.int[<1>].to[<3>]>
       - give "item:Flash Bang" QTY:<util.random.int[<2>].to[<7>]>
       - give "item:Flare" QTY:<util.random.int[<2>].to[<5>]>
@@ -151,7 +151,7 @@ levelcheck_task:
     - Random {
       - give "item:Energy Cell" QTY:<util.random.int[<1>].to[<5>]>
       - give "item:Rocket" QTY:<util.random.int[<1>].to[<5>]>
-      - give "item:Flag Grenade" QTY:<util.random.int[1>].to[<5>]>
+      - give "item:Flag Grenade" QTY:<util.random.int[<1>].to[<5>]>
       - give "item:Cluster Bomb" QTY:<util.random.int[<1>].to[<3>]>
       - give "item:Flash Bang" QTY:<util.random.int[<2>].to[<7>]>
       - give "item:Flare" QTY:<util.random.int[<2>].to[<5>]>
@@ -163,32 +163,6 @@ levelcheck_task:
       - give "item:Water Crate" QTY:1
       - give "item:Armor Crate" QTY:1
       }
-#Rep Give
-
-'Rep':
-  type: world
-  events:  
-    on rep command:
-    - if <player.has_permission[give.rep]> != true {
-      - narrate "<&4>You do not have access to this command."
-      - queue clear
-      }
-      else if <context.raw_args> != '' 
-      && <context.raw_args> != 'honorhold'
-      && <context.raw_args> != 'blacksmith'
-      && <context.raw_args> != 'well'
-      && <context.raw_args> != 'magetower'
-      && <context.raw_args> != 'library'
-      
-      
-    - run 'giverep'
-    - determine passively fulfilled    
-    
-"giverep":
-    type: task
-    script:
-    - flag reputation:++:1
-    - run "Level Check"
         
 #Level Command
 'Level':
