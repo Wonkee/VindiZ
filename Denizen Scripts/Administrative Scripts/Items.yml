@@ -8,6 +8,11 @@
   lore:
   - "<&c>mmmm Cake!"
   
+"Water Bottle":
+  type: item 
+  material: potion:0
+  display name: "<&f>Water Bottle"
+  
 #Ammo
 
 "22 Ammo":
@@ -102,13 +107,13 @@
   - "<&7>Run and hide"
 "Flash Bang":
   type: item 
-  material: 348
+  material: 170
   display name: "<&e>Flash Bang"
   lore:
   - "<&7>Throw and run"
 "Flare":
   type: item 
-  material: 348
+  material: 170
   display name: "<&4>Flare"
   lore:
   - "<&4>Flare"
@@ -116,55 +121,55 @@
 
 "Common Weapon Crate":
   type: item 
-  material: 348
+  material: 170
   display name: "<&e>Common Weapons<&f><&o> Crate"
   lore:
   - "<&7>Common Weapons"
 "Uncommon Weapon Crate":
   type: item 
-  material: 348
+  material: 170
   display name: "<&6>Uncommon Weapons<&f><&o> Crate"
   lore:
   - "<&7>Uncommon Weapons"
 "Rare Weapon Crate":
   type: item 
-  material: 348
+  material: 170
   display name: "<&4>Rare Weapons<&f><&o> Crate"
   lore:
   - "<&e>Rare Weapons"
 "Medical Crate":
   type: item 
-  material: 348
+  material: 170
   display name: "<&4>Medical<&f><&o> Crate"
   lore:
   - "<&7>Medical Supplies"
 "Ammo Crate":
   type: item 
-  material: 348
+  material: 170
   display name: "<&6>Ammo<&f><&o> Crate"
   lore:
   - "<&2>Ammunition Box"
 "Food Crate":
   type: item 
-  material: 348
+  material: 170
   display name: "<&a>Food<&f><&o> Crate"
   lore:
   - "<&a>Box-O-Food"
 "Water Crate":
   type: item 
-  material: 348
+  material: 170
   display name: "<&b>Water<&f><&o> Crate"
   lore:
   - "<&b>Don't spill a drop"
 "Armor Crate":
   type: item 
-  material: 348
+  material: 170
   display name: "<&5>Armor<&f><&o> Crate"
   lore:
   - "<&5>Gearing Up!"
 "Explosives Crate":
   type: item 
-  material: 348
+  material: 170
   display name: "<&4>Explosives<&f><&o> Crate"
   lore:
   - "<&4>Do not shake"
