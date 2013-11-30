@@ -138,7 +138,7 @@
             click trigger:
                 script:
                 - engage
-                - if <player.inventory.contains[potion].qty[25]> == true {
+                - if <player.inventory.contains[i@Water Bottle].qty:25> == true {
                   - chat "Quick and professional."
                   - wait 1
                   - ^take "item:Water Bottle" qty:25
