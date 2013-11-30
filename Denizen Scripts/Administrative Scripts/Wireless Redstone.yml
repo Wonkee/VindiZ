@@ -1,0 +1,191 @@
+#Youtube demo video 1: http://youtu.be/U5eJLeJLe7o 
+#Youtube demo video 2: http://youtu.be/I7_2HQFsQKk
+
+"linkupevents":
+  type: world
+  events:
+    on linkup command:
+    - if <context.args.get[1]> == addchannel {
+      - if <player.has_permission[linkup.channel]> != true {
+        - narrate "<&c>You do not have the permission to do this."
+        - determine fulfilled
+        - queue clear
+        }
+      - if <context.args.get[2]> == null {
+        - narrate "<&9>You must specify a channel name!"
+        - narrate "<&c> /linkup addchannel <&lt>channel<&gt>"
+        - determine fulfilled
+        - queue clear
+        }
+      - if <player.location.cursor_on.material.bukkit_enum> == wood_button || <player.location.cursor_on.material.bukkit_enum> == stone_button || <player.location.cursor_on.material.bukkit_enum> == wood_plate || <player.location.cursor_on.material.bukkit_enum> == stone_plate || <player.location.cursor_on.material.bukkit_enum> == lever || <player.location.cursor_on.material.bukkit_enum> == wooden_door {
+        - flag global linkup<context.args.get[2]>:->:<player.location.cursor_on>
+        - if <server.flag[linkupchannels].aslist> !contains <context.args.get[2]> flag global linkupchannels:->:<context.args.get[2]>
+        - narrate "<&9>Your device has been stored to channel '<context.args.get[2]>'"
+        - determine fulfilled
+        - queue clear
+        } else {
+        - narrate "<&c>You must be targeting a switch."
+        - determine fulfilled
+        - queue clear
+        }
+      }
+    - if <context.args.get[1]> == removechannel {
+      - if <player.has_permission[linkup.channel]> != true {
+        - narrate "<&c>You do not have the permission to do this."
+        - determine fulfilled
+        - queue clear
+        }
+      - if <context.args.get[2]> == null {
+        - narrate "<&9>You must specify a channel name or '-all' for all channels"
+        - narrate "<&c> /linkup removechannel <&lt>channel/-all<&gt>"
+        - determine fulfilled
+        - queue clear
+        }
+      - if <player.location.cursor_on.material.bukkit_enum> == wood_button || <player.location.cursor_on.material.bukkit_enum> == stone_button || <player.location.cursor_on.material.bukkit_enum> == wood_plate || <player.location.cursor_on.material.bukkit_enum> == stone_plate || <player.location.cursor_on.material.bukkit_enum> == lever || <player.location.cursor_on.material.bukkit_enum> == wooden_door {
+        - if <context.args.get[2]> == '-all' {
+          - narrate "<&9>This device has been removed from all existing channels."
+          - foreach <server.flag[linkupchannels].aslist> {
+            - flag global linkup%value%:<-:<player.location.cursor_on>
+            }
+          - determine fulfilled
+          - queue clear
+          } else {
+          - flag global linkup<context.args.get[2]>:<-:<player.location.cursor_on>
+          - narrate "<&9>Your device has been removed from channel '<context.args.get[2]>'"
+          - determine fulfilled
+          - queue clear
+          }
+        } else {
+        - narrate "<&c>You must be targeting a switch."
+        - determine fulfilled
+        - queue clear
+        }
+    - if <context.args.get[1]> == addcmd || <context.args.get[1]> == addcommand {
+      - if <player.has_permission[linkup.command]> != true {
+        - narrate "<&c>You do not have the permission to do this."
+        - determine fulfilled
+        - queue clear
+        }
+      - if <context.args.get[2]> == null {
+        - narrate "<&b>You must specify a command!"
+        - narrate "<&c> /linkup addcommand <&lt>'command'<&gt>"
+        - determine fulfilled
+        - queue clear
+        }
+      - if <player.location.cursor_on.material.bukkit_enum> == wood_button || <player.location.cursor_on.material.bukkit_enum> == stone_button || <player.location.cursor_on.material.bukkit_enum> == wood_plate || <player.location.cursor_on.material.bukkit_enum> == stone_plate || <player.location.cursor_on.material.bukkit_enum> == lever {
+        - if <server.flag[linkupcmdbuttons].aslist> !contains <player.location.cursor_on> flag global linkupcmdbuttons:->:<player.location.cursor_on>
+        - if <server.flag[linkupcmd<player.location.cursor_on>].aslist> !contains <context.args.get[2]> {
+          - flag global linkupcmd<player.location.cursor_on>:->:<context.args.get[2]>
+          }
+        - narrate "<&9>Your command has been stored to this device."
+        - determine fulfilled
+        - queue clear
+        } else {
+        - narrate "<&c>You must be targeting a switch."
+        - determine fulfilled
+        - queue clear
+        }
+      }
+    - if <context.args.get[1]> == removecmd || <context.args.get[1]> == removecommand {
+      - if <player.has_permission[linkup.command]> != true {
+        - narrate "<&c>You do not have the permission to do this."
+        - determine fulfilled
+        - queue clear
+        }
+      - if <context.args.get[2]> == null {
+        - narrate "<&9>You must specify a command or '-all' for all commands!"
+        - narrate "<&c> /linkup removecommand <&lt>command/-all<&gt>"
+        - determine fulfilled
+        - queue clear
+        }
+      - if <player.location.cursor_on.material.bukkit_enum> == wood_button || <player.location.cursor_on.material.bukkit_enum> == stone_button || <player.location.cursor_on.material.bukkit_enum> == wood_plate || <player.location.cursor_on.material.bukkit_enum> == stone_plate || <player.location.cursor_on.material.bukkit_enum> == lever || <player.location.cursor_on.material.bukkit_enum> == wooden_door {
+        - if <context.args.get[2]> == '-all' {
+          - narrate "<&9>All commands have been removed from this device."
+          - flag global linkupcmd<player.location.cursor_on>:!
+          - determine fulfilled
+          - queue clear
+          } else {
+          - flag global linkupcmd<player.location.cursor_on>:<-:<context.args.get[2]>
+          - narrate "<&9>Your command has been removed from this device."
+          - determine fulfilled
+          - queue clear
+          }
+        } else {
+        - narrate "<&c>You must be targeting a switch."
+        - determine fulfilled
+        - queue clear
+        }
+      }
+    - if <context.args.get[1]> == check {
+      - if <player.has_permission[linkup.check]> != true {
+        - narrate "<&c>You do not have the permission to do this."
+        - determine fulfilled
+        - queue clear
+        }
+      - narrate "<&9>This device is linked to the following channels:"
+      - foreach <server.flag[linkupchannels].aslist> {
+        - if <server.flag[linkup%value%].aslist> contains <player.location.cursor_on> narrate "<&c>Channel '%value%'"
+        }
+      - narrate "<&9>The following commands are linked to this device:"
+      - foreach <server.flag[linkupcmd<player.location.cursor_on>].aslist> {
+        - narrate "<&c>Command '%value%'"
+        }
+      - determine fulfilled
+      - queue clear
+      } else {
+      - narrate ""
+      - narrate "<&c>usage<&co> /linkup addchannel <&lt>channel<&gt>"
+      - narrate "<&9>description<&co> Adds the switch you're looking at to the specified channel."
+      - narrate "<&c>usage<&co> /linkup removechannel <&lt>channel/-all<&gt>"
+      - narrate "<&9>description<&co> removes the switch you're looking at from the specified channel or all channels."
+      - narrate "<&c>usage<&co> /linkup addcommand <&lt>'command'<&gt>"
+      - narrate "<&9>description<&co> Adds a command to the switch you're looking at"
+      - narrate "<&c>usage<&co> /linkup removecommand <&lt>'command'/-all<&gt>"
+      - narrate "<&9>description<&co> removes a command or all commands from the switch you're looking at."
+      - narrate "<&c>usage<&co> /linkup check"
+      - narrate "<&9>description<&co> Returns which channels and commands the switch you're looking at is linked to."
+      - narrate "<&c>Variables<&co> <&9><&lt>player.name<&gt>."
+      - determine fulfilled
+      - queue clear
+      }
+    on player right clicks lever:
+    - foreach <server.flag[linkupchannels].aslist> {
+        - if <server.flag[linkup%value%].aslist> contains <context.location> run linkuptoggle def:%value%|<context.location>
+        }
+    - if <server.flag[linkupcmd<context.location>]> != null run linkupcmd def:<context.location>
+    on player right clicks wood_button:
+    - foreach <server.flag[linkupchannels].aslist> {
+        - if <server.flag[linkup%value%].aslist> contains <context.location> run linkuptoggle def:%value%|<context.location>
+        }
+    - if <server.flag[linkupcmd<context.location>]> != null run linkupcmd def:<context.location>
+    on player right clicks stone_button:
+    - foreach <server.flag[linkupchannels].aslist> {
+        - if <server.flag[linkup%value%].aslist> contains <context.location> run linkuptoggle def:%value%|<context.location>
+        }
+    - if <server.flag[linkupcmd<context.location>]> != null run linkupcmd def:<context.location>
+    on player stands on stone_plate:
+    - foreach <server.flag[linkupchannels].aslist> {
+        - if <server.flag[linkup%value%].aslist> contains <context.location> run linkuptoggle def:%value%|<context.location>
+        }
+    - if <server.flag[linkupcmd<context.location>]> != null run linkupcmd def:<context.location>
+    on player stands on wood_plate:
+    - foreach <server.flag[linkupchannels].aslist> {
+        - if <server.flag[linkup%value%].aslist> contains <context.location> run linkuptoggle def:%value%|<context.location>
+        }
+    - if <server.flag[linkupcmd<context.location>]> != null run linkupcmd def:<context.location>
+
+"linkuptoggle":
+    type: task
+    script:
+        - ^foreach <server.flag[linkup%1%].aslist> {
+          - if %2% == %value% queue clear
+          - switch %value%
+          }
+"linkupcmd":
+    type: task
+    script:
+        - ^foreach <server.flag[linkupcmd%1%].aslist> {
+          - if <player.flag[linkupcooldown]> == true queue clear
+          - flag linkupcooldown:true duration:1s
+          - execute as_op '%value%'
+          }

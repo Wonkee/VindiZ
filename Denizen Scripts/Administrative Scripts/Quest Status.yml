@@ -5,7 +5,7 @@
         '1':
             click trigger:
                 script:
-                - chat "Hello <&c><flag.p:current_rank || Recruit> <player.name><&e> I see you're currently working on the following missions<&co> <flag.p:current_quests.ascslist || <&b>No missions currently><&e>."
+                - chat "Hello <&c><player.name><&e> I see you're currently working on the following missions<&co> <flag.p:current_quests.ascslist || <&b>No missions currently><&e>."
                 - wait 3
                 - chat "Tell me the name of the mission you're currently on for more information about that mission."
             chat trigger:

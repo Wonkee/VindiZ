@@ -69,7 +69,6 @@
     - engage
     - ^take "item:Tasty Cake" qty:1
     - ^narrate "FORMAT:Quest Success" "Tasty Cake"
-    - ^finish 'script:LabSideQuest1'
     - flag TastyCake:Finished
     - ^flag !TastyCakeFridge
     - ^flag 'current_quests:<-:Tasty Cake'

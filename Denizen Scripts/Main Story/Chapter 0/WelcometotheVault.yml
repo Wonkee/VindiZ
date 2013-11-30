@@ -113,10 +113,10 @@
                 - cast speed duration:60 power:1
                 - chat "Make sure to tell <&2>Fredbob<&e> to have <&2>Duck<&e> send me new recruits."
                 - wait 2
-                - ^flag 'current_quests:<-:Welcome Committee'
                 - narrate "<&d>You're able to start your first mission, visit <&b>The War Room<&d> for details."
                 - ^flag 'current_step:Pharmacy!'
-                - finish 'script:Welcome Committee'
+                - ^flag 'current_quests:<-:Welcome Committee'
+                - flag "Welcome Committee:Finished"
                 - run 'script:Mission Reward'
                 - ^narrate "FORMAT:Quest Success" "Welcome Committee"
                 - disengage

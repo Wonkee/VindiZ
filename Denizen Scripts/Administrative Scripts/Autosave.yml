@@ -1,0 +1,8 @@
+Autosave:
+  type: world
+  debug: false
+
+  events:
+    on 5:00 in w@greenfield:
+    - execute as_server 'denizen save'
+    - execute as_server 'citizens save'
