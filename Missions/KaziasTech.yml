@@ -83,9 +83,9 @@
                   - wait 1
                   - chat "We could do that if we weren't already short on everything else."
                   - wait 1
-                  - chat "If you're willing to collect the parts, I'll have <&c>Zorry<&e> see what he can locate via the network."
+                  - chat "If you're willing to collect some more parts, I'll have <&c>Zorry<&e> see what he can locate via the network."
                   - wait 1
-                  - chat "Talk to <&c>Zorry<&e> when you're ready."
+                  - chat "Go speak to <&c>Zorry<&e> when you're ready."
                   - flag Kazias:step6
                   - zap step:5
                   }
@@ -94,11 +94,11 @@
             click trigger:
                 script:
                 - engage
-                - if <player.flag[Kazias]> == step6 {
-                  - chat "<&c>Zorry<&e> will help you recover the parts we need."
-                  }
-                - if <player.flag[Kazias]> == step7 {
+                - if <player.flag[Kazias]> == step15 {
                   - chat ""
+                  }
+                  else {
+                  - chat "<&c>Zorry<&e> will help you recover the parts we need."
                   }
                 - disengage
                 
@@ -122,3 +122,121 @@
     - wait 1
     - narrate "Return to Zeelan."
     - flag Kazias:step3
+    
+"KaziasWireless":
+    type: task
+    script:
+    - narrate "You found the wireless transmitters."
+    - wait 1
+    - narrate "Return to <&c>Zorry<&e>.
+    - flag Kazias:step7
+
+"KaziasDemytix":
+    type: interact
+    Requirements:
+      Mode: All
+      List:
+    steps:
+        '1':
+            click trigger:
+                script:
+                - engage
+                - if <player.flag[Kazias]> == step4 {
+                  - chat "How did you know we looted that red truck?"
+                  - wait 1
+                  - chat "Our boots and shell casings eh? You're quite the detective."
+                  - wait 1
+                  - chat "Anyway, yes we did loot that truck and I think those parts are somewhere around here."
+                  - wait 1
+                  - chat "The Kazias Tech group needs them? For a device to neutralize the undead?"
+                  - wait 1
+                  - chat "I could gladly give you the parts in exchange for one of those devices."
+                  - wait 1
+                  - narrate "Return to <&c>Zeelan<&e> and inform him of <&c>Demytix's<&e> offer."
+                  - flag Kazias:step5
+                  - zap step:2
+                  }
+                  else {
+                  - chat "Sorry, I'm busy right now."
+                  }
+                - disengage
+        '2':
+            click trigger:
+                script:
+                - engage
+                - if <player.flag[Kazias]> == stepX {
+                  - chat ""
+                  }
+                  else {
+                  - chat "Have you made the deal with <&c>Zeelan<&e> yet?"
+                  }
+                - disengage
+        '3':
+            click trigger:
+                script:
+                - engage
+                - chat "Lovely day isn't it?"
+                - disengage
+    
+"KaziasZorry":
+    type: interact
+    Requirements:
+      Mode: All
+      List:
+    steps:
+        '1':
+            click trigger:
+                script:
+                - engage
+                - if <player.flag[Kazias]> == step6 {
+                  - chat "I've already started locating those parts for <&c>Zeelan<&e>."
+                  - wait 1
+                  - chat "The first few parts are some wireless transmitters."
+                  - wait 1
+                  - chat "There should be a lot of these in the <&c>CCC Wireless store<&e>."
+                  - wait 1
+                  - chat "Search the store at <&b>1657, 69, 479<&e>."
+                  - listen travel type:TOLOCATION id:KaziasTruck location:1657,69,452,greenfield Radius:2 'script:KaziasWireless'
+                  - zap step:2
+                  }
+                  else {
+                  - chat "Sorry, I'm busy right now."
+                  }
+                - disengage
+        '2':
+            click trigger:
+                script:
+                - engage
+                - if <player.flag[Kazias]> == step7 {
+                  - chat "Excellent, you found the transmitters."
+                  - 
+                  - zap step:3
+                  }
+                  else {
+                  - chat "Search the store at <&b>1657, 69, 479<&e> for the transmitters."
+                  }
+                - disengage
+        '3':
+            click trigger:
+                script:
+                - engage
+                - if <player.flag[Kazias]> == step8 {
+                  - chat ""
+                  - zap step:4
+                  }
+                  else {
+                  - chat ""
+                  }
+                - disengage
+        '4':
+            click trigger:
+                script:
+                - engage
+                - if <player.flag[Kazias]> == step9 {
+                  - chat ""
+                  - zap step:5
+                  }
+                  else {
+                  - chat ""
+                  }
+                - disengage
