@@ -307,6 +307,6 @@ on pick up of potion of:0:
     wait 2 ticks
     set {_itemrename} to number of potion of:0 in player's inventory
     remove all potion of:0 from player's inventory
-    give {_itemrename} of potion of:0 named "&fBottled Water" to player
+    give {_itemrename} of potion of:0 to player
     execute console command "/playsound random.pop %player%"
     reset {_itemrename}

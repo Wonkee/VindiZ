@@ -1,0 +1,124 @@
+'KTech1':
+    type: interact
+    Requirements:
+      Mode: All
+      List:
+    steps:
+        '1':
+            click trigger:
+                script:
+                - chat "Who did you say sent you?"
+        '2':
+            chat trigger:
+                'a':
+                    trigger: "Mr /Hedra/ recommended me for a special job."
+                    script:
+                    - engage
+                    - chat "Finally, some help."
+                    - wait 1
+                    - chat "Boy, have I got a job for you- and the pay is big."
+                    - wait 1
+                    - chat "We're working on a device that will neutralize all of the undead within its energy field."
+                    - wait 1
+                    - chat "The problem is we don't have all of the necessary parts here."
+                    - wait 1
+                    - chat "On top of that, the parts we need were being shipped when the outbreak happened."
+                    - wait 1
+                    - chat "You'll have to go to the warehouse and find out where that truck ended up."
+                    - wait 1
+                    - chat "The warehouse is at <&b>-150, 65, 180<&e>."
+                    - wait 1
+                    - chat "Here's <&b>200 credits<&e> in advance."
+                    - narrate "<&a>[+200 credits]"
+                    - ^give money qty:200
+                    - listen travel type:TOLOCATION id:KaziasWarehouse location:-150,65,180,greenfield Radius:3 'script:KaziasWarehouseGPS'
+                    - flag Kazias:step1
+                    - narrate "FORMAT:Quest Given" "Zeelan Needs Parts"
+                    - flag 'current_quests:->:Zeeland Needs Parts'
+                    - disengage
+                    - zap step:3
+                'b':
+                    trigger: "/Your mom/ sent me, lol."
+                    script:
+                    - chat "Fuck off."
+                    - zap step:1
+                'c':
+                    trigger: "/No/ one sent me. I just thought you could use some help."
+                    script:
+                    - chat "Without a recommendation I don't think I could trust you with this mission."
+                    - zap step:1
+        '3':
+            click trigger:
+                script:
+                - engage
+                - if <player.flag[Kazias]> == step1 {
+                  - chat "The warehouse is at <&b>-150, 65, 180<&e>."
+                  - wait 1
+                  - chat "Search the warehouse for a clue to the truck's location."
+                  }
+                - if <player.flag[Kazias]> == step2 {
+                  - chat "If you know where the truck is, why haven't you checked it?"
+                  - wait 1
+                  - chat "Goto <&b>374, 71, 96<&e> and find the parts!"
+                  }
+                - if <player.flag[Kazias]> == step3 {
+                  - chat "Military personel looted the truck?"
+                  - wait 1
+                  - chat "It must have been soldiers from the vault."
+                  - wait 1
+                  - chat "<&c>Demytix<&e> does most of their recon- talk to him and find out where those parts went."
+                  - flag Kazias:step4
+                  - zap step:4
+                  }
+                - disengage
+        '4':
+            click trigger:
+                script:
+                - engage
+                - if <player.flag[Kazias]> == step4 {
+                  - chat "Did you talk to <&c>Demytix<&e> at the <&c>Vault<&e>?"
+                  }
+                - if <player.flag[Kazias]> == step5 {
+                  - chat "<&c>Demytix<&e> wants one of the devices in exchange for the parts?"
+                  - wait 1
+                  - chat "We could do that if we weren't already short on everything else."
+                  - wait 1
+                  - chat "If you're willing to collect the parts, I'll have <&c>Zorry<&e> see what he can locate via the network."
+                  - wait 1
+                  - chat "Talk to <&c>Zorry<&e> when you're ready."
+                  - flag Kazias:step6
+                  - zap step:5
+                  }
+                - disengage
+        '4':
+            click trigger:
+                script:
+                - engage
+                - if <player.flag[Kazias]> == step6 {
+                  - chat "<&c>Zorry<&e> will help you recover the parts we need."
+                  }
+                - if <player.flag[Kazias]> == step7 {
+                  - chat ""
+                  }
+                - disengage
+                
+"KaziasWarehouseGPS":
+    type: task
+    script:
+    - narrate "<&a>[Loading warehouse tracking system...]"
+    - wait 1
+    - narrate "<&a>[Truck 237 stopped en route to Kazias bldg.]"
+    - wait 1
+    - narrate "<&a>[Current GPS coordinates: <&b>374, 71, 96<&a>]"
+    - listen travel type:TOLOCATION id:KaziasTruck location:-150,65,180,greenfield Radius:3 'script:KaziasTruck'
+    - flag Kazias:step2
+    
+"KaziasTruck":
+    type: task
+    script:
+    - narrate "This truck has already been looted."
+    - wait 1
+    - narrate "The boot treads and shell casings lead you to believe military personel were here."
+    - wait 1
+    - narrate "Return to Zeelan."
+    - flag Kazias:step3

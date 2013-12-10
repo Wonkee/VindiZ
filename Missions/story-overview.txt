@@ -21,3 +21,21 @@ Jobs
 - Mr Hedra is very happy with the player. You've done everything he's asked and made a bit of money for yourself as well. Now is when you start to feel real power- taking the life of another. I have someone in the vault that needs to be silenced. Speak to Saxton Hale and learn that your target is Cynthiaa. When you find her in her living quarters you have the option to assassinate her for 1000 credits or warn Cynthiaa that Mr Hedra wants her dead and Cynthia gives you her .44 magnum with some ammo. If you warn her Hedra tower becomes hostile to you.
 - 
 
+
+Kazias Tech Group
+
+goto warehouse
+warehouse gives direction of truck
+truck's gps coords displayed on sign
+find truck
+truck is looted
+look for clues
+boot treads and shell casings hint at military
+inform zeelan
+zeelan sends you to find out if the lab has those parts
+timjab knows the parts, they were used to repair a generator
+timjab says he'll exchange the parts for one of the devices
+tell zeelan timjab's deal
+zeelan accepts if timjab will supply other parts as well
+return to timjab for the parts
+deliver the parts to zeelan

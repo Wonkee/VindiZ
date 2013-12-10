@@ -14,7 +14,7 @@
                   - narrate "<&c>[<&4>HINT<&c>]<&d> You can say <&e><&n>Yes<&d> or <&e><&n>No<&r><&e>."
                   }
                   else {
-                  - chat "We don't need your help right now."
+                  - chat "You don't even have 500 credits."
                   }
         '2':
             chat trigger:
@@ -44,7 +44,7 @@
                   - chat "I think we can trust to share some intel with you now."
                   - wait 1
                   - chat "Talk to <&c>JenniferM<&e> again, she has some supplies for you to recover."
-                  - flag Hydra:step4
+                  - flag Hedra:step4
                   - zap step:4
                   }
                   else {
@@ -55,23 +55,23 @@
             click trigger:
                 script:
                 - engage
-                - if <player.flag[Hydra]> == step4 {
+                - if <player.flag[Hedra]> == step4 {
                   - chat "<&c>JenniferM<&e> will give you the details of your next mission."
                   }
-                - if <player.flag[Hydra]> == step5 {
+                - if <player.flag[Hedra]> == step5 {
                   - chat "Have you recovered the <&b>5 supply crates<&e> for <&c>JenniferM<&e> yet?"
                   }
-                - if <player.flag[Hydra]> == step6 {
+                - if <player.flag[Hedra]> == step6 {
                   - chat "Those supply crates will go to good use, <&c><player.name><&e>."
-                  - flag Hydra:step7
+                  - flag Hedra:step7
                   }
-                - if <player.flag[Hydra]> == step7 {
+                - if <player.flag[Hedra]> == step7 {
                   - chat "<&c>Saxton Hale<&e> will brief you on your next mission."
                   }
-                - if <player.flag[Hydra]> == step8 {
+                - if <player.flag[Hedra]> == step8 {
                   - chat "<&c>Saxton Hale<&e> is waiting on those <&b>energy cells<&e>."
                   }
-                - if <player.flag[Hydra]> == step9 {
+                - if <player.flag[Hedra]> == step9 {
                   - chat "Another fine job completed, <&c><player.name><&e>."
                   - wait 1
                   - chat "You're becoming a great asset to Hedra Tower."
@@ -82,7 +82,7 @@
                   - wait 1
                   - narrate "FORMAT:Quest Given" "Good Night Cynthiaa"
                   - flag 'current_quests:->:Good Night Cynthiaa'
-                  - flag Hydra:step10
+                  - flag Hedra:step10
                   - zap step:5
                   }
                 - disengage
@@ -90,17 +90,17 @@
             click trigger:
                 script:
                 - engage
-                - if <player.flag[Hydra]> == step11 {
+                - if <player.flag[Hedra]> == step11 {
                   - chat "Excellent work. With <&c>Cynthiaa<&e> taken care of we can continue making money."
                   - narrate "<&a>[+1000 credits]"
                   - ^give money qty:1000
-                  - flag Hydra:step12
+                  - flag Hedra:step12
                   - zap step:6
                   }
-                - if <player.flag[Hydra]> == step10 {
+                - if <player.flag[Hedra]> == step10 {
                   - chat "<&c>Cynthiaa<&e> needs to be silenced."
                   }
-                - if <player.flag[Hydra]> == step99 {
+                - if <player.flag[Hedra]> == step99 {
                   - chat "<&c><player.name><&e>, you'll die for betraying me."
                   }
                 - disengage
@@ -108,8 +108,25 @@
             click trigger:
                 script:
                 - engage
-                - chat "Come back later."
+                - chat "If you're still looking to earn some credits, I know someone who needs your expertise."
+                - wait 1
+                - chat "There is a man named <&c>Zeelan<&e> who is part of a tech group."
+                - wait 1
+                - chat "The group occupies the Kazias building at <&b>1,273, 74, 767<&e>."
+                - wait 1
+                - chat "Tell <&c>Zeelan<&e> that I recommended you for a special job."
+                - wait 1
+                - chat "They'll pay you plenty of credits and I hear they also have an ample supply of energy cells."
+                - flag Hedra:step13
+                - zap step:7
                 - disengage
+        '7':
+            click trigger:
+                script:
+                - engage
+                - chat "Have you talked to <&c>Zeelan<&e> yet?"
+                - wait 1
+                - chat "The coordinates are <&b>1,273, 74, 767<&e>."
                 
 'HedraTower2':
     type: interact
@@ -121,13 +138,13 @@
             click trigger:
                 script:
                 - engage
-                - if <player.flag[Hydra]> == step1 {
+                - if <player.flag[Hedra]> == step1 {
                   - chat "Eyes up here. Let's be professional, okay?"
                   - wait 1
-                  - chat "We need <&b>25 bottles of water<&e>. I don't care how you get it, just bring it to me."
+                  - chat "We need <&b>25 bottles of water<&e>. I don't care how you get them, just bring them to me."
                   - wait 1
                   - chat "The contract pays <&c>500 credits<&e> on delivery, so get moving."
-                  - flag Hydra:step2
+                  - flag Hedra:step2
                   - zap step:2
                   }
                   else {
@@ -150,7 +167,7 @@
                   - wait 1
                   - chat "Speak to <&c>Mr Hedra<&e> when you're ready for more work."
                   - flag "Hydra for Hedra":Finished
-                  - flag Hydra:step3
+                  - flag Hedra:step3
                   - ^flag 'current_quests:<-:Hydra for Hedra'
                   - zap step:3
                   }
@@ -162,7 +179,7 @@
             click trigger:
                 script:
                 - engage
-                - if <player.flag[Hydra]> == step4 {
+                - if <player.flag[Hedra]> == step4 {
                   - chat "One of our scouts found a load of supplies in a building not too far away."
                   - wait 1
                   - narrate "FORMAT:Quest Given" "Scavenger Hunt"
@@ -170,7 +187,7 @@
                   - chat "Take the coordinates and bring <&b>5 supply crates<&e> to me."
                   - chat "The coordinates are <&b>43, 69, -195<&e>."
                   - listen travel type:TOLOCATION id:HedraCrates location:43,69,-195,greenfield Radius:3 'script:HedraCrateStash'
-                  - flag Hydra:step5
+                  - flag Hedra:step5
                   - zap step:4
                   }
                   else {
@@ -182,11 +199,11 @@
                 script:
                 - engage
                 - if <player.inventory.contains[Crate].qty[5]> == true
-                  && <player.flag[Hydra]> == step5 {
+                  && <player.flag[Hedra]> == step5 {
                   - TAKE 170:0 QTY:5
                   - narrate "FORMAT:Quest Success" "Scavenger Hunt"
                   - flag "Scavenger Hunt":Finished
-                  - flag Hydra:step6
+                  - flag Hedra:step6
                   - narrate "<&a>[+250 credits]"
                   - ^give money qty:250
                   - wait 1
@@ -218,7 +235,7 @@
             click trigger:
                 script:
                 - engage
-                - if <player.flag[Hydra]> == step7 {
+                - if <player.flag[Hedra]> == step7 {
                   - chat "Listen closely, <&c><player.name>."
                   - wait 1
                   - chat "There is a load of energy cells sitting in the hallway of the Vault's living quarters."
@@ -228,7 +245,7 @@
                   - narrate "FORMAT:Quest Given" "Free Energy"
                   - flag 'current_quests:->:Free Energy'
                   - listen travel type:TOLOCATION id:EnergyCellStash location:1090,22,-161,greenfield Radius:3 'script:EnergyCells'
-                  - flag Hydra:step8
+                  - flag Hedra:step8
                   - zap step:2
                   - disengage
                   }
@@ -249,7 +266,7 @@
                   - ^give money qty:250
                   - flag "Free Energy":Finished
                   - chat "<&c>Mr Hedra<&e> will want to speak with you."
-                  - flag Hydra:step9
+                  - flag Hedra:step9
                   - zap step:3
                   }
                   else {
@@ -273,7 +290,7 @@
             click trigger:
                 script:
                 - engage
-                - if <player.flag[Hydra]> == step10 {
+                - if <player.flag[Hedra]> == step10 {
                   - zap step:2
                   - chat "Are you here to kill me?"
                   - narrate "<&c>[<&4>HINT<&c>]<&d> You can say <&e><&n>Yes<&d> or <&e><&n>No<&r><&e>."
@@ -296,12 +313,11 @@
                     - wait 1
                     - narrate "FORMAT:Quest Success" "Good Night Cynthiaa"
                     - flag "Good Night Cynthiaa":Finished
-                    - flag Hydra:step11
+                    - flag Hedra:step11
                     - wait 1
                     - narrate "<&8>You should return to <&c>Mr Hedra<&8> for your credits."
                     - zap step:3
                     - disengage
-                    - wait 60
                 'b':
                     trigger: "/No/, I'm here to warn you about <&c>Mr Hedra<&e>."
                     script:
@@ -314,7 +330,7 @@
                     - give "item:Uncommon Weapon Crate" QTY:1
                     - give "item:Ammo Crate" QTY:1
                     - narrate "<&5><&l>Mission Aborted:<&6><&l> Good Night Cynthiaa"
-                    - flag Hydra:step99
+                    - flag Hedra:step99
                     - zap step:4
                     - execute as_op npc select 76
                     - execute as_op sentry target add player:<player.name>
@@ -344,6 +360,7 @@
             click trigger:
                 script:
                 - engage
+                - chat "<&c>Mr Hedra<&e> is on the top floor."
                 - disengage
 
 "HedraTowerGoon2":
@@ -356,6 +373,7 @@
             click trigger:
                 script:
                 - engage
+                - chat "<&c>Mr Hedra<&e> is on the top floor."
                 - disengage
 
 "HedraTowerReset":
@@ -368,7 +386,7 @@
             click trigger:
                 script:
                 - engage
-                - flag Hydra:step1
+                - flag Hedra:step1
                 - narrate "Hedra Tower set to step 1."
                 - disengage
                 
