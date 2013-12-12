@@ -1,4 +1,4 @@
-'KTech1':
+'KaziasZeelan':
     type: interact
     Requirements:
       Mode: All
@@ -8,6 +8,7 @@
             click trigger:
                 script:
                 - chat "Who did you say sent you?"
+                - zap step:2
         '2':
             chat trigger:
                 'a':
@@ -31,7 +32,6 @@
                     - chat "Here's <&b>200 credits<&e> in advance."
                     - narrate "<&a>[+200 credits]"
                     - ^give money qty:200
-                    - listen travel type:TOLOCATION id:KaziasWarehouse location:-150,65,180,greenfield Radius:3 'script:KaziasWarehouseGPS'
                     - flag Kazias:step1
                     - narrate "FORMAT:Quest Given" "Zeelan Needs Parts"
                     - flag 'current_quests:->:Zeeland Needs Parts'
@@ -52,7 +52,7 @@
                 script:
                 - engage
                 - if <player.flag[Kazias]> == step1 {
-                  - chat "The warehouse is at <&b>-150, 65, 180<&e>."
+                  - chat "The warehouse is at <&b>-150, 70, 186<&e>."
                   - wait 1
                   - chat "Search the warehouse for a clue to the truck's location."
                   }
@@ -122,33 +122,38 @@
                 - chat "ERROR! LOL!"
                 - disengage
                 
-"KaziasWarehouseGPS":
-    type: task
-    script:
-    - narrate "<&a>[Loading warehouse tracking system...]"
-    - wait 1
-    - narrate "<&a>[Truck 237 stopped en route to Kazias bldg.]"
-    - wait 1
-    - narrate "<&a>[Current GPS coordinates: <&b>374, 71, 96<&a>]"
-    - listen travel type:TOLOCATION id:KaziasTruck location:-150,65,180,greenfield Radius:3 'script:KaziasTruck'
-    - flag Kazias:step2
+'KaziasWarehouseGPS':
+  type: world
+  events:
+    on walked over TruckGPS:
+    - if <player.flag[Kazias]> == step1 {
+      - narrate "<&7>[Loading warehouse tracking system...]"
+      - wait 1
+      - narrate "<&7>[Truck 237 stopped en route to Kazias bldg.]"
+      - wait 1
+      - narrate "<&7>[Current GPS coordinates are <&b>374, 71, 96<&7>]"
+      - flag Kazias:step2
+      }
     
-"KaziasTruck":
-    type: task
-    script:
-    - narrate "This truck has already been looted."
-    - wait 1
-    - narrate "The boot treads and shell casings lead you to believe military personel were here."
-    - wait 1
-    - narrate "Return to Zeelan."
-    - flag Kazias:step3
+'KaziasTruck':
+  type: world
+  events:
+    on walked over KaziasTruck:
+    - if <player.flag[Kazias]> == step2 {
+      - narrate "<&7>This truck has already been looted."
+      - wait 1
+      - narrate "<&7>The boot treads and shell casings lead you to believe military personel were here."
+      - wait 1
+      - narrate "<&7>Return to Zeelan."
+      - flag Kazias:step3
+      }
     
 "KaziasWireless":
     type: task
     script:
-    - narrate "You found the wireless transmitters."
+    - narrate "<&7>You found the wireless transmitters.<&7>"
     - wait 1
-    - narrate "Return to <&c>Zorry<&e>.
+    - narrate "<&7>Return to <&c>Zorry<&7>."
     - flag Kazias:step7
 
 "KaziasDemytix":
@@ -172,7 +177,7 @@
                   - wait 1
                   - chat "I could gladly give you the parts in exchange for one of those devices."
                   - wait 1
-                  - narrate "Return to <&c>Zeelan<&e> and inform him of <&c>Demytix's<&e> offer."
+                  - narrate "<&7>Return to <&c>Zeelan<&7> and inform him of <&c>Demytix's<&7> offer."
                   - flag Kazias:step5
                   - zap step:2
                   }
@@ -275,14 +280,12 @@
                 script:
                 - engage
                 - chat "This last part is the microprocessor that makes it possible to generate the frequencies that disable the zombies."
-                - wait 1
+                - wait 3
                 - chat "The company that produced them is Zuid-Hoff."
                 - wait 1
                 - chat "Their headquarters is located at <&b>1426, 69, 663<&e>."
                 - wait 1
-                - chat "Search each floor for the <&c>microprocessors<&e>."
-                - wait 1
-                - chat "Bring back at least 3 of them."
+                - chat "Search each floor for 3 microprocessors."
                 - flag Kazias:step9
                 - flag Searching:->:CPUs
                 - zap step:5
@@ -313,6 +316,45 @@
                 script:
                 - engage
                 - chat "Have you spoke with <&c>Zeelan<&e> yet?"
+                - disengage
+    
+"KaziasSolovus":
+    type: interact
+    Requirements:
+      Mode: All
+      List:
+    steps:
+        '1':
+            click trigger:
+                script:
+                - engage
+                - chat "Has <&c>Zeelan<&e> told you about the device?"
+                - disengage
+    
+"KaziasRayen":
+    type: interact
+    Requirements:
+      Mode: All
+      List:
+    steps:
+        '1':
+            click trigger:
+                script:
+                - engage
+                - chat "Please don't touch the equipment."
+                - disengage
+    
+"KaziasTorki":
+    type: interact
+    Requirements:
+      Mode: All
+      List:
+    steps:
+        '1':
+            click trigger:
+                script:
+                - engage
+                - chat "Shit gets crazy at night, bro."
                 - disengage
                 
 'CopperCoils':
@@ -480,7 +522,7 @@
       - flag CopperCoil:++
       - narrate "<&7><&l>You found <player.flag[CopperCoil]> Copper Coils so far."
       }
-'CPUs':
+'MicroprocessorSearch':
   type: world
   events:
     on walked over cpu1:
@@ -490,7 +532,7 @@
       else if <player.flag[Searching].aslist> !contains 'cpu1' {
       - flag Searching:->:cpu1 
       - flag cpu:++
-      - narrate "<&7><&l>You found <player.flag[cpu]> Copper Coils so far."
+      - narrate "<&7><&l>You found <player.flag[cpu]> microprocessors so far."
       }
     on walked over cpu2:
     - if <player.flag[Searching].aslist> contains 'cpu2' || <player.flag[Searching].aslist> !contains 'CPUs' {
@@ -499,7 +541,7 @@
       else if <player.flag[Searching].aslist> !contains 'cpu2' {
       - flag Searching:->:cpu2 
       - flag cpu:++
-      - narrate "<&7><&l>You found <player.flag[cpu]> Copper Coils so far."
+      - narrate "<&7><&l>You found <player.flag[cpu]> microprocessors so far."
       }
     on walked over cpu3:
     - if <player.flag[Searching].aslist> contains 'cpu3' || <player.flag[Searching].aslist> !contains 'CPUs' {
@@ -508,7 +550,7 @@
       else if <player.flag[Searching].aslist> !contains 'cpu3' {
       - flag Searching:->:cpu3 
       - flag cpu:++
-      - narrate "<&7><&l>You found <player.flag[cpu]> Copper Coils so far."
+      - narrate "<&7><&l>You found <player.flag[cpu]> microprocessors so far."
       }
     on walked over cpu4:
     - if <player.flag[Searching].aslist> contains 'cpu4' || <player.flag[Searching].aslist> !contains 'CPUs' {
@@ -517,7 +559,7 @@
       else if <player.flag[Searching].aslist> !contains 'cpu4' {
       - flag Searching:->:cpu4 
       - flag cpu:++
-      - narrate "<&7><&l>You found <player.flag[cpu]> Copper Coils so far."
+      - narrate "<&7><&l>You found <player.flag[cpu]> microprocessors so far."
       }
     on walked over cpu5:
     - if <player.flag[Searching].aslist> contains 'cpu5' || <player.flag[Searching].aslist> !contains 'CPUs' {
@@ -526,7 +568,7 @@
       else if <player.flag[Searching].aslist> !contains 'cpu5' {
       - flag Searching:->:cpu5 
       - flag cpu:++
-      - narrate "<&7><&l>You found <player.flag[cpu]> Copper Coils so far."
+      - narrate "<&7><&l>You found <player.flag[cpu]> microprocessors so far."
       }
     on walked over cpu6:
     - if <player.flag[Searching].aslist> contains 'cpu6' || <player.flag[Searching].aslist> !contains 'CPUs' {
@@ -535,7 +577,7 @@
       else if <player.flag[Searching].aslist> !contains 'cpu6' {
       - flag Searching:->:cpu6 
       - flag cpu:++
-      - narrate "<&7><&l>You found <player.flag[cpu]> Copper Coils so far."
+      - narrate "<&7><&l>You found <player.flag[cpu]> microprocessors so far."
       }
     on walked over cpu7:
     - if <player.flag[Searching].aslist> contains 'cpu7' || <player.flag[Searching].aslist> !contains 'CPUs' {
@@ -544,7 +586,7 @@
       else if <player.flag[Searching].aslist> !contains 'cpu7' {
       - flag Searching:->:cpu7 
       - flag cpu:++
-      - narrate "<&7><&l>You found <player.flag[cpu]> Copper Coils so far."
+      - narrate "<&7><&l>You found <player.flag[cpu]> microprocessors so far."
       }
     on walked over cpu8:
     - if <player.flag[Searching].aslist> contains 'cpu8' || <player.flag[Searching].aslist> !contains 'CPUs' {
@@ -553,5 +595,95 @@
       else if <player.flag[Searching].aslist> !contains 'cpu8' {
       - flag Searching:->:cpu8 
       - flag cpu:++
-      - narrate "<&7><&l>You found <player.flag[cpu]> Copper Coils so far."
+      - narrate "<&7><&l>You found <player.flag[cpu]> microprocessors so far."
+      }
+    on walked over cpu9:
+    - if <player.flag[Searching].aslist> contains 'cpu9' || <player.flag[Searching].aslist> !contains 'CPUs' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'cpu9' {
+      - flag Searching:->:cpu9 
+      - flag cpu:++
+      - narrate "<&7><&l>You found <player.flag[cpu]> microprocessors so far."
+      }
+    on walked over cpu10:
+    - if <player.flag[Searching].aslist> contains 'cpu10' || <player.flag[Searching].aslist> !contains 'CPUs' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'cpu10' {
+      - flag Searching:->:cpu10 
+      - flag cpu:++
+      - narrate "<&7><&l>You found <player.flag[cpu]> microprocessors so far."
+      }
+    on walked over cpu11:
+    - if <player.flag[Searching].aslist> contains 'cpu11' || <player.flag[Searching].aslist> !contains 'CPUs' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'cpu11' {
+      - flag Searching:->:cpu11 
+      - flag cpu:++
+      - narrate "<&7><&l>You found <player.flag[cpu]> microprocessors so far."
+      }
+    on walked over cpu12:
+    - if <player.flag[Searching].aslist> contains 'cpu12' || <player.flag[Searching].aslist> !contains 'CPUs' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'cpu12' {
+      - flag Searching:->:cpu12 
+      - flag cpu:++
+      - narrate "<&7><&l>You found <player.flag[cpu]> microprocessors so far."
+      }
+    on walked over cpu13:
+    - if <player.flag[Searching].aslist> contains 'cpu13' || <player.flag[Searching].aslist> !contains 'CPUs' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'cpu13' {
+      - flag Searching:->:cpu13 
+      - flag cpu:++
+      - narrate "<&7><&l>You found <player.flag[cpu]> microprocessors so far."
+      }
+    on walked over cpu14:
+    - if <player.flag[Searching].aslist> contains 'cpu14' || <player.flag[Searching].aslist> !contains 'CPUs' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'cpu14' {
+      - flag Searching:->:cpu14 
+      - flag cpu:++
+      - narrate "<&7><&l>You found <player.flag[cpu]> microprocessors so far."
+      }
+    on walked over cpu15:
+    - if <player.flag[Searching].aslist> contains 'cpu15' || <player.flag[Searching].aslist> !contains 'CPUs' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'cpu15' {
+      - flag Searching:->:cpu15 
+      - flag cpu:++
+      - narrate "<&7><&l>You found <player.flag[cpu]> microprocessors so far."
+      }
+    on walked over cpu16:
+    - if <player.flag[Searching].aslist> contains 'cpu16' || <player.flag[Searching].aslist> !contains 'CPUs' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'cpu16' {
+      - flag Searching:->:cpu16 
+      - flag cpu:++
+      - narrate "<&7><&l>You found <player.flag[cpu]> microprocessors so far."
+      }
+    on walked over cpu17:
+    - if <player.flag[Searching].aslist> contains 'cpu17' || <player.flag[Searching].aslist> !contains 'CPUs' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'cpu17' {
+      - flag Searching:->:cpu17 
+      - flag cpu:++
+      - narrate "<&7><&l>You found <player.flag[cpu]> microprocessors so far."
+      }
+    on walked over cpu18:
+    - if <player.flag[Searching].aslist> contains 'cpu18' || <player.flag[Searching].aslist> !contains 'CPUs' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'cpu18' {
+      - flag Searching:->:cpu18 
+      - flag cpu:++
+      - narrate "<&7><&l>You found <player.flag[cpu]> microprocessors so far."
       }

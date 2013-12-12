@@ -8,6 +8,7 @@
         '1':
             click trigger:
                 script:
+                - engage
                 - if <player.money> > 1 {
                   - zap step:2
                   - chat "You look like a resourceful person. Want to make some credits?"
@@ -16,6 +17,7 @@
                   else {
                   - chat "You don't even have a single credit."
                   }
+                - disengage
         '2':
             chat trigger:
                 'a':
