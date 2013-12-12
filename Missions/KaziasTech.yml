@@ -62,6 +62,8 @@
                   - chat "Goto <&b>374, 71, 96<&e> and find the parts!"
                   }
                 - if <player.flag[Kazias]> == step3 {
+                  - narrate "<&a>[+200 credits]"
+                  - ^give money qty:200
                   - chat "Military personel looted the truck?"
                   - wait 1
                   - chat "It must have been soldiers from the vault."
@@ -90,16 +92,34 @@
                   - zap step:5
                   }
                 - disengage
-        '4':
+        '5':
             click trigger:
                 script:
                 - engage
-                - if <player.flag[Kazias]> == step15 {
-                  - chat ""
+                - if <player.flag[Kazias]> == step10 {
+                  - chat "Its pretty clear why Mr Hedra recommended you."
+                  - wait 1
+                  - chat "I have a favor to ask of you while the devices are being made."
+                  - wait 1
+                  - chat "I haven't been able to return to my home since everything happened."
+                  - wait 1
+                  - chat "There are a few special items I would pay you well to retrieve for me."
+                  - wait 1
+                  - chat "A picture of my dog and my father's pocketwatch. You may keep whatever else you find."
+                  - wait 1
+                  - chat "The house is at <&b>958, 69, 475<&e>."
+                  - flag Kazias:step11
+                  - zap step:6
                   }
                   else {
                   - chat "<&c>Zorry<&e> will help you recover the parts we need."
                   }
+                - disengage
+        '6':
+            click trigger:
+                script:
+                - engage
+                - chat "ERROR! LOL!"
                 - disengage
                 
 "KaziasWarehouseGPS":
@@ -200,7 +220,7 @@
                   - zap step:2
                   }
                   else {
-                  - chat "Sorry, I'm busy right now."
+                  - chat "You'll need to speak with <&c>Zeelan<&e> about that."
                   }
                 - disengage
         '2':
@@ -209,7 +229,19 @@
                 - engage
                 - if <player.flag[Kazias]> == step7 {
                   - chat "Excellent, you found the transmitters."
-                  - 
+                  - wait 1
+                  - chat "Here's some credits for the effort."
+                  - narrate "<&a>[+250 credits]"
+                  - ^give money qty:250
+                  - wait 1
+                  - chat "The next parts are a few copper coils."
+                  - wait 1
+                  - chat "You should be able to find them at a specific factory."
+                  - wait 1
+                  - chat "The factory is red and black and located at <&b>-258, 69, 348<&e>."
+                  - wait 1
+                  - chat "Wander around the factory until you find 6 copper coils."
+                  - flag Searching:->:CopperCoils
                   - zap step:3
                   }
                   else {
@@ -220,23 +252,306 @@
             click trigger:
                 script:
                 - engage
-                - if <player.flag[Kazias]> == step8 {
-                  - chat ""
+                - if <player.flag[CopperCoil]||0> >= '6' {
+                  - chat "...5...6"
+                  - chat "That's all 6 copper coils we needed."
+                  - wait 1
+                  - narrate "<&a>[+480 credits]"
+                  - ^give money qty:480
+                  - flag Searching:<-:CopperCoils
+                  - flag Kazias:step8
                   - zap step:4
                   }
                   else {
-                  - chat ""
+                  - chat "You still need to find <el@val[6].sub[<player.flag[CopperCoil]>]> Copper Coils."
+                  - wait 1
+                  - chat "The factory is red and black at <&b>-258, 69, 348<&e>."
+                  - wait 1
+                  - chat "Look around machinery and the crates outside."
                   }
                 - disengage
         '4':
             click trigger:
                 script:
                 - engage
-                - if <player.flag[Kazias]> == step9 {
-                  - chat ""
-                  - zap step:5
+                - chat "This last part is the microprocessor that makes it possible to generate the frequencies that disable the zombies."
+                - wait 1
+                - chat "The company that produced them is Zuid-Hoff."
+                - wait 1
+                - chat "Their headquarters is located at <&b>1426, 69, 663<&e>."
+                - wait 1
+                - chat "Search each floor for the <&c>microprocessors<&e>."
+                - wait 1
+                - chat "Bring back at least 3 of them."
+                - flag Kazias:step9
+                - flag Searching:->:CPUs
+                - zap step:5
+        '5':
+            click trigger:
+                script:
+                - engage
+                - if <player.flag[cpu]||0> >= '3' {
+                  - narrate "<&a>[+300 credits]"
+                  - ^give money qty:300
+                  - chat "We can use these microprocessors for the first 3 prototypes."
+                  - wait 1
+                  - chat "Now that we have all of the parts, <&c>Zeelan<&e> will want to speak with you."
+                  - flag Kazias:step10
+                  - flag Searching:<-:CPUs
+                  - zap step:6
                   }
                   else {
-                  - chat ""
+                  - chat "The Zuid-Hoff HQ is located at <&b>1426, 69, 663<&e>."
+                  - wait 1
+                  - chat "Search each floor for <&c>3 microprocessors<&e>."
+                  - wait 1
+                  - chat "Try looking in the desks."
                   }
                 - disengage
+        '6':
+            click trigger:
+                script:
+                - engage
+                - chat "Have you spoke with <&c>Zeelan<&e> yet?"
+                - disengage
+                
+'CopperCoils':
+  type: world
+  events:
+    on walked over CopperCoil1:
+    - if <player.flag[Searching].aslist> contains 'CopperCoil1' || <player.flag[Searching].aslist> !contains 'CopperCoils' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'CopperCoil1' {
+      - flag Searching:->:CopperCoil1 
+      - flag CopperCoil:++
+      - narrate "<&7><&l>You found <player.flag[CopperCoil]> Copper Coils so far."
+      }
+    on walked over CopperCoil2:
+    - if <player.flag[Searching].aslist> contains 'CopperCoil2' || <player.flag[Searching].aslist> !contains 'CopperCoils' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'CopperCoil2' {
+      - flag Searching:->:CopperCoil2 
+      - flag CopperCoil:++
+      - narrate "<&7><&l>You found <player.flag[CopperCoil]> Copper Coils so far."
+      }
+    on walked over CopperCoil3:
+    - if <player.flag[Searching].aslist> contains 'CopperCoil3' || <player.flag[Searching].aslist> !contains 'CopperCoils' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'CopperCoil3' {
+      - flag Searching:->:CopperCoil3 
+      - flag CopperCoil:++
+      - narrate "<&7><&l>You found <player.flag[CopperCoil]> Copper Coils so far."
+      }
+    on walked over CopperCoil4:
+    - if <player.flag[Searching].aslist> contains 'CopperCoil4' || <player.flag[Searching].aslist> !contains 'CopperCoils' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'CopperCoil4' {
+      - flag Searching:->:CopperCoil4 
+      - flag CopperCoil:++
+      - narrate "<&7><&l>You found <player.flag[CopperCoil]> Copper Coils so far."
+      }
+    on walked over CopperCoil5:
+    - if <player.flag[Searching].aslist> contains 'CopperCoil5' || <player.flag[Searching].aslist> !contains 'CopperCoils' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'CopperCoil5' {
+      - flag Searching:->:CopperCoil5 
+      - flag CopperCoil:++
+      - narrate "<&7><&l>You found <player.flag[CopperCoil]> Copper Coils so far."
+      }
+    on walked over CopperCoil6:
+    - if <player.flag[Searching].aslist> contains 'CopperCoil6' || <player.flag[Searching].aslist> !contains 'CopperCoils' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'CopperCoil6' {
+      - flag Searching:->:CopperCoil6 
+      - flag CopperCoil:++
+      - narrate "<&7><&l>You found <player.flag[CopperCoil]> Copper Coils so far."
+      }
+    on walked over CopperCoil7:
+    - if <player.flag[Searching].aslist> contains 'CopperCoil7' || <player.flag[Searching].aslist> !contains 'CopperCoils' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'CopperCoil7' {
+      - flag Searching:->:CopperCoil7 
+      - flag CopperCoil:++
+      - narrate "<&7><&l>You found <player.flag[CopperCoil]> Copper Coils so far."
+      }
+    on walked over CopperCoil8:
+    - if <player.flag[Searching].aslist> contains 'CopperCoil8' || <player.flag[Searching].aslist> !contains 'CopperCoils' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'CopperCoil8' {
+      - flag Searching:->:CopperCoil8 
+      - flag CopperCoil:++
+      - narrate "<&7><&l>You found <player.flag[CopperCoil]> Copper Coils so far."
+      }
+    on walked over CopperCoil9:
+    - if <player.flag[Searching].aslist> contains 'CopperCoil9' || <player.flag[Searching].aslist> !contains 'CopperCoils' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'CopperCoil9' {
+      - flag Searching:->:CopperCoil9 
+      - flag CopperCoil:++
+      - narrate "<&7><&l>You found <player.flag[CopperCoil]> Copper Coils so far."
+      }
+    on walked over CopperCoil10:
+    - if <player.flag[Searching].aslist> contains 'CopperCoil10' || <player.flag[Searching].aslist> !contains 'CopperCoils' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'CopperCoil10' {
+      - flag Searching:->:CopperCoil10 
+      - flag CopperCoil:++
+      - narrate "<&7><&l>You found <player.flag[CopperCoil]> Copper Coils so far."
+      }
+    on walked over CopperCoil11:
+    - if <player.flag[Searching].aslist> contains 'CopperCoil11' || <player.flag[Searching].aslist> !contains 'CopperCoils' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'CopperCoil11' {
+      - flag Searching:->:CopperCoil11 
+      - flag CopperCoil:++
+      - narrate "<&7><&l>You found <player.flag[CopperCoil]> Copper Coils so far."
+      }
+    on walked over CopperCoil12:
+    - if <player.flag[Searching].aslist> contains 'CopperCoil12' || <player.flag[Searching].aslist> !contains 'CopperCoils' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'CopperCoil12' {
+      - flag Searching:->:CopperCoil12 
+      - flag CopperCoil:++
+      - narrate "<&7><&l>You found <player.flag[CopperCoil]> Copper Coils so far."
+      }
+    on walked over CopperCoil13:
+    - if <player.flag[Searching].aslist> contains 'CopperCoil13' || <player.flag[Searching].aslist> !contains 'CopperCoils' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'CopperCoil13' {
+      - flag Searching:->:CopperCoil13 
+      - flag CopperCoil:++
+      - narrate "<&7><&l>You found <player.flag[CopperCoil]> Copper Coils so far."
+      }
+    on walked over CopperCoil14:
+    - if <player.flag[Searching].aslist> contains 'CopperCoil14' || <player.flag[Searching].aslist> !contains 'CopperCoils' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'CopperCoil14' {
+      - flag Searching:->:CopperCoil14 
+      - flag CopperCoil:++
+      - narrate "<&7><&l>You found <player.flag[CopperCoil]> Copper Coils so far."
+      }
+    on walked over CopperCoil15:
+    - if <player.flag[Searching].aslist> contains 'CopperCoil15' || <player.flag[Searching].aslist> !contains 'CopperCoils' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'CopperCoil15' {
+      - flag Searching:->:CopperCoil15 
+      - flag CopperCoil:++
+      - narrate "<&7><&l>You found <player.flag[CopperCoil]> Copper Coils so far."
+      }
+    on walked over CopperCoil16:
+    - if <player.flag[Searching].aslist> contains 'CopperCoil16' || <player.flag[Searching].aslist> !contains 'CopperCoils' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'CopperCoil16' {
+      - flag Searching:->:CopperCoil16 
+      - flag CopperCoil:++
+      - narrate "<&7><&l>You found <player.flag[CopperCoil]> Copper Coils so far."
+      }
+    on walked over CopperCoil17:
+    - if <player.flag[Searching].aslist> contains 'CopperCoil17' || <player.flag[Searching].aslist> !contains 'CopperCoils' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'CopperCoil17' {
+      - flag Searching:->:CopperCoil17 
+      - flag CopperCoil:++
+      - narrate "<&7><&l>You found <player.flag[CopperCoil]> Copper Coils so far."
+      }
+    on walked over CopperCoil18:
+    - if <player.flag[Searching].aslist> contains 'CopperCoil18' || <player.flag[Searching].aslist> !contains 'CopperCoils' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'CopperCoil18' {
+      - flag Searching:->:CopperCoil18 
+      - flag CopperCoil:++
+      - narrate "<&7><&l>You found <player.flag[CopperCoil]> Copper Coils so far."
+      }
+'CPUs':
+  type: world
+  events:
+    on walked over cpu1:
+    - if <player.flag[Searching].aslist> contains 'cpu1' || <player.flag[Searching].aslist> !contains 'CPUs' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'cpu1' {
+      - flag Searching:->:cpu1 
+      - flag cpu:++
+      - narrate "<&7><&l>You found <player.flag[cpu]> Copper Coils so far."
+      }
+    on walked over cpu2:
+    - if <player.flag[Searching].aslist> contains 'cpu2' || <player.flag[Searching].aslist> !contains 'CPUs' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'cpu2' {
+      - flag Searching:->:cpu2 
+      - flag cpu:++
+      - narrate "<&7><&l>You found <player.flag[cpu]> Copper Coils so far."
+      }
+    on walked over cpu3:
+    - if <player.flag[Searching].aslist> contains 'cpu3' || <player.flag[Searching].aslist> !contains 'CPUs' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'cpu3' {
+      - flag Searching:->:cpu3 
+      - flag cpu:++
+      - narrate "<&7><&l>You found <player.flag[cpu]> Copper Coils so far."
+      }
+    on walked over cpu4:
+    - if <player.flag[Searching].aslist> contains 'cpu4' || <player.flag[Searching].aslist> !contains 'CPUs' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'cpu4' {
+      - flag Searching:->:cpu4 
+      - flag cpu:++
+      - narrate "<&7><&l>You found <player.flag[cpu]> Copper Coils so far."
+      }
+    on walked over cpu5:
+    - if <player.flag[Searching].aslist> contains 'cpu5' || <player.flag[Searching].aslist> !contains 'CPUs' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'cpu5' {
+      - flag Searching:->:cpu5 
+      - flag cpu:++
+      - narrate "<&7><&l>You found <player.flag[cpu]> Copper Coils so far."
+      }
+    on walked over cpu6:
+    - if <player.flag[Searching].aslist> contains 'cpu6' || <player.flag[Searching].aslist> !contains 'CPUs' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'cpu6' {
+      - flag Searching:->:cpu6 
+      - flag cpu:++
+      - narrate "<&7><&l>You found <player.flag[cpu]> Copper Coils so far."
+      }
+    on walked over cpu7:
+    - if <player.flag[Searching].aslist> contains 'cpu7' || <player.flag[Searching].aslist> !contains 'CPUs' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'cpu7' {
+      - flag Searching:->:cpu7 
+      - flag cpu:++
+      - narrate "<&7><&l>You found <player.flag[cpu]> Copper Coils so far."
+      }
+    on walked over cpu8:
+    - if <player.flag[Searching].aslist> contains 'cpu8' || <player.flag[Searching].aslist> !contains 'CPUs' {
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> !contains 'cpu8' {
+      - flag Searching:->:cpu8 
+      - flag cpu:++
+      - narrate "<&7><&l>You found <player.flag[cpu]> Copper Coils so far."
+      }

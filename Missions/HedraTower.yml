@@ -8,13 +8,13 @@
         '1':
             click trigger:
                 script:
-                - if <player.money> > 500 {
+                - if <player.money> > 1 {
                   - zap step:2
                   - chat "You look like a resourceful person. Want to make some credits?"
                   - narrate "<&c>[<&4>HINT<&c>]<&d> You can say <&e><&n>Yes<&d> or <&e><&n>No<&r><&e>."
                   }
                   else {
-                  - chat "You don't even have 500 credits."
+                  - chat "You don't even have a single credit."
                   }
         '2':
             chat trigger:

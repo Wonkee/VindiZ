@@ -1,0 +1,36 @@
+"Zeelan":
+    type: assignment
+    
+    actions:
+      on assignment:
+      - trigger name:chat toggle:true
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true
+      
+    interact scripts:
+    - 1 KaziasZeelan
+    
+"Zorry":
+    type: assignment
+    
+    actions:
+      on assignment:
+      - trigger name:chat toggle:true
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true
+      
+    interact scripts:
+    - 1 KaziasZorry
+    
+"Demytix":
+    type: assignment
+    
+    actions:
+      on assignment:
+      - trigger name:chat toggle:true
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true
+      
+    interact scripts:
+    - 1 KaziasDemytix
+    
