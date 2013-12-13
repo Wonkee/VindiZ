@@ -744,7 +744,7 @@
       }
       else if <player.flag[Searching].aslist> contains 'Pocket Watch' {
       - flag 'Searching:<-:Pocket Watch'
-      - flag Found:->:Pocket Watch
+      - flag 'Found:->:Pocket Watch'
       - narrate "<&d>You found a Pocket Watch."
 'HomeSick Items':
   type: world
@@ -755,6 +755,6 @@
       }
       else if <player.flag[Searching].aslist> contains 'Dog Picture' {
       - flag 'Searching:<-:Dog Picture'
-      - flag Found:->:Dog Picture
+      - flag 'Found:->:Dog Picture'
       - narrate "<&d>You found a picture of man's best friend"
       }
