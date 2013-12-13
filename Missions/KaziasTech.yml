@@ -15,8 +15,6 @@
                     trigger: "Mr /Hedra/ recommended me for a special job."
                     script:
                     - engage
-                    - chat "Finally, some help."
-                    - wait 1
                     - chat "Boy, have I got a job for you- and the pay is big."
                     - wait 1
                     - chat "We're working on a device that will neutralize all of the undead within its energy field."
@@ -107,7 +105,12 @@
                   - wait 1
                   - chat "A picture of my dog and my father's pocketwatch. You may keep whatever else you find."
                   - wait 1
+                  - narrate "FORMAT:Quest Given" "Home Sick"
                   - chat "The house is at <&b>958, 69, 475<&e>."
+                  - ^flag 'current_quests:->:Home Sick'
+                  - ^flag 'current_step:Personal Items'
+                  - flag 'Searching:->:Pocket Watch'
+                  - flag 'Searching:->:Dog Picture'
                   - flag Kazias:step11
                   - zap step:6
                   }
@@ -119,7 +122,44 @@
             click trigger:
                 script:
                 - engage
-                - chat "ERROR! LOL!"
+                - if <player.flag[Found].aslist> contains 'Pocket Watch' && <player.flag[Found].aslist> contains 'Dog Picture' {
+                  - chat "You don't know how much this means to me, <&c><player.name><&e>."
+                  - wait 1
+                  - narrate "<&a>[+1000 credits]"
+                  - ^give money qty:1000
+                  - flag Kazias:step12
+                  - zap step:7
+                  }
+                  else {
+                  - chat "The picture of my dog is in the <&6>dining room<&e>."
+                  - wait 1
+                  - chat "My father's pocketwatch is in my <&6>bedroom desk<&e>."
+                  - wait 1
+                  - chat "The coordinates are <&b>958, 69, 475<&e>."
+                  }
+                - disengage
+        '7':
+            click trigger:
+                script:
+                - engage
+                - chat "The device is ready for delivery to <&c>Demytix<&e>."
+                - wait 1
+                - chat "Come see me again afterward."
+                - flag Kasias:step13
+                - zap step:8
+                - disengage
+        '8':
+            click trigger:
+                script:
+                - engage
+                - if <player.flag[Kazias]> == step14 {
+                  - chat "If you're willing to scavenge for parts, we could build some gadgets for you."
+                  - wait 1
+                  - chat "If this mission were finished this message would tell you to talk to someone."
+                  }
+                  else {
+                  - chat "Did you give the device to <&c>Demytix<&e>?"
+                  }
                 - disengage
                 
 'KaziasWarehouseGPS':
@@ -189,8 +229,14 @@
             click trigger:
                 script:
                 - engage
-                - if <player.flag[Kazias]> == stepX {
-                  - chat ""
+                - if <player.flag[Kazias]> == step13 {
+                  - chat "Ah, so this is the device?"
+                  - wait 1
+                  - chat "Its so light and compact."
+                  - wait 1
+                  - chat "Tell Zeelan I said thanks."
+                  - flag Kazias:step14
+                  - zap step:3
                   }
                   else {
                   - chat "Have you made the deal with <&c>Zeelan<&e> yet?"
@@ -200,7 +246,7 @@
             click trigger:
                 script:
                 - engage
-                - chat "Lovely day isn't it?"
+                - chat "That device has really come in handy."
                 - disengage
     
 "KaziasZorry":
@@ -356,7 +402,7 @@
                 - engage
                 - chat "Shit gets crazy at night, bro."
                 - disengage
-                
+#####Copper Coils#####
 'CopperCoils':
   type: world
   events:
@@ -522,6 +568,7 @@
       - flag CopperCoil:++
       - narrate "<&7><&l>You found <player.flag[CopperCoil]> Copper Coils so far."
       }
+#####Microprocessors#####
 'MicroprocessorSearch':
   type: world
   events:
@@ -686,4 +733,28 @@
       - flag Searching:->:cpu18 
       - flag cpu:++
       - narrate "<&7><&l>You found <player.flag[cpu]> microprocessors so far."
+      }
+#####Personal Items#####    
+'HomeSick Items':
+  type: world
+  events:
+    on walked over pocketwatch:    
+    - if <player.flag[Searching].aslist> !contains 'Pocket Watch' || <player.flag[current_quests].aslist> !contains 'Home Sick'{
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> contains 'Pocket Watch' {
+      - flag 'Searching:<-:Pocket Watch'
+      - flag Found:->:Pocket Watch
+      - narrate "<&d>You found a Pocket Watch."
+'HomeSick Items':
+  type: world
+  events:
+    on walked over dogpicture:    
+    - if <player.flag[Searching].aslist> !contains 'Pocket Watch' || <player.flag[current_quests].aslist> !contains 'Home Sick'{
+      - queue clear
+      }
+      else if <player.flag[Searching].aslist> contains 'Dog Picture' {
+      - flag 'Searching:<-:Dog Picture'
+      - flag Found:->:Dog Picture
+      - narrate "<&d>You found a picture of man's best friend"
       }
