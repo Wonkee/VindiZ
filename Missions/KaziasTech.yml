@@ -745,16 +745,13 @@
       else if <player.flag[Searching].aslist> contains 'Pocket Watch' {
       - flag 'Searching:<-:Pocket Watch'
       - flag Found:->:Pocket Watch
-      - narrate "<&d>You found a Pocket Watch."
-'HomeSick Items':
-  type: world
-  events:
+      - narrate "<&7>You found a shiny gold pocketwatch."
     on walked over dogpicture:    
-    - if <player.flag[Searching].aslist> !contains 'Pocket Watch' || <player.flag[current_quests].aslist> !contains 'Home Sick'{
+    - if <player.flag[Searching].aslist> !contains 'Dog Picture' || <player.flag[current_quests].aslist> !contains 'Home Sick'{
       - queue clear
       }
       else if <player.flag[Searching].aslist> contains 'Dog Picture' {
       - flag 'Searching:<-:Dog Picture'
       - flag Found:->:Dog Picture
-      - narrate "<&d>You found a picture of man's best friend"
+      - narrate "<&7>You found a picture of man's best friend."
       }
