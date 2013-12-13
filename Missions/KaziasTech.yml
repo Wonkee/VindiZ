@@ -746,9 +746,7 @@
       - flag 'Searching:<-:Pocket Watch'
       - flag 'Found:->:Pocket Watch'
       - narrate "<&d>You found a Pocket Watch."
-'HomeSick Items':
-  type: world
-  events:
+      )
     on walked over dogpicture:    
     - if <player.flag[Searching].aslist> !contains 'Dog Picture' || <player.flag[current_quests].aslist> !contains 'Home Sick'{
       - queue clear
