@@ -1,14 +1,16 @@
 'KaziasZeelan':
     type: interact
-    Requirements:
-      Mode: All
-      List:
     steps:
         '1':
             click trigger:
                 script:
-                - chat "Who did you say sent you?"
-                - zap step:2
+                - if <player.flag[Hedra]> == step13 {
+                  - chat "Who did you say sent you?"
+                  - zap step:2
+                  }
+                  else {
+                  - chat "Go away or prepare to die."
+                  }                
         '2':
             chat trigger:
                 'a':
@@ -28,32 +30,31 @@
                     - chat "The warehouse is at <&b>-150, 65, 180<&e>."
                     - wait 1
                     - chat "Here's <&b>200 credits<&e> in advance."
-                    - narrate "<&a>[+200 credits]"
+                    - narrate "<&d>[+200 credits]"
                     - ^give money qty:200
                     - flag Kazias:step1
                     - narrate "FORMAT:Quest Given" "Zeelan Needs Parts"
-                    - flag 'current_quests:->:Zeeland Needs Parts'
-                    - disengage
+                    - wait 2
+                    - flag 'current_quests:->:Zeelan Needs Parts'
+                    - chat "The warehouse is at <&b>-150, 70, 186<&e>."
+                    - wait 1
+                    - chat "Search the warehouse for a clue to the truck's location."
                     - zap step:3
+                    - disengage
                 'b':
                     trigger: "/Your mom/ sent me, lol."
                     script:
-                    - chat "Fuck off."
+                    - chat "Fuck off."                    
                     - zap step:1
                 'c':
-                    trigger: "/No/ one sent me. I just thought you could use some help."
+                    trigger: "/REGEX:.+/, I just thought you could use some help."
                     script:
-                    - chat "Without a recommendation I don't think I could trust you with this mission."
+                    - chat "Without a recommendation I don't think I could trust you with a mission."
                     - zap step:1
         '3':
             click trigger:
                 script:
                 - engage
-                - if <player.flag[Kazias]> == step1 {
-                  - chat "The warehouse is at <&b>-150, 70, 186<&e>."
-                  - wait 1
-                  - chat "Search the warehouse for a clue to the truck's location."
-                  }
                 - if <player.flag[Kazias]> == step2 {
                   - chat "If you know where the truck is, why haven't you checked it?"
                   - wait 1
