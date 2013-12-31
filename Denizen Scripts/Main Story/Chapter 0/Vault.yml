@@ -1,0 +1,37 @@
+'Failing Machinery':
+    type: interact
+    
+    steps:
+        '1':
+            click trigger:
+                script:
+                - engage
+                - if "<player.flag[completed_missions].aslist>" contains Training {
+                  - zap step:2
+                  - chat "The Vault's Main water filtration is failing. Will you go back to the lab and find the software upgrade disc?"
+                  - narrate "<&6>[<&4>HINT<&6>]<&d> You can say <&e><&n>Yes<&d> or <&e><&n>No<&r><&e>."
+                  }
+                  else {
+                  - chat "Stop bugging me noob."
+                  }
+                - disengage
+        '2':
+            chat trigger:
+                'a':
+                    trigger: "/Yes/, I will head back to the lab for you."
+                    script:
+                    - engage
+                    - narrate "FORMAT:Quest Given" "Failing Machinery"
+                    - flag 'current_quests:->:Failing Machinery'
+                    - flag 'current_step:Software Disc'
+                    - wait 1
+                    - chat "Great, The first place I would start looking would be in the offices. "
+                    - zap step:3
+                    - disengage
+                'b':
+                    trigger: "/No/ Sir I am still learning!"
+                    script:
+                    - engage
+                    - zap 1
+                    - chat "Get it together soldier, we are in need of help!"
+                    - disengage
