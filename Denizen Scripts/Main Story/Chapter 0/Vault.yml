@@ -8,7 +8,7 @@
                 - engage
                 - if "<player.flag[completed_missions].aslist>" contains Training {
                   - zap step:2
-                  - chat "The Vault's Main water filtration is failing. Will you go back to the lab and find the software upgrade disc?"
+                  - chat "The Vault's Main water filtration program is failing. Will you go back to the lab and find the software upgrade disc?"
                   - narrate "<&6>[<&4>HINT<&6>]<&d> You can say <&e><&n>Yes<&d> or <&e><&n>No<&r><&e>."
                   }
                   else {
@@ -25,7 +25,7 @@
                     - flag 'current_quests:->:Failing Machinery'
                     - flag 'current_step:Software Disc'
                     - wait 1
-                    - chat "Great, The first place I would start looking would be in the offices. "
+                    - chat "Great, The first place I would start looking would be in the offices."
                     - zap step:3
                     - disengage
                 'b':
@@ -35,3 +35,59 @@
                     - zap 1
                     - chat "Get it together soldier, we are in need of help!"
                     - disengage
+        '3':
+            click trigger:
+                script:
+                - engage
+                - if "<player.flag[waterdisc].aslist>" contains FullCase {
+                  - narrate "FORMAT:Quest Success" "Failing Machinery"
+                  - flag "completed_missions:->:Failing Machinery"
+                  - flag "current_quests:<-:Failing Machinery"
+                  - flag "current_step:!"
+                  - run 'script:Mission Reward'
+                  }
+                  else {
+                  - chat "I think you're still missing a disc or 2."
+                  }
+                - disengage
+                
+#Disc 1 - Office with note
+#Disc 2 - Research Lab PC
+#Disc 3 - In the Computer Lab by the laser.
+'Water Filtration Discs':
+  type: world
+  events:
+    on walked over waterdisc1:
+    - if <player.flag[waterdisc].aslist> contains '1' || <player.flag[current_quests].aslist> !contains 'Failing Machinery'{
+      - queue clear
+      }
+      else if <player.flag[waterdisc].aslist> !contains '1' {
+      - flag player waterdisc:++
+      - flag waterdisc:->:1
+      - narrate "<&d>You found a software disc, which reads 1 of 3 on the bottom, next to it is a CD case and a note."
+      - wait 1
+      - narrate "<&d>You put the disc in the case, the note says The other discs were loaned to an engineer for further testing."
+      }
+    on walked over waterdisc2:    
+    - if <player.flag[waterdisc].aslist> !contains '1' || <player.flag[current_quests].aslist> !contains 'Failing Machinery'{
+      - queue clear
+      }
+      else if <player.flag[waterdisc].aslist> contains '1' {
+      - flag player waterdisc:++
+      - flag waterdisc:->:2
+      - narrate "<&d>You found disc 2 of 3, you put it in the case."
+      - wait 1
+      - narrate "<&d>now to find the last disc."
+      }
+    on walked over waterdisc3:    
+    - if <player.flag[waterdisc].aslist> !contains '2' || <player.flag[current_quests].aslist> !contains 'Failing Machinery'{
+      - queue clear
+      }
+      else if <player.flag[waterdisc].aslist> contains '2' {
+      - flag waterdisc:!
+      - flag waterdisc:->:FullCase
+      - flag waterdisc:->:AccessIDCard
+      - narrate "<&d>You found the final disc 3 of 3, you put the disc in the case."
+      - wait 1
+      - narrate "<&d>You found an Access Restricted ID Card."
+      }
